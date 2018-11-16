@@ -9,13 +9,6 @@ import com.sun.javafx.scene.paint.GradientUtils.Point;
 
 public class coords_convertor {/**
 
-
-
-
-
-
-
-
 		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
 	public static Point3D add(Point3D gps, Point3D local_vector_in_meter) {
 
@@ -49,18 +42,18 @@ public class coords_convertor {/**
 		return utmPoint;
 
 	}
-	
+
 
 	//	public double distance3d(Point3D gps0, Point3D gps1) {
 
 
-	public static double distance3d(Point3D gps0, Point3D gps1) {
-	Point3D p0 = Geo2UTM(gps0);
-	Point3D p1 = Geo2UTM(gps1);
-	
-	return p0.distance3D(p1);
+	public double distance3d(Point3D gps0, Point3D gps1) {
+		Point3D p0 = Geo2UTM(gps0);
+		Point3D p1 = Geo2UTM(gps1);
 
-	
+		return p0.distance3D(p1);
+
+
 	}
 	/** computes the 3D vector (in meters) between two gps like points */
 
@@ -74,40 +67,43 @@ public class coords_convertor {/**
 	}
 	/** computes the polar representation of the 3D vector be gps0-->gps1 
 	 * Note: this method should return an azimuth (aka yaw), elevation (pitch), and distance*/
-	public static double[] azimuth_elevation_dist(Point3D gps0, Point3D gps1) {
-		
+	public  double[] azimuth_elevation_dist(Point3D gps0, Point3D gps1) {
+
 		double [] ans = {0,0,0};
-		
+
 		ans[0] = gps0.north_angle(gps1);
 		ans[1] = gps0.up_angle(gps1); 
-//				(gps1.z()-gps0.z())/(Math.sqrt((Math.pow((gps1.x()-gps0.x()), 2)
-//				+(Math.pow((gps1.y()-gps0.y()), 2)))));
-		
+		//				(gps1.z()-gps0.z())/(Math.sqrt((Math.pow((gps1.x()-gps0.x()), 2)
+		//				+(Math.pow((gps1.y()-gps0.y()), 2)))));
+
 		ans[2] = Math.abs(distance3d(gps1, gps0));
-		
+
 
 		return ans;
 
 	}
-	public static void main(String[] args) {
-		Point3D p = new Point3D(0,0,20);
-		Point3D p1 = new Point3D(2, 2, 10);
+	//	public static void main(String[] args) {
+	//		Point3D p = new Point3D(0,0,20);
+	//		Point3D p1 = new Point3D(2, 2, 10);
+	//
+	//		double [] c = azimuth_elevation_dist(p, p1);
+	//		for (int i = 0; i < c.length; i++) {
+	//			System.out.println(c[i]);
+	//		}
 
-		double [] c = azimuth_elevation_dist(p, p1);
-		for (int i = 0; i < c.length; i++) {
-			System.out.println(c[i]);
-		}
 
 
+
+
+	//		/**
+	//		 * return true iff this point is a valid lat, lon , lat coordinate: [-180,+180],[-90,+90],[-450, +inf]
+	//		 * @param p
+	//		 * @return
+	//		 */
+	public boolean isValid_GPS_Point(Point3D p) {
+		return( ((Math.abs(p.x())<180)&&(Math.abs(p.y()))<90));
 	}
 }
-
-//		/**
-//		 * return true iff this point is a valid lat, lon , lat coordinate: [-180,+180],[-90,+90],[-450, +inf]
-//		 * @param p
-//		 * @return
-//		 */
-//		public boolean isValid_GPS_Point(Point3D p);
 
 
 
