@@ -79,8 +79,9 @@ public class coords_convertor {/**
 		double [] ans = {0,0,0};
 		
 		ans[0] = gps0.north_angle(gps1);
-		ans[1] = (gps1.z()-gps0.z())/(Math.sqrt((Math.pow((gps1.x()-gps0.x()), 2)
-				+(Math.pow((gps1.y()-gps0.y()), 2)))));
+		ans[1] = gps0.up_angle(gps1); 
+//				(gps1.z()-gps0.z())/(Math.sqrt((Math.pow((gps1.x()-gps0.x()), 2)
+//				+(Math.pow((gps1.y()-gps0.y()), 2)))));
 		
 		ans[2] = Math.abs(distance3d(gps1, gps0));
 		
