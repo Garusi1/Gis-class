@@ -22,7 +22,7 @@ public class coords_convertor {/**
 		return outputGps;
 
 	}
-	// return a new point with coords by the geographic method (latitute, longitute) of the point
+	// return a new point with coords by the geographic method (latitude, longitude) of the point
 	public static Point3D UTM2Geo(Point3D utm) {
 		String s = ("36"+" "+"north" +" "+utm.x() +" "+utm.y() ); // assuming we are in the 36N zone
 		System.out.println(s);
