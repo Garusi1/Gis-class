@@ -101,7 +101,7 @@ public class coords_convertor {/**
 	//		 * @return
 	//		 */
 	public boolean isValid_GPS_Point(Point3D p) {
-		return( ((Math.abs(p.x())<180)&&(Math.abs(p.y()))<90));
+		return( ((Math.abs(p.x())<180)||(Math.abs(p.y()))<90) || p.z()<-450));
 	}
 }
 
