@@ -265,5 +265,29 @@ public class Point3D implements Geom_element, Serializable
 	public static double r2d(double a) { return Math.toDegrees(a);}
 	/** transform from radians to angles */
 	public static double d2r(double a) { return Math.toRadians(a);}
+
+	public Point3D meterToGps() {		
+		
+		double	r = Math.sqrt(_x * _x + _y * _y + _z * _z);
+		double longitude = Math.acos(_x / Math.sqrt(_x * _x + _y * _y)) * (_y < 0 ? -1 : 1);
+		double latidude= Math.acos(_z / r);
+		
+		return new Point3D (r,longitude,latidude);
+		
+	}
+	
+	public Point3D GpsToMeter () {	
+	
+	double r = _x;
+	double longitude = _y;
+	double latidude = _z;
+	
+	double Gps_x = r * Math.sin(latidude) * Math.cos(longitude);
+	double Gps_y = r * Math.sin(latidude) * Math.sin(longitude);
+	double Gps_z = r * Math.cos(latidude);
+	
+	return new Point3D(Gps_x,Gps_y,Gps_z);
+}
+	
 	////////////////////////////////////////////////////////////////////////////////
 }
