@@ -1,5 +1,6 @@
 package Coords;
 
+
 import Geom.Point3D;
 import java.util.Hashtable;
 import java.util.Map;
@@ -50,6 +51,11 @@ public class MyCoords {/**
 		return ans;
 
 	}
+	/**
+	 * return true iff this point is a valid lat, lon , lat coordinate: [-180,+180],[-90,+90],[-450, +inf]
+	 * @param p
+	 * @return
+	 */
 	public boolean isValid_GPS_Point(Point3D p) {
 		return(((Math.abs(p.x())<180)||(Math.abs(p.y()))<90) ||( p.z()<-450));
 	}
