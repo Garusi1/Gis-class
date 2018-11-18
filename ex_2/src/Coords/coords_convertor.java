@@ -12,44 +12,23 @@ public class coords_convertor {/**
 		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
 	public static Point3D add(Point3D gps, Point3D local_vector_in_meter) {
 
-		Point3D utmGps = Geo2UTM(gps);
-		System.out.println(utmGps.toString());
-		utmGps.add(local_vector_in_meter);
-		System.out.println(utmGps.toString());
-		Point3D outputGps = UTM2Geo(utmGps);
-		System.out.println(outputGps.toString());
+		Point3D meter= gps.GpsToMeter();
+//		System.out.println(utmGps.toString());
+		meter.add(local_vector_in_meter);
+//		System.out.println(utmGps.toString());
+		Point3D outputGps = meter.meterToGps();
+//		System.out.println(outputGps.toString());
 
 		return outputGps;
 
 	}
-	// return a new point with coords by the geographic method (latitude, longitude) of the point
-	public static Point3D UTM2Geo(Point3D utm) {
-		String s = ("36"+" "+"north" +" "+utm.x() +" "+utm.y() ); // assuming we are in the 36N zone
-		System.out.println(s);
-		UTM2Geo geo = new UTM2Geo(s);
-
-		Point3D geoPoint = new Point3D(geo.longitude, geo.latitude, utm.z());
-
-		return geoPoint;
-
-	}
-	// return a new point with coords by UTM METHOD 
-	public static Point3D Geo2UTM(Point3D geo) {
-		Geo2UTM utm = new Geo2UTM (geo.x(), geo.y());
-
-		Point3D utmPoint = new Point3D(utm.Easting, utm.Northing, geo.z());
-
-		return utmPoint;
-
-	}
-
-
+	
 	//	public double distance3d(Point3D gps0, Point3D gps1) {
 
 
 	public double distance3d(Point3D gps0, Point3D gps1) {
-		Point3D p0 = Geo2UTM(gps0);
-		Point3D p1 = Geo2UTM(gps1);
+		Point3D p0 = gps0.GpsToMeter();
+		Point3D p1 = gps1.GpsToMeter();
 
 		return p0.distance3D(p1);
 
@@ -76,32 +55,14 @@ public class coords_convertor {/**
 		//				(gps1.z()-gps0.z())/(Math.sqrt((Math.pow((gps1.x()-gps0.x()), 2)
 		//				+(Math.pow((gps1.y()-gps0.y()), 2)))));
 
-		ans[2] = Math.abs(distance3d(gps1, gps0));
+		ans[2] =(distance3d(gps0, gps1));
 
 
 		return ans;
 
 	}
-	//	public static void main(String[] args) {
-	//		Point3D p = new Point3D(0,0,20);
-	//		Point3D p1 = new Point3D(2, 2, 10);
-	//
-	//		double [] c = azimuth_elevation_dist(p, p1);
-	//		for (int i = 0; i < c.length; i++) {
-	//			System.out.println(c[i]);
-	//		}
-
-
-
-
-
-	//		/**
-	//		 * return true iff this point is a valid lat, lon , lat coordinate: [-180,+180],[-90,+90],[-450, +inf]
-	//		 * @param p
-	//		 * @return
-	//		 */
 	public boolean isValid_GPS_Point(Point3D p) {
-		return( ((Math.abs(p.x())<180)||(Math.abs(p.y()))<90) || p.z()<-450));
+		return(((Math.abs(p.x())<180)||(Math.abs(p.y()))<90) ||( p.z()<-450));
 	}
 }
 
