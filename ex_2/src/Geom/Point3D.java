@@ -1,5 +1,6 @@
 package Geom;
 
+
 import java.awt.Point;
 import java.io.Serializable;
 public class Point3D implements Geom_element, Serializable 
@@ -302,11 +303,8 @@ public class Point3D implements Geom_element, Serializable
 
 	}
 
-	public Point3D GeoToMer() {
-		//	'Geographic in Degrees to Merctor
-		//	'Input deg Lon, output meters(or whatever unit) of Mercator X coordinate
-		//	''algrithm from Patty B at lowrance. WGS84 only
-		//	Dim RadToDeg As Double, DegToRad As Double, b As Double, PI As Double, HALF_PI As Double
+	public Point3D GeoToMer() { //https://www.colby.edu/chemistry/Colby%20Compass/AcqBathometricData.pdf
+	
 		double RadToDeg = 57.2957795132;
 		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
 
@@ -328,7 +326,7 @@ public class Point3D implements Geom_element, Serializable
 
 
 
-	public Point3D MerToGeo() {
+	public Point3D MerToGeo() { // https://www.colby.edu/chemistry/Colby%20Compass/AcqBathometricData.pdf
 
 		double	RadToDeg = 57.29577951322447;
 		double DegToRad = 0.0174532925199;
