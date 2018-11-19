@@ -11,14 +11,14 @@ import com.sun.javafx.scene.paint.GradientUtils.Point;
 public class MyCoords {/**
 
 		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
-	public static Point3D add(Point3D gps, Point3D local_vector_in_meter) {
+	public static Point3D adddd(Point3D gps, Point3D local_vector_in_meter) {
 
-		Point3D meter= gps.GpsToMeter();
-		//		System.out.println(utmGps.toString());
+		Point3D meter= gps.GeoToMer();
+				System.out.println(meter.toString());
 		meter.add(local_vector_in_meter);
-		//		System.out.println(utmGps.toString());
-		Point3D outputGps = meter.meterToGps();
-		//		System.out.println(outputGps.toString());
+				System.out.println(meter.toString());
+		Point3D outputGps = meter.MerToGeo();
+				System.out.println(outputGps.toString());
 
 		return outputGps;
 
@@ -37,7 +37,8 @@ public class MyCoords {/**
 	/** computes the 3D vector (in meters) between two gps like points */
 	public Point3D vector3D(Point3D gps0, Point3D gps1) {
 
-		Point3D vector = new Point3D(gps1.x()-gps0.x(), gps1.y()-gps0.y(), gps1.z()-gps0.z());
+		Point3D vector = new Point3D(gps1.GpsToMeter().x()-gps0.GpsToMeter().x(),
+				gps1.GeoToMer().y()-gps0.GeoToMer().y(), gps1.GeoToMer().z()-gps0.GeoToMer().z());
 		return vector;
 	}
 	/** computes the polar representation of the 3D vector be gps0-->gps1 
@@ -56,8 +57,8 @@ public class MyCoords {/**
 	 * @param p
 	 * @return
 	 */
-	public boolean isValid_GPS_Point(Point3D p) {
-		return(((Math.abs(p.x())<180)||(Math.abs(p.y()))<90) ||( p.z()<-450));
+	public static boolean isValid_GPS_Point(Point3D p) {
+		return(((Math.abs(p.y())<180)||(Math.abs(p.x()))<90) ||(p.z()<-450));
 	}
 }
 

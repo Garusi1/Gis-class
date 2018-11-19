@@ -1,5 +1,6 @@
 package Geom;
 
+import java.awt.Point;
 import java.io.Serializable;
 public class Point3D implements Geom_element, Serializable 
 {
@@ -23,7 +24,7 @@ public class Point3D implements Geom_element, Serializable
 		_y=p.y();
 		_z=p.z();
 	}
-	
+
 	//	partial cons z=0
 	public Point3D(double x,double y) 
 	{this(x,y,0);}
@@ -61,26 +62,26 @@ public class Point3D implements Geom_element, Serializable
 	public void add(Point3D p) { add(p._x,p._y,p._z);}
 
 	//	add points values by arguments
-	
+
 	public void add(double dx, double dy, double dz) {
 		_x+=dx;_y+=dy;_z+=dz;
 	}
-//	add points by x,y while z=0
+	//	add points by x,y while z=0
 
 	public void add(double x, double y){this.add(x,y,0);}
-// toString
+	// toString
 	public String toString() 
 	{
 		return ""+_x+","+_y+","+_z;
 	}
-	
+
 	public double distance2D(Point3D p2) { 
 		return this.distance3D(p2.x(), p2.y(), this.z());
 	}
-	
+
 	public double distance3D(Point3D p2) {
 		return this.distance3D(p2.x(), p2.y(), p2.z());}
-	
+
 	public double distance3D(double x, double y , double z)
 	{
 		double dx = _x-x;
@@ -94,12 +95,12 @@ public class Point3D implements Geom_element, Serializable
 	{
 		return ( (_x==p2._x) && (_y==p2._y) && (_z==p2._z) );
 	}
-	
+
 	public boolean close2equals(Point3D p2, double dist)
 	{
 		return ( this.distance3D(p2)< dist );
 	}
-	
+
 	public boolean equalsXY (Point3D p)
 	{return p._x == _x && p._y == _y;}
 
@@ -199,7 +200,7 @@ public class Point3D implements Geom_element, Serializable
 		_y = center._y + ((_y - center._y) * sizeY);
 		_z = center._z + ((_z - center._z) * sizeZ);
 	} 
-	
+
 	// rotation by radius and angel from the center point
 
 	public void rotate2D(Point3D center, double angle) {
@@ -267,27 +268,99 @@ public class Point3D implements Geom_element, Serializable
 	public static double d2r(double a) { return Math.toRadians(a);}
 
 	public Point3D meterToGps() {		
-		
+
 		double	r = Math.sqrt(_x * _x + _y * _y + _z * _z);
 		double longitude = Math.acos(_x / Math.sqrt(_x * _x + _y * _y)) * (_y < 0 ? -1 : 1);
 		double latidude= Math.acos(_z / r);
-		
-		return new Point3D (r,longitude,latidude);
-		
+
+		return new Point3D (longitude,latidude);
+
 	}
-	
-	public Point3D GpsToMeter () {	
-	
-	double r = _x;
-	double longitude = _y;
-	double latidude = _z;
-	
-	double Gps_x = r * Math.sin(latidude) * Math.cos(longitude);
-	double Gps_y = r * Math.sin(latidude) * Math.sin(longitude);
-	double Gps_z = r * Math.cos(latidude);
-	
-	return new Point3D(Gps_x,Gps_y,Gps_z);
-}
-	
+	public Point3D meterToGps1() {		
+		double radius = Math.sqrt(_x * _x + _y * _y + _z * _z);
+		double theta = Math.atan2(_y, _x);
+		double phi = Math.acos(_z / radius);
+
+		Point3D output = new Point3D (radius, theta, phi);
+
+		return  output;
+
+	}
+
+
+	public Point3D GpsToMeter () {	//https://stackoverflow.com/questions/10868135/cartesian-to-polar-3d-coordinates
+		//	double r = Math.sqrt(_x * _x + _y * _y + _z * _z);
+		final double r = 6371000;
+		double Gps_x = r * Math.sin(_x) * Math.cos(_y);
+		double Gps_y = r * Math.sin(_x) * Math.sin(_y);
+		double Gps_z =  Math.cos(_x);
+
+		return new Point3D(Gps_x,Gps_y,Gps_z);
+
+
+
+
+	}
+
+	public Point3D GeoToMer() {
+		//	'Geographic in Degrees to Merctor
+		//	'Input deg Lon, output meters(or whatever unit) of Mercator X coordinate
+		//	''algrithm from Patty B at lowrance. WGS84 only
+		//	Dim RadToDeg As Double, DegToRad As Double, b As Double, PI As Double, HALF_PI As Double
+		double RadToDeg = 57.2957795132;
+		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
+
+		double DegToRad = 0.0174532925199;
+//		double b = 6378100; 
+		double b = 6356752.3142; 
+
+		
+		double PI = 3.141592654;
+		double HALF_PI = 1.570796327;
+		double GeoToMerX = _x * DegToRad * b;
+		double	GeoToMerY = b * (Math.log((Math.tan((_y * DegToRad + HALF_PI) * 0.5))));
+		double Gps_z =  Math.cos(_x);
+		System.out.println(GeoToMerY);
+		Point3D p = new Point3D(GeoToMerX, GeoToMerY,Gps_z);
+
+		return p ;}
+
+
+
+
+	public Point3D MerToGeo() {
+
+		double	RadToDeg = 57.29577951322447;
+		double DegToRad = 0.0174532925199;
+		double b = 6356752.3142;
+	//	double b = 6378100;
+		double	PI = 3.141592654;
+		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
+		double	HALF_PI = 1.570796327;
+		double MerToGeoLong = _x * RadToDeg / b;
+		double MerToGeoLat = RadToDeg * (2 * Math.atan(Math.exp(_y / b)) - HALF_PI);
+		double nn =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
+		double z = b * Math.cos(q);
+		
+		Point3D output = new Point3D(MerToGeoLong,MerToGeoLat,z);	
+		
+		return output;
+
+
+	}
+	public Point3D meterToGps2() {	
+		double r = Math.sqrt(_x * _x + _y * _y + _z * _z);
+		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
+		double f = Math.atan(_y/_x);
+
+		double x = r * Math.sin(q)* Math.cos(f);
+		double y = r * Math.sin(q) * Math.sin(f);
+		double z = r * Math.cos(q);
+
+		Point3D output = new Point3D(x,y,z);
+
+		return output;
+
+	}
 	////////////////////////////////////////////////////////////////////////////////
 }
