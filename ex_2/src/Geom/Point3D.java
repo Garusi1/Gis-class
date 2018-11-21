@@ -268,40 +268,40 @@ public class Point3D implements Geom_element, Serializable
 	/** transform from radians to angles */
 	public static double d2r(double a) { return Math.toRadians(a);}
 
-	public Point3D meterToGps() {		
-
-		double	r = Math.sqrt(_x * _x + _y * _y + _z * _z);
-		double longitude = Math.acos(_x / Math.sqrt(_x * _x + _y * _y)) * (_y < 0 ? -1 : 1);
-		double latidude= Math.acos(_z / r);
-
-		return new Point3D (longitude,latidude);
-
-	}
-	public Point3D meterToGps1() {		
-		double radius = Math.sqrt(_x * _x + _y * _y + _z * _z);
-		double theta = Math.atan2(_y, _x);
-		double phi = Math.acos(_z / radius);
-
-		Point3D output = new Point3D (radius, theta, phi);
-
-		return  output;
-
-	}
-
-
-	public Point3D GpsToMeter () {	//https://stackoverflow.com/questions/10868135/cartesian-to-polar-3d-coordinates
-		//	double r = Math.sqrt(_x * _x + _y * _y + _z * _z);
-		final double r = 6371000;
-		double Gps_x = r * Math.sin(_x) * Math.cos(_y);
-		double Gps_y = r * Math.sin(_x) * Math.sin(_y);
-		double Gps_z =  Math.cos(_x);
-
-		return new Point3D(Gps_x,Gps_y,Gps_z);
+//	public Point3D meterToGps() {		
+//
+//		double	r = Math.sqrt(_x * _x + _y * _y + _z * _z);
+//		double longitude = Math.acos(_x / Math.sqrt(_x * _x + _y * _y)) * (_y < 0 ? -1 : 1);
+//		double latidude= Math.acos(_z / r);
+//
+//		return new Point3D (longitude,latidude);
+//
+//	}
+//	public Point3D meterToGps1() {		
+//		double radius = Math.sqrt(_x * _x + _y * _y + _z * _z);
+//		double theta = Math.atan2(_y, _x);
+//		double phi = Math.acos(_z / radius);
+//
+//		Point3D output = new Point3D (radius, theta, phi);
+//
+//		return  output;
+//
+//	}
 
 
-
-
-	}
+//	public Point3D GpsToMeter () {	//https://stackoverflow.com/questions/10868135/cartesian-to-polar-3d-coordinates
+//		//	double r = Math.sqrt(_x * _x + _y * _y + _z * _z);
+//		final double r = 6371000;
+//		double Gps_x = r * Math.sin(_x) * Math.cos(_y);
+//		double Gps_y = r * Math.sin(_x) * Math.sin(_y);
+//		double Gps_z =  Math.cos(_x);
+//
+//		return new Point3D(Gps_x,Gps_y,Gps_z);
+//
+//
+//
+//
+//	}
 
 	public Point3D GeoToMer() { //https://www.colby.edu/chemistry/Colby%20Compass/AcqBathometricData.pdf
 	
@@ -346,19 +346,19 @@ public class Point3D implements Geom_element, Serializable
 
 
 	}
-	public Point3D meterToGps2() {	
-		double r = Math.sqrt(_x * _x + _y * _y + _z * _z);
-		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
-		double f = Math.atan(_y/_x);
-
-		double x = r * Math.sin(q)* Math.cos(f);
-		double y = r * Math.sin(q) * Math.sin(f);
-		double z = r * Math.cos(q);
-
-		Point3D output = new Point3D(x,y,z);
-
-		return output;
-
-	}
+//	public Point3D meterToGps2() {	
+//		double r = Math.sqrt(_x * _x + _y * _y + _z * _z);
+//		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
+//		double f = Math.atan(_y/_x);
+//
+//		double x = r * Math.sin(q)* Math.cos(f);
+//		double y = r * Math.sin(q) * Math.sin(f);
+//		double z = r * Math.cos(q);
+//
+//		Point3D output = new Point3D(x,y,z);
+//
+//		return output;
+//
+//	}
 	////////////////////////////////////////////////////////////////////////////////
 }
