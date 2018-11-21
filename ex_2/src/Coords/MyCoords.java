@@ -11,8 +11,10 @@ import com.sun.javafx.scene.paint.GradientUtils.Point;
 public class MyCoords {/**
 
 		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
-	public static Point3D adddd(Point3D gps, Point3D local_vector_in_meter) {
+	public static Point3D add(Point3D gps, Point3D local_vector_in_meter) {
 
+		MyCoords mc = new MyCoords();
+		
 		Point3D meter= gps.GeoToMer();
 				System.out.println(meter.toString());
 		meter.add(local_vector_in_meter);
