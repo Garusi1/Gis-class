@@ -309,8 +309,8 @@ public class Point3D implements Geom_element, Serializable
 		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
 
 		double DegToRad = 0.0174532925199;
-//		double b = 6378100; // another radius of earth
-		double b = 6356752.3142; 
+		double b = 6378100; // another radius of earth
+//		double b = 6356752.3142; 
 
 		
 		double PI = 3.141592654;
@@ -323,6 +323,10 @@ public class Point3D implements Geom_element, Serializable
 
 		return p ;}
 
+	public Point3D GeoToMer1() { //https://www.colby.edu/chemistry/Colby%20Compass/AcqBathometricData.pdf
+		
+	}
+
 
 
 
@@ -330,8 +334,8 @@ public class Point3D implements Geom_element, Serializable
 
 		double	RadToDeg = 57.29577951322447;
 		double DegToRad = 0.0174532925199;
-		double b = 6356752.3142;
-	//	double b = 6378100; // another radius of earth
+//		double b = 6356752.3142;
+		double b = 6378100; // another radius of earth
 		double	PI = 3.141592654;
 		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
 		double	HALF_PI = 1.570796327;

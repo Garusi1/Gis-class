@@ -13,10 +13,10 @@ public class MyCoords implements coords_converter {/**
 		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
 	
 
-		MyCoords mc = new MyCoords();
-	
+
 		public  Point3D add(Point3D gps, Point3D local_vector_in_meter) {
-		
+			MyCoords mc = new MyCoords();
+
 		Point3D meter= gps.GeoToMer();
 				System.out.println(meter.toString());
 		meter.add(local_vector_in_meter);
@@ -31,6 +31,8 @@ public class MyCoords implements coords_converter {/**
 
 
 	public double distance3d(Point3D gps0, Point3D gps1) {
+		MyCoords mc = new MyCoords();
+
 		Point3D p0 = gps0.GeoToMer();
 		Point3D p1 = gps1.GeoToMer();
 
@@ -41,6 +43,8 @@ public class MyCoords implements coords_converter {/**
 	/** computes the 3D vector (in meters) between two gps like points */
 	public Point3D vector3D(Point3D gps0, Point3D gps1) {
 
+		MyCoords mc = new MyCoords();
+
 		Point3D vector = new Point3D(gps1.GeoToMer().x()-gps0.GeoToMer().x(),
 				gps1.GeoToMer().y()-gps0.GeoToMer().y(), gps1.GeoToMer().z()-gps0.GeoToMer().z());
 		return vector;
@@ -49,10 +53,12 @@ public class MyCoords implements coords_converter {/**
 	 * Note: this method should return an azimuth (aka yaw), elevation (pitch), and distance*/
 	public  double[] azimuth_elevation_dist(Point3D gps0, Point3D gps1) {
 
+		MyCoords mc = new MyCoords();
+
 		double [] ans = {0,0,0};
 		ans[0] = gps0.north_angle(gps1);
 		ans[1] = gps0.up_angle(gps1); 
-		ans[2] =(distance3d(gps0, gps1));
+		ans[2] =(mc.distance3d(gps0, gps1));
 		return ans;
 
 	}
@@ -62,7 +68,9 @@ public class MyCoords implements coords_converter {/**
 	 * @return
 	 */
 	public boolean isValid_GPS_Point(Point3D p) {
-		return(((Math.abs(p.y())<180)&&(Math.abs(p.x()))<90) &&(p.z()<-450));
+		MyCoords mc = new MyCoords();
+
+		return(((Math.abs(p.y())<180)&&(Math.abs(p.x()))<90) &&((p.z()<450 && p.z()>-450)));
 	}
 }
 
