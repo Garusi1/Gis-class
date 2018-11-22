@@ -61,8 +61,8 @@ public class MyCoords implements coords_converter {/**
 	 * @param p
 	 * @return
 	 */
-	public static boolean isValid_GPS_Point(Point3D p) {
-		return(((Math.abs(p.y())<180)||(Math.abs(p.x()))<90) ||(p.z()<-450));
+	public boolean isValid_GPS_Point(Point3D p) {
+		return(((Math.abs(p.y())<180)&&(Math.abs(p.x()))<90) &&(p.z()<-450));
 	}
 }
 
