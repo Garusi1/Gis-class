@@ -11,9 +11,11 @@ import com.sun.javafx.scene.paint.GradientUtils.Point;
 public class MyCoords {/**
 
 		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
-	public static Point3D add(Point3D gps, Point3D local_vector_in_meter) {
+	
 
 		MyCoords mc = new MyCoords();
+	
+		public static Point3D add(Point3D gps, Point3D local_vector_in_meter) {
 		
 		Point3D meter= gps.GeoToMer();
 				System.out.println(meter.toString());
@@ -29,8 +31,8 @@ public class MyCoords {/**
 
 
 	public double distance3d(Point3D gps0, Point3D gps1) {
-		Point3D p0 = gps0.GpsToMeter();
-		Point3D p1 = gps1.GpsToMeter();
+		Point3D p0 = gps0.GeoToMer();
+		Point3D p1 = gps1.GeoToMer();
 
 		return p0.distance3D(p1);
 
@@ -39,7 +41,7 @@ public class MyCoords {/**
 	/** computes the 3D vector (in meters) between two gps like points */
 	public Point3D vector3D(Point3D gps0, Point3D gps1) {
 
-		Point3D vector = new Point3D(gps1.GpsToMeter().x()-gps0.GpsToMeter().x(),
+		Point3D vector = new Point3D(gps1.GeoToMer().x()-gps0.GeoToMer().x(),
 				gps1.GeoToMer().y()-gps0.GeoToMer().y(), gps1.GeoToMer().z()-gps0.GeoToMer().z());
 		return vector;
 	}

@@ -14,7 +14,10 @@ public class main {
 	
 //	MyCoords.add(gps, local_vector_in_meter)
 	
+	MyCoords mc = new MyCoords();
 	
+	mc.
+			
 	Point3D local_vector_in_meter = new Point3D(5,5,5);
 
 	Point3D meter= gps.GeoToMer();
