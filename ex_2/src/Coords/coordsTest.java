@@ -1,3 +1,4 @@
+package Coords;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.Point;
@@ -6,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import com.sun.xml.internal.ws.policy.PolicyIntersector;
 
-import Coords.MyCoords;
 import Geom.Point3D;
 
 class coordsTest {
