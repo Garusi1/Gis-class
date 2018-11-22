@@ -8,14 +8,14 @@ import java.util.Map;
 import com.sun.javafx.geom.AreaOp.AddOp;
 import com.sun.javafx.scene.paint.GradientUtils.Point;
 
-public class MyCoords {/**
+public class MyCoords implements coords_converter {/**
 
 		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
 	
 
 		MyCoords mc = new MyCoords();
 	
-		public static Point3D add(Point3D gps, Point3D local_vector_in_meter) {
+		public  Point3D add(Point3D gps, Point3D local_vector_in_meter) {
 		
 		Point3D meter= gps.GeoToMer();
 				System.out.println(meter.toString());
