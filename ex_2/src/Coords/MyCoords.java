@@ -11,20 +11,26 @@ import com.sun.javafx.scene.paint.GradientUtils.Point;
 public class MyCoords implements coords_converter {/**
 
 		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
-	
 
 
-		public  Point3D add(Point3D gps, Point3D local_vector_in_meter) {
-			MyCoords mc = new MyCoords();
 
-		Point3D meter= gps.GeoToMer();
-				System.out.println(meter.toString());
-		meter.add(local_vector_in_meter);
-				System.out.println(meter.toString());
-		Point3D outputGps = meter.MerToGeo();
-				System.out.println(outputGps.toString());
+	public  Point3D add(Point3D gps, Point3D local_vector_in_meter) {
+		MyCoords mc = new MyCoords();
 
-		return outputGps;
+		double earth = 6378.137;  //radius of the earth in kilometer
+		double	pi = Math.PI;
+		double my = (1 / ((2 * pi / 360) * earth)) / 1000;  //1 meter in degree
+
+		double new_latitude = gps.y() + (local_vector_in_meter.y() * my);
+
+		double mx = (1 / ((2 * pi / 360) * earth)) / 1000;  //1 meter in degree
+
+		double  new_longitude = gps.x() + (local_vector_in_meter.x() * mx) / Math.cos(gps.y() * (pi / 180));
+
+
+		Point3D outputGps = new Point3D(new_longitude, new_latitude, gps.z()+local_vector_in_meter.z());
+
+				return outputGps;
 
 	}
 
@@ -33,8 +39,8 @@ public class MyCoords implements coords_converter {/**
 	public double distance3d(Point3D gps0, Point3D gps1) {
 		MyCoords mc = new MyCoords();
 
-		Point3D p0 = gps0.GeoToMer();
-		Point3D p1 = gps1.GeoToMer();
+		Point3D p0 = gps0.gpsToMeterf();
+		Point3D p1 = gps1.gpsToMeterf();
 
 		return p0.distance3D(p1);
 
@@ -45,8 +51,8 @@ public class MyCoords implements coords_converter {/**
 
 		MyCoords mc = new MyCoords();
 
-		Point3D vector = new Point3D(gps1.GeoToMer().x()-gps0.GeoToMer().x(),
-				gps1.GeoToMer().y()-gps0.GeoToMer().y(), gps1.GeoToMer().z()-gps0.GeoToMer().z());
+		Point3D vector = new Point3D(gps1.gpsToMeterf().x()-gps0.gpsToMeterf().x(),
+				gps1.gpsToMeterf().y()-gps0.gpsToMeterf().y(), gps1.gpsToMeterf().z()-gps0.gpsToMeterf().z());
 		return vector;
 	}
 	/** computes the polar representation of the 3D vector be gps0-->gps1 
