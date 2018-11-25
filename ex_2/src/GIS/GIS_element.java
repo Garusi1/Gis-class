@@ -10,7 +10,12 @@ import Geom.Point3D;
  *
  */
 public interface GIS_element {
+	// constructors
+	
 	public Geom_element getGeom();
+	
+	// set, delete
 	public Meta_data getData();
+	
 	public void translate(Point3D vec);
 }

@@ -34,10 +34,10 @@ public class Point3D implements Geom_element, Serializable
 		_x = x;
 		_y = y;
 		_z = z;
-		
+
 	}
 
-	
+
 	//	string cons
 	public Point3D(String s) {
 		String[] a = s.split(",");
@@ -276,66 +276,108 @@ public class Point3D implements Geom_element, Serializable
 	/** transform from radians to angles */
 	public static double d2r(double a) { return Math.toRadians(a);}
 
-	public Point3D gpsToMeterf() {
+	public Point3D gpsToMeter () {
+		double m2g = 0.000008993;
 
+		double g2m = 1/0.000008993;
+		double metX = _x*g2m;
+		double metY= _y*g2m;
+		double metZ = _z;
 
+		Point3D output = new Point3D(metX, metY, metZ);
+
+		return output;
+	}
+	
+	public Point3D MerToGeo() { // https://www.colby.edu/chemistry/Colby%20Compass/AcqBathometricData.pdf
+ 		double	RadToDeg = 57.29577951322447;
+		double DegToRad = 0.0174532925199;
+//		double b = 6356752.3142;
+		double b = 6378100; // another radius of earth
+		double	PI = 3.141592654;
+		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
+		double	HALF_PI = 1.570796327;
+		double MerToGeoLong = _x * RadToDeg / b;
+		double MerToGeoLat = RadToDeg * (2 * Math.atan(Math.exp(_y / b)) - HALF_PI);
+		double nn =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
+		double z = b * Math.cos(q);
+		
+		Point3D output = new Point3D(MerToGeoLong,MerToGeoLat,z);	
+		
+		return output;}
+	public Point3D gpsToMer() {
+ 		double DegToRad = 0.0174532925199;
+		double b = 6378100; // another radius of earth
+//		double b = 6356752.3142; 
 		final double R = 6371000;
 		final double P = Math.PI/180;
 		double lat0 = Math.cos(_y*P);
-
-		
+ 		
+		double PI = 3.141592654;
+		double HALF_PI = 1.570796327;
+		double GeoToMerX = _x * DegToRad * b;
+		double	GeoToMerY = b * (Math.log((Math.tan((_y * DegToRad + HALF_PI) * 0.5))));
+		double Gps_z =  Math.cos(_x);
+		System.out.println(GeoToMerY);
+		Point3D p = new Point3D(GeoToMerX, GeoToMerY,Gps_z);
 		double rad_x = _x*P;
 		double rad_y = _y*P;
 				
 		double x = Math.cos(rad_x)*lat0*R;
 		double y = Math.sin(rad_y)*R;
+ 		Point3D p1 = new Point3D(x, y, _z);
+		return p1;}
 
-		Point3D p = new Point3D(x, y, _z);
-		return p;
+	public Point3D meter2Gps () {
+
+		double m2g = 0.000008993;
+
+		double gpsY= _y*m2g;
+		double gpsX = _x*m2g/ Math.cos(gpsY * (Math.PI / 180));
+		double gpsZ = _z;
+
+		Point3D output = new Point3D(gpsX, gpsY, gpsZ);
+
+		return output;
+
 	}
-	public Point3D meterToGpsf() {
+	public Point3D Gps2Meter () {
 
-		final double R = 6371000;
-		final double P = (Math.PI/180);
-		
-		
-		double y = (Math.asin(_y/R))/P;
-				
-		double a = 0;
-		
-		if(_x==0) {	a = Math.cos(0);}
-		else { a = Math.cos(y*P);}
+		double m2g = 0.000008993;
 
-		double x = Math.asin(_x/(a*R))/P;
-		
-		Point3D p = new Point3D(x, y, _z);
-		return p;
+		double metY= _y/m2g;
+		double metX = (_x*Math.cos(_y * (Math.PI / 180))/m2g);
+		double metZ = _z;
 
-}
-	public Point3D m2g() {
-		double R = Math.sqrt(_x*_x+_y*_y+_z*_z);
-		double x = Math.atan(_y/_x);
-		double y = Math.atan((Math.sqrt(_x*_x+_y*_y))/_z);
-		
-		Point3D out = new Point3D(x,y,R); 
-		
-		return out;	
-		
+		Point3D output = new Point3D(metX, metY, metZ);
+
+		return output;
+
 	}
-	public Point3D g2m() {
-		final double R = 6371000;
-		final double toPi = Math.PI/180;
-		double x = R*Math.sin(_x*toPi)*Math.cos(_y*toPi);
-		double y = R*Math.sin(_x*toPi)*Math.sin(_y*toPi);
-		double z = R*Math.cos(_x*toPi);
+	public Point3D vector (Point3D p) {
 		
-		Point3D out = new Point3D(x,y,z); 
-		
-		return out;	
-		
+		double m2g = 0.000008993;
 
+		double metx = +(p.x()-_x)*Math.cos(_y*Math.PI/180)/m2g;	
+		double mety = +(p.y()-_y)/m2g;
+
+		Point3D out = new Point3D(metx, mety, _z-p.z());
 		
+		return out;
 	}
+
+//	public double upangle1 (Point3D p) {
+//		double x = p.gpsToMeter()._x - this.gpsToMeter()._x;
+//		double y = p.gpsToMeter()._y - this.gpsToMeter()._y;
+//		double z = p.z()-_z;
+//		
+//		return ((z/mc.)*45);
+//
+//	}
+
+
+
+
 
 
 }

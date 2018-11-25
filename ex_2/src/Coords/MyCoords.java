@@ -8,41 +8,46 @@ import java.util.Map;
 import com.sun.javafx.geom.AreaOp.AddOp;
 import com.sun.javafx.scene.paint.GradientUtils.Point;
 
-public class MyCoords implements coords_converter {/**
+public class MyCoords implements coords_converter {
+
+	/**
 
 		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
 
 
 
-	public  Point3D add(Point3D gps, Point3D local_vector_in_meter) {
+	public  Point3D add(Point3D gps, Point3D local_vector_in_meter) { //https://stackoverflow.com/questions/7477003/calculating-new-longitude-latitude-from-old-n-meters
 		MyCoords mc = new MyCoords();
 
-		double earth = 6378.137;  //radius of the earth in kilometer
-		double	pi = Math.PI;
-		double my = (1 / ((2 * pi / 360) * earth)) / 1000;  //1 meter in degree
+		Point3D out = new Point3D (gps.Gps2Meter());
+		out.add(local_vector_in_meter);
+		out = out.meter2Gps();
+		//double earth = 6378.137;  //radius of the earth in kilometer
+		//		double earth = 6371;
+		//		double	pi = Math.PI;
+		//		double m = (1 / ((2 * pi / 360) * earth)) / 1000;  //1 meter in degree
+		//
+		//		double new_latitude = gps.y() + (local_vector_in_meter.y() * m);
+		//		double  new_longitude = gps.x() + (local_vector_in_meter.x() * m) / Math.cos(gps.y() * (pi / 180));
 
-		double new_latitude = gps.y() + (local_vector_in_meter.y() * my);
 
-		double mx = (1 / ((2 * pi / 360) * earth)) / 1000;  //1 meter in degree
+		//		Point3D outputGps = new Point3D(new_longitude, new_latitude, gps.z()+local_vector_in_meter.z());
 
-		double  new_longitude = gps.x() + (local_vector_in_meter.x() * mx) / Math.cos(gps.y() * (pi / 180));
-
-
-		Point3D outputGps = new Point3D(new_longitude, new_latitude, gps.z()+local_vector_in_meter.z());
-
-				return outputGps;
+		return out;
 
 	}
 
 
+	/** converts the gps points to meters and computes the distance between them like points */
 
-	public double distance3d(Point3D gps0, Point3D gps1) {
+	public double distance3d(Point3D gps0, Point3D gps1) { 
 		MyCoords mc = new MyCoords();
 
-		Point3D p0 = gps0.gpsToMeterf();
-		Point3D p1 = gps1.gpsToMeterf();
+		Point3D v = gps0.vector(gps1);
 
-		return p0.distance3D(p1);
+		double dis = Math.sqrt(v.x()*v.x()+v.y()*v.y()+v.z()*v.z());
+
+		return dis;
 
 
 	}
@@ -51,8 +56,8 @@ public class MyCoords implements coords_converter {/**
 
 		MyCoords mc = new MyCoords();
 
-		Point3D vector = new Point3D(gps1.gpsToMeterf().x()-gps0.gpsToMeterf().x(),
-				gps1.gpsToMeterf().y()-gps0.gpsToMeterf().y(), gps1.gpsToMeterf().z()-gps0.gpsToMeterf().z());
+		Point3D vector = gps0.vector(gps1);
+
 		return vector;
 	}
 	/** computes the polar representation of the 3D vector be gps0-->gps1 
@@ -76,9 +81,32 @@ public class MyCoords implements coords_converter {/**
 	public boolean isValid_GPS_Point(Point3D p) {
 		MyCoords mc = new MyCoords();
 
-		return(((Math.abs(p.y())<180)&&(Math.abs(p.x()))<90) &&((p.z()<450 && p.z()>-450)));
+		return(((Math.abs(p.x())<180)&&(Math.abs(p.y()))<90) &&((p.z()<450000 && p.z()>-450)));
 	}
+	//	
+	//	public Point3D gps2meter(Point3D p) {
+	//		MyCoords mc = new MyCoords();
+	//
+	//		//double earth = 6378.137;  //radius of the earth in kilometer
+	//		double earth = 6371;
+	//		double	pi = Math.PI;
+	//		double m = (1 / ((2 * pi / 360) * earth)) / 1000;  //1 meter in degree
+	//
+	//		double new_latitude = (p.y() /m);
+	//		double  new_longitude = +p.x() * Math.cos(p.y()*pi/180)/m;
+	//		
+	//
+	//		double m2g = 0.000008993;
+	//
+	////		double metx = +(p.x())*Math.cos(_y*Math.PI/180)/m2g;	
+	//
+	//
+	//		Point3D outputGps = new Point3D(new_longitude, new_latitude, p.z());
+	//
+	//				return outputGps;
+	//}
+
+
+
 }
-
-
 
