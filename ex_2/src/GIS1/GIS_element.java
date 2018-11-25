@@ -1,4 +1,4 @@
-package GIS;
+package GIS1;
 
 import Geom.Geom_element;
 import Geom.Point3D;

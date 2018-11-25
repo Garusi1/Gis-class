@@ -1,4 +1,4 @@
-package GIS;
+package GIS1;
 
 import Geom.Geom_element;
 import Geom.Point3D;
@@ -33,6 +33,11 @@ public class MyGisElement {
 	public void setPoint (Point3D p1) {
 	p=p1;
 	}
+	public Point3D getPoint () {
+		return p;
+		
+	}
+
 	public void setData (String color1,String timing1,String data1) {
 		color = color1;
 		timing = timing1;

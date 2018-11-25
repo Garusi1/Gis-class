@@ -276,57 +276,57 @@ public class Point3D implements Geom_element, Serializable
 	/** transform from radians to angles */
 	public static double d2r(double a) { return Math.toRadians(a);}
 
-	public Point3D gpsToMeter () {
-		double m2g = 0.000008993;
-
-		double g2m = 1/0.000008993;
-		double metX = _x*g2m;
-		double metY= _y*g2m;
-		double metZ = _z;
-
-		Point3D output = new Point3D(metX, metY, metZ);
-
-		return output;
-	}
-	
-	public Point3D MerToGeo() { // https://www.colby.edu/chemistry/Colby%20Compass/AcqBathometricData.pdf
- 		double	RadToDeg = 57.29577951322447;
-		double DegToRad = 0.0174532925199;
-//		double b = 6356752.3142;
-		double b = 6378100; // another radius of earth
-		double	PI = 3.141592654;
-		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
-		double	HALF_PI = 1.570796327;
-		double MerToGeoLong = _x * RadToDeg / b;
-		double MerToGeoLat = RadToDeg * (2 * Math.atan(Math.exp(_y / b)) - HALF_PI);
-		double nn =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
-		double z = b * Math.cos(q);
-		
-		Point3D output = new Point3D(MerToGeoLong,MerToGeoLat,z);	
-		
-		return output;}
-	public Point3D gpsToMer() {
- 		double DegToRad = 0.0174532925199;
-		double b = 6378100; // another radius of earth
-//		double b = 6356752.3142; 
-		final double R = 6371000;
-		final double P = Math.PI/180;
-		double lat0 = Math.cos(_y*P);
- 		
-		double PI = 3.141592654;
-		double HALF_PI = 1.570796327;
-		double GeoToMerX = _x * DegToRad * b;
-		double	GeoToMerY = b * (Math.log((Math.tan((_y * DegToRad + HALF_PI) * 0.5))));
-		double Gps_z =  Math.cos(_x);
-		System.out.println(GeoToMerY);
-		Point3D p = new Point3D(GeoToMerX, GeoToMerY,Gps_z);
-		double rad_x = _x*P;
-		double rad_y = _y*P;
-				
-		double x = Math.cos(rad_x)*lat0*R;
-		double y = Math.sin(rad_y)*R;
- 		Point3D p1 = new Point3D(x, y, _z);
-		return p1;}
+//	public Point3D gpsToMeter () {
+//		double m2g = 0.000008993;
+//
+//		double g2m = 1/0.000008993;
+//		double metX = _x*g2m;
+//		double metY= _y*g2m;
+//		double metZ = _z;
+//
+//		Point3D output = new Point3D(metX, metY, metZ);
+//
+//		return output;
+//	}
+//	
+//	public Point3D MerToGeo() { // https://www.colby.edu/chemistry/Colby%20Compass/AcqBathometricData.pdf
+// 		double	RadToDeg = 57.29577951322447;
+//		double DegToRad = 0.0174532925199;
+////		double b = 6356752.3142;
+//		double b = 6378100; // another radius of earth
+//		double	PI = 3.141592654;
+//		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
+//		double	HALF_PI = 1.570796327;
+//		double MerToGeoLong = _x * RadToDeg / b;
+//		double MerToGeoLat = RadToDeg * (2 * Math.atan(Math.exp(_y / b)) - HALF_PI);
+//		double nn =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
+//		double z = b * Math.cos(q);
+//		
+//		Point3D output = new Point3D(MerToGeoLong,MerToGeoLat,z);	
+//		
+//		return output;}
+//	public Point3D gpsToMer() {
+// 		double DegToRad = 0.0174532925199;
+//		double b = 6378100; // another radius of earth
+////		double b = 6356752.3142; 
+//		final double R = 6371000;
+//		final double P = Math.PI/180;
+//		double lat0 = Math.cos(_y*P);
+// 		
+//		double PI = 3.141592654;
+//		double HALF_PI = 1.570796327;
+//		double GeoToMerX = _x * DegToRad * b;
+//		double	GeoToMerY = b * (Math.log((Math.tan((_y * DegToRad + HALF_PI) * 0.5))));
+//		double Gps_z =  Math.cos(_x);
+//		System.out.println(GeoToMerY);
+//		Point3D p = new Point3D(GeoToMerX, GeoToMerY,Gps_z);
+//		double rad_x = _x*P;
+//		double rad_y = _y*P;
+//				
+//		double x = Math.cos(rad_x)*lat0*R;
+//		double y = Math.sin(rad_y)*R;
+// 		Point3D p1 = new Point3D(x, y, _z);
+//		return p1;}
 
 	public Point3D meter2Gps () {
 
