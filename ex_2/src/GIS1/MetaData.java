@@ -4,12 +4,13 @@ import java.util.TimeZone;
 
 import com.skedgo.converter.TimezoneMapper;
 import com.skedgo.generator.TimeZoneMapperConverter;
-import com.sun.java.util.jar.pack.Attribute.Layout.Element;
 
 import Geom.Point3D;
 
 public class MetaData implements Meta_data{
 
+	public long utc;
+	public String  utcName;
 	
 	public long getUTC(MyGisElement p) { // returns the Utc number for example: israel = 2
 
@@ -34,6 +35,9 @@ return null;
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
+	public String toString () {
+		String s = this.utcName +", "+this.utc;
+		return s;
+	}
 
 }
