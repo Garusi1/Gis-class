@@ -19,6 +19,20 @@ public class circle2D {
 		return true;
 		
 	}
-
-
+	
+	public boolean isInside(circle2D c) {
+		MyCoords mc = new MyCoords();
+		if (this.center.distance2D(c.center)>this.R)
+			return false;
+		
+		return true;
+}
+	public boolean AllInside(circle2D c) {
+		MyCoords mc = new MyCoords();
+		if (this.center.distance2D(c.center)>this.R-c.R)
+			return false;
+		
+		return true;
+}
+	
 }

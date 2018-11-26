@@ -1,5 +1,6 @@
 package GIS1;
 
+import java.time.LocalDateTime;
 import java.util.TimeZone;
 
 import com.skedgo.converter.TimezoneMapper;
@@ -11,6 +12,12 @@ public class MetaData implements Meta_data{
 
 	public long utc;
 	public String  utcName;
+	public LocalDateTime ldt;
+	
+	public LocalDateTime correntTime (MyGisElement p) { // returns the Utc number for example: israel = 2
+		LocalDateTime ldt = LocalDateTime.now();
+		return ldt;
+	}
 	
 	public long getUTC(MyGisElement p) { // returns the Utc number for example: israel = 2
 
