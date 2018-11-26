@@ -60,6 +60,12 @@ public class MyGisElement implements GIS_element {
 		p=p1;
 		
 		}
+	public void updateTimeToNow () {
+		MetaData d = new MetaData();
+		timing = d.correntTime(this) ;
+	}
+	
+	
 	public Geom_element getGeom() {
 	return (Geom_element) this;	
 	}

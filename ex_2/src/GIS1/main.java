@@ -1,5 +1,6 @@
 package GIS1;
 
+import java.time.LocalDateTime;
 import java.util.TimeZone;
 
 import com.skedgo.converter.TimezoneMapper;
@@ -19,6 +20,9 @@ public class main {
 	MyGisElement p = new MyGisElement(pp, "fds", "","");
 	System.out.println(p.toString());
 	
+	LocalDateTime ldt = LocalDateTime.now();
+	System.out.println(ldt.toString());
+
 	}
 	
 

@@ -43,7 +43,7 @@ return null;
 		return 0;
 	}
 	public String toString () {
-		String s = this.utcName +", "+this.utc;
+		String s = this.utcName +", "+this.utc+", "+this.ldt.toString();
 		return s;
 	}
 
