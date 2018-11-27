@@ -9,23 +9,23 @@ import org.hamcrest.core.IsEqual;
 
 public class MyGisLayer implements  GIS_layer {
 
-	private ArrayList<MyGisElement> gisLayer;
+	private ArrayList<MyGisElement> GisLayer;
 	private MetaData data;
 	private String description;
 
 
 	public MyGisLayer() {
-		ArrayList<MyGisElement> gisLayer = new ArrayList<>() ;
+		ArrayList<MyGisElement> GisLayer = new ArrayList<>() ;
 		data = new MetaData();
 	}
 	public MyGisLayer(MyGisElement e, String description1) {
-		ArrayList<MyGisElement> gisLayer = new ArrayList<>() ;
-		gisLayer.add(e);
+		ArrayList<MyGisElement> GisLayer = new ArrayList<>() ;
+		GisLayer.add(e);
 		description = description1;
 		data = new MetaData();
 	}
-	public MyGisLayer(ArrayList<MyGisElement> gisLayer1, String description1) {
-		ArrayList<MyGisElement> gisLayer = gisLayer1 ;
+	public MyGisLayer(ArrayList<MyGisElement> GisLayer1, String description1) {
+		ArrayList<MyGisElement> GisLayer = GisLayer1 ;
 		data = new MetaData();
 		description = description1;
 	}
@@ -33,26 +33,26 @@ public class MyGisLayer implements  GIS_layer {
 
 	public boolean add(GIS_element arg0) {
 		// TODO Auto-generated method stub
-		gisLayer.add((MyGisElement) arg0);
+		GisLayer.add((MyGisElement) arg0);
 		return true;
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends GIS_element> arg0) {
 		MyGisLayer p = (MyGisLayer) arg0;
-		for(MyGisElement e:p.gisLayer)
+		for(MyGisElement e:p.GisLayer)
 			this.add(e);
 
 		return true;
 	}
 
-	private MyGisElement gisLayer(GIS_element e) {
+	private MyGisElement GisLayer(GIS_element e) {
 		return null;
 		// TODO Auto-generated method stub
 	}
 	@Override
 	public void clear() {
-		gisLayer = null;
+		GisLayer = null;
 		description=null;
 		data = null;
 		// TODO Auto-generated method stub
@@ -62,7 +62,7 @@ public class MyGisLayer implements  GIS_layer {
 	@Override
 	public boolean contains(Object arg0) {
 		MyGisLayer p = (MyGisLayer) arg0;
-//		for(MyGisElement e:p.gisLayer)
+//		for(MyGisElement e:p.GisLayer)
 //			e IsEqual;
 		return false;
 	}
@@ -76,7 +76,7 @@ public class MyGisLayer implements  GIS_layer {
 	@Override
 	public boolean isEmpty() {
 
-		return gisLayer.isEmpty();
+		return GisLayer.isEmpty();
 	}
 
 	@Override
@@ -105,7 +105,7 @@ public class MyGisLayer implements  GIS_layer {
 
 	@Override
 	public int size() {
-		return gisLayer.size();
+		return GisLayer.size();
 
 	}
 
