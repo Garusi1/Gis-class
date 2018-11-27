@@ -15,7 +15,7 @@ public class MyGisLayer implements  GIS_layer {
 
 
 	public MyGisLayer() {
-		ArrayList<MyGisElement> gisLayer ;
+		ArrayList<MyGisElement> gisLayer = new ArrayList<>() ;
 		data = new MetaData();
 	}
 	public MyGisLayer(MyGisElement e, String description1) {
@@ -62,8 +62,8 @@ public class MyGisLayer implements  GIS_layer {
 	@Override
 	public boolean contains(Object arg0) {
 		MyGisLayer p = (MyGisLayer) arg0;
-		for(MyGisElement e:p.gisLayer)
-			e IsEqual;
+//		for(MyGisElement e:p.gisLayer)
+//			e IsEqual;
 		return false;
 	}
 

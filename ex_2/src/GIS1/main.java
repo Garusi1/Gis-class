@@ -16,7 +16,7 @@ public class main {
 		System.out.println(u);
 	System.out.println(TimeZone.getTimeZone(u).getRawOffset()/(60*60*1000));
 	
-	Point3D pp = new Point3D(32.2222,33.2222);
+	Point3D pp = new Point3D(32.103315, 35.209039);
 	MyGisElement p = new MyGisElement(pp, "fds", "","");
 	System.out.println(p.toString());
 	

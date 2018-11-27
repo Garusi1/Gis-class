@@ -27,7 +27,7 @@ public class My_GIS_layer {
 //	
 	
 	public Meta_data getData() {
-		Meta_data data;
+		return d;
 		
 		
 	};
