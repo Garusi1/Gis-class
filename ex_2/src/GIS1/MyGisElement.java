@@ -2,6 +2,8 @@ package GIS1;
 
 import java.time.LocalDateTime;
 
+import com.sun.swing.internal.plaf.metal.resources.metal;
+
 import Geom.Geom_element;
 import Geom.Point3D;
 
@@ -12,12 +14,15 @@ public class MyGisElement implements GIS_element {
 	private String color, data ;
 	private long UTC;
 	private LocalDateTime timing;
+	private MetaData d;
+
+	
 	
 	
 	/** return a String representing this data */
 
 	public MyGisElement( Point3D p1, String color1, String timing1, String data1) {
-	MetaData d = new MetaData();
+	d = new MetaData();
 	p=p1;
 	color = color1;
 	timing = d.correntTime(this);
@@ -26,7 +31,7 @@ public class MyGisElement implements GIS_element {
 	
 	}
 	public MyGisElement(Point3D p1) {
-		MetaData d = new MetaData();
+	d = new MetaData();
 		p=p1;
 		color = "null";
 		timing = d.correntTime(this);
@@ -34,7 +39,7 @@ public class MyGisElement implements GIS_element {
 		UTC = d.getUTC(this);
 	}
 	public MyGisElement() {
-		MetaData d = new MetaData();
+	d = new MetaData();
 		p = null;
 		color = "null";
 		timing = d.correntTime(this);
@@ -61,7 +66,7 @@ public class MyGisElement implements GIS_element {
 		
 		}
 	public void updateTimeToNow () {
-		MetaData d = new MetaData();
+		d = new MetaData();
 		timing = d.correntTime(this) ;
 	}
 	
@@ -71,7 +76,7 @@ public class MyGisElement implements GIS_element {
 	}
 	
 	public Meta_data getData() {
-		MetaData d = new MetaData();
+		d = new MetaData();
 		d.utc = d.getUTC(this);
 		d.utcName = d.getUTCLocation(this);
 		d.ldt = d.correntTime(this);

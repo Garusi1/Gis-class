@@ -10,11 +10,14 @@ import com.sun.javafx.geom.PickRay;
 
 import Coords.MyCoords;
 import Geom.Point3D;
+import Geom.Triangle;
 
 public class main {
 
 	public static void main(String[] args) {
-	
+		Triangle m = new Triangle();
+		m.set(3, 3, 3);
+		m.p0
 		MyCoords mc = new MyCoords();
 		Point3D p = new Point3D(35.209039,32.103315 , 670);
 		

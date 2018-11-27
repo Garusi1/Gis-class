@@ -18,6 +18,9 @@ public class MetaData implements Meta_data{
 		LocalDateTime ldt = LocalDateTime.now();
 		return ldt;
 	}
+	public MetaData () {
+		ldt = LocalDateTime.now();
+	}
 	
 	public long getUTC(MyGisElement p) { // returns the Utc number for example: israel = 2
 
