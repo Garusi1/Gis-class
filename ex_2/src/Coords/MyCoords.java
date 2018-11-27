@@ -83,28 +83,42 @@ public class MyCoords implements coords_converter {
 
 		return(((Math.abs(p.x())<180)&&(Math.abs(p.y()))<90) &&((p.z()<450000 && p.z()>-450)));
 	}
-	//	
-	//	public Point3D gps2meter(Point3D p) {
-	//		MyCoords mc = new MyCoords();
-	//
-	//		//double earth = 6378.137;  //radius of the earth in kilometer
-	//		double earth = 6371;
-	//		double	pi = Math.PI;
-	//		double m = (1 / ((2 * pi / 360) * earth)) / 1000;  //1 meter in degree
-	//
-	//		double new_latitude = (p.y() /m);
-	//		double  new_longitude = +p.x() * Math.cos(p.y()*pi/180)/m;
-	//		
-	//
-	//		double m2g = 0.000008993;
-	//
-	////		double metx = +(p.x())*Math.cos(_y*Math.PI/180)/m2g;	
-	//
-	//
-	//		Point3D outputGps = new Point3D(new_longitude, new_latitude, p.z());
-	//
-	//				return outputGps;
-	//}
+
+	public  double azimuth (Point3D gps0, Point3D gps1) {
+		double srcLat = Math.toRadians(gps0.y());
+		double dstLat = Math.toRadians(gps1.y());
+		double dLng = Math.toRadians(gps1.x() - gps0.x());
+
+		return Math.atan2(Math.sin(dLng) * Math.cos(dstLat),
+				Math.cos(srcLat) * Math.sin(dstLat) - 
+				Math.sin(srcLat) * Math.cos(dstLat) * Math.cos(dLng));
+	}
+}
+
+
+
+//	
+//	public Point3D gps2meter(Point3D p) {
+//		MyCoords mc = new MyCoords();
+//
+//		//double earth = 6378.137;  //radius of the earth in kilometer
+//		double earth = 6371;
+//		double	pi = Math.PI;
+//		double m = (1 / ((2 * pi / 360) * earth)) / 1000;  //1 meter in degree
+//
+//		double new_latitude = (p.y() /m);
+//		double  new_longitude = +p.x() * Math.cos(p.y()*pi/180)/m;
+//		
+//
+//		double m2g = 0.000008993;
+//
+////		double metx = +(p.x())*Math.cos(_y*Math.PI/180)/m2g;	
+//
+//
+//		Point3D outputGps = new Point3D(new_longitude, new_latitude, p.z());
+//
+//				return outputGps;
+//}
 
 
 
