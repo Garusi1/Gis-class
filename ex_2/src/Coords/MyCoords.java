@@ -14,8 +14,6 @@ public class MyCoords implements coords_converter {
 
 		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
 
-
-
 	public  Point3D add(Point3D gps, Point3D local_vector_in_meter) { //https://stackoverflow.com/questions/7477003/calculating-new-longitude-latitude-from-old-n-meters
 		MyCoords mc = new MyCoords();
 
@@ -67,8 +65,8 @@ public class MyCoords implements coords_converter {
 		MyCoords mc = new MyCoords();
 
 		double [] ans = {0,0,0};
-		ans[0] = gps0.north_angle(gps1);
-		ans[1] = gps0.up_angle(gps1); 
+		ans[0] = mc.azimuth(gps0, gps1);
+		ans[1] = mc.elevation(gps0,gps1); 
 		ans[2] =(mc.distance3d(gps0, gps1));
 		return ans;
 
@@ -84,15 +82,39 @@ public class MyCoords implements coords_converter {
 		return(((Math.abs(p.x())<180)&&(Math.abs(p.y()))<90) &&((p.z()<450000 && p.z()>-450)));
 	}
 
-	public  double azimuth (Point3D gps0, Point3D gps1) {
+	public  double azimuth (Point3D gps0, Point3D gps1) { //https://stackoverflow.com/questions/9457988/bearing-from-one-coordinate-to-another
 		double srcLat = Math.toRadians(gps0.y());
 		double dstLat = Math.toRadians(gps1.y());
 		double dLng = Math.toRadians(gps1.x() - gps0.x());
 
-		return Math.atan2(Math.sin(dLng) * Math.cos(dstLat),
+		return Math.toDegrees(Math.atan2(Math.sin(dLng) * Math.cos(dstLat),
 				Math.cos(srcLat) * Math.sin(dstLat) - 
-				Math.sin(srcLat) * Math.cos(dstLat) * Math.cos(dLng));
+				Math.sin(srcLat) * Math.cos(dstLat) * Math.cos(dLng)));
 	}
+	
+	public  double elevation (Point3D gps0, Point3D gps1) {
+		Point3D p1 = gps0.Gps2Meter();
+		Point3D p2 = gps1.Gps2Meter();
+		
+		double dx = p2.x() - p1.x();
+		double dy = p2.x() - p1.y();
+		double dz = gps1.z() - gps0.z();
+		double dis = Math.sqrt(dx*dx+dy*dy);
+		
+		if (dis == 0 && dz==0) return -1;
+		if (dis == 0) if(dz>0) return 90; else return -90;
+
+		double ans = ((dz/dis)*45);
+		 if (ans>90 && ans<270) return 180-ans;
+		 if (ans>270) return ans-360;
+	
+		 
+		 return ans;
+		
+
+		
+	}
+
 }
 
 
@@ -120,7 +142,4 @@ public class MyCoords implements coords_converter {
 //				return outputGps;
 //}
 
-
-
-}
 

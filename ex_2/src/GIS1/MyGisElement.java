@@ -53,6 +53,29 @@ public class MyGisElement implements GIS_element {
 		return p;
 		
 	}
+	public String getdata () {
+		return data;
+		
+	}public String getcolor () {
+		return color;
+		
+	}public long getUTC () {
+		return UTC;
+		
+	}
+	public String getTime () {
+		return timing.toString();
+		
+	}
+	public String getPoint2d () {
+		String s ="";
+		s+=this.p.x();
+		s+=",";
+		s+=this.p.y();
+
+		return s;
+		
+	}
 
 	public void setData (String color1,String timing1) {
 		color = color1;

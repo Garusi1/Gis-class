@@ -13,5 +13,6 @@
 			<attribute name="maven.scope" value="compile"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/mgaru/Desktop/שנה ב/מונחה עצמים/APIKML.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
