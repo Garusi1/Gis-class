@@ -8,19 +8,44 @@ import com.skedgo.generator.TimeZoneMapperConverter;
 
 import Geom.Point3D;
 
-public class MetaData implements Meta_data{
+/**
+ * meta Data class
+ * 
+ * contains meta-Data about GIS objects 
+ * @author mgaru
+ *
+ */
 
+public class MetaData implements Meta_data{
+/**
+ * utc - time-zone of GIS object
+ * utcName - time-zone location of GIS object (for example - Israel/jerusalem)
+ *  ldt - correntTime  of GIS object
+ */
 	public long utc;
 	public String  utcName;
 	public LocalDateTime ldt;
-	
+		
+	/**
+	 * constructor
+	 */
+	public MetaData () {
+		ldt = LocalDateTime.now();
+	}
+	/**
+	 * 
+	 * @param p
+	 * @return corrent Time
+	 */
 	public LocalDateTime correntTime (MyGisElement p) { // returns the Utc number for example: israel = 2
 		LocalDateTime ldt = LocalDateTime.now();
 		return ldt;
 	}
-	public MetaData () {
-		ldt = LocalDateTime.now();
-	}
+	/**
+	 * 
+	 * @param p
+	 * @returns the Utc zone for example: israel = 2
+	 */
 	
 	public long getUTC(MyGisElement p) { // returns the Utc number for example: israel = 2
 
@@ -30,6 +55,11 @@ public class MetaData implements Meta_data{
 		
 		return UtcLocation;
 	}
+	/**
+	 * 
+	 * @param p
+	 * @return  time-zone location of GIS object (for example - Israel/jerusalem)
+	 */
 	public String getUTCLocation(MyGisElement p) {
 
 		String u = (TimezoneMapper.latLngToTimezoneString(p.getPoint().x(), p.getPoint().y()));
@@ -43,7 +73,7 @@ return null;
 	@Override
 	public long getUTC() {
 		// TODO Auto-generated method stub
-		return 0;
+		return utc;
 	}
 	public String toString () {
 		String s = this.utcName +", "+this.utc+", "+this.ldt.toString();

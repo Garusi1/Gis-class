@@ -5,12 +5,7 @@ import java.io.Serializable;
 import Coords.MyCoords;
 
 /**
- * this class represents a simple circle. <br />
- * it is used by the Delaunay Triangulation class. <br />
- * <br />
- * note that this class is immutable.
- * 
- * @see DelaunayTriangulation
+ * this class represents a simple circle.
  */
 @SuppressWarnings("serial")
 public class Circle implements Geom_element, Serializable {
@@ -82,5 +77,17 @@ public class Circle implements Geom_element, Serializable {
 		
 		return true;
 }
+
+	@Override
+	public double distance3D(Point3D p) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double distance2D(Point3D p) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }

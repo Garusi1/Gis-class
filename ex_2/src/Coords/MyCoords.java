@@ -81,6 +81,12 @@ public class MyCoords implements coords_converter {
 
 		return(((Math.abs(p.x())<180)&&(Math.abs(p.y()))<90) &&((p.z()<450000 && p.z()>-450)));
 	}
+	/**
+	 * 
+	 * @param gps0
+	 * @param gps1
+	 * @return azimuth
+	 */
 
 	public  double azimuth (Point3D gps0, Point3D gps1) { //https://stackoverflow.com/questions/9457988/bearing-from-one-coordinate-to-another
 		double srcLat = Math.toRadians(gps0.y());
@@ -91,6 +97,12 @@ public class MyCoords implements coords_converter {
 				Math.cos(srcLat) * Math.sin(dstLat) - 
 				Math.sin(srcLat) * Math.cos(dstLat) * Math.cos(dLng)));
 	}
+	/**
+	 * 
+	 * @param gps0
+	 * @param gps1
+	 * @return elevation between the points
+	 */
 	
 	public  double elevation (Point3D gps0, Point3D gps1) {
 		Point3D p1 = gps0.Gps2Meter();

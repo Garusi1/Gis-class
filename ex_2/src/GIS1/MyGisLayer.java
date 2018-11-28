@@ -13,11 +13,17 @@ import org.hamcrest.core.IsEqual;
 
 
 public class MyGisLayer implements  GIS_layer {
-
+/**
+ * Gislayer - ArrayList of MyGisElements
+ * data - meta - Data object
+ * description
+ */
 	private ArrayList<MyGisElement> GisLayer;
 	private MetaData data;
 	private String description;
-
+/**
+ * constructors
+ */
 
 	public MyGisLayer() {
 		ArrayList<MyGisElement> GisLayer = new ArrayList<MyGisElement>() ;
@@ -35,10 +41,16 @@ public class MyGisLayer implements  GIS_layer {
 		description = description1;
 	}
 
+	/**
+	 * 
+	 * @return the description
+	 */
 public String name() {
 	return description;
 }
-
+/**
+ * simple add Gis-element funtion 
+ */
 	
 	public boolean add(GIS_element arg0) {
 		// TODO Auto-generated method stub
@@ -46,6 +58,9 @@ public String name() {
 		return true;
 	}
 
+	/**
+	 * add collection of GIS-elememts
+	 */
 	@Override
 	public boolean addAll(Collection<? extends GIS_element> arg0) {
 		MyGisLayer p = (MyGisLayer) arg0;
@@ -59,6 +74,11 @@ public String name() {
 		return null;
 		// TODO Auto-generated method stub
 	}
+	
+	/**
+	 * clear the object
+	 */
+	
 	@Override
 	public void clear() {
 		GisLayer = null;
@@ -79,6 +99,9 @@ public String name() {
 ////	}
 //
 //	@Override
+	/**
+	 * @return true if the layer contains all the elements
+	 */
 	public boolean containsAll(Collection<?> arg0) {
 		MyGisLayer p = (MyGisLayer) arg0;
 		for (int i = 0; i < p.size(); i++) {
@@ -92,7 +115,9 @@ public String name() {
 		}
 		return true;
 	}
-
+/**
+ * @return true if the layer is empty
+ */
 	@Override
 	public boolean isEmpty() {
 
@@ -106,6 +131,9 @@ public String name() {
 ////	}
 //
 //	@Override
+	/**
+	 * removes an object from the layer
+	 */
 	public boolean remove(Object arg0) {
 		Iterator<MyGisElement> iter=GisLayer.iterator();
 		while(iter.hasNext()) {
@@ -119,6 +147,9 @@ public String name() {
 		return false;
 	}
 
+	/**
+	 * removes Arraylist of gis-elements from the layer
+	 */
 	@Override
 	public boolean removeAll(Collection<?> arg0) {
 		MyGisLayer p = (MyGisLayer) arg0;
@@ -139,6 +170,9 @@ public String name() {
 		return false;
 	}
 
+	/**
+	 * @return the number of elements in the layer
+	 */
 	@Override
 	public int size() {
 		return GisLayer.size();
@@ -157,12 +191,19 @@ public String name() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	/**
+	 * @return the meta Data of the layer
+	 */
 
 	@Override
 	public Meta_data get_Meta_data() {
 
 		return data;
 	}
+	/**
+	 * gis layer to kml file function
+	 * @return
+	 */
 	public String GislayerToKML(){
 		
 		String fileName = this.description+".kml";
@@ -195,6 +236,9 @@ public String name() {
 		System.out.println("done!");
 		return"done";
 	}
+	/**
+	 * Iterator
+	 */
 	@Override
 	public Iterator<GIS_element> iterator() {
 		// TODO Auto-generated method stub
