@@ -88,17 +88,17 @@ public String name() {
 
 	}
 
-//	@Override
-//	//
-////	public boolean contains(Object arg0) {
-////	for (int i = 0; i < GisLayer.size(); i++) {
-////		if(GisLayer.get(i).IsEquals((MyGisElement)(arg0)));
-////		return true;
-////	}
-////		return false;
-////	}
-//
-//	@Override
+	@Override
+	
+	public boolean contains(Object arg0) {
+	for (int i = 0; i < GisLayer.size(); i++) {
+		if(GisLayer.get(i).IsEquals((MyGisElement)(arg0)));
+		return true;
+	}
+		return false;
+	}
+
+	@Override
 	/**
 	 * @return true if the layer contains all the elements
 	 */
@@ -244,10 +244,6 @@ public String name() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
-	public boolean contains(Object o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 
 }

@@ -14,5 +14,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/mgaru/Desktop/שנה ב/מונחה עצמים/APIKML.jar"/>
+	<classpathentry kind="src" path="/JavaAPIforKML"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
