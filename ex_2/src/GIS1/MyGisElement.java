@@ -27,9 +27,8 @@ public class MyGisElement implements GIS_element {
  */
 	
 	private Point3D p; 
-	private String color, data, description ;
+	private String color, data, description,timing ;
 	private long UTC;
-	private LocalDateTime timing;
 	private MetaData d;
 
 	
@@ -148,7 +147,7 @@ public class MyGisElement implements GIS_element {
 	 * toString function
 	 */
 	public String toString() {
-		String s = p.toString()+", "+color+", "+timing.toString() +", "+data+", "+UTC+", "+description;
+		String s = p.toString()+", "+color+", "+timing +", "+data+", "+UTC+", "+description;
 		
 		return s;
 		}

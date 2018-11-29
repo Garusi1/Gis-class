@@ -1,28 +1,15 @@
 package File_format;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 import jdk.internal.org.objectweb.asm.commons.TryCatchBlockSorter;
-public class main {
+public class main1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-	}
-
-			String fileName = "cc.csv";
-		File file = new File (fileName);
-		
-		file.
-		
-		
-		try {
-			Scanner input = new Scanner(file);
-		}catch(FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
+System.out.println(LocalDateTime.now().toString());
 		
 
 	}
