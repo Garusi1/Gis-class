@@ -77,28 +77,11 @@ import java.io.FileWriter;
 
 public class main1 {
 
+	
 	public static void main(String[] args) {
-		//		// TODO Auto-generated method stub
-		//
-		//		String u = (TimezoneMapper.latLngToTimezoneString(32.103315, 35.209039));
-		//		System.out.println(u);
-		//	System.out.println(TimeZone.getTimeZone(u).getRawOffset()/(60*60*1000));
-		//	
-		//
-		//	
-		//	LocalDateTime ldt = LocalDateTime.now();
-		//	
-		//	Point3D ppp = new Point3D(32.109, 35.209039);
-		//	MyGisElement p1 = new MyGisElement(ppp, "brown", "", "electric");
-		//
-		//Point3D pp = new Point3D(32.103315, 35.209039);
-		//MyGisElement p = new MyGisElement(pp, "brown", "", "electric");
-		//MyGisLayer mm = new MyGisLayer(p, "elelayer");
-		////mm.add(p1);
-		//
-		//mm.GislayerToKML();
-
-
+	
+		
+		
 		String kmlstart = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
 				"<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n";
 

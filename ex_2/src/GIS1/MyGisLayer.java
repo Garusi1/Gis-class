@@ -1,4 +1,4 @@
-package GIS1;
+[13:14, 11/29/2018] раеш огоз: package GIS1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,12 +13,12 @@ import org.hamcrest.core.IsEqual;
 
 
 public class MyGisLayer implements  GIS_layer {
-/**
+/**u
  * Gislayer - ArrayList of MyGisElements
  * data - meta - Data object
  * description
  */
-	private ArrayList<MyGisElement> GisLayer;
+	private ArrayList< GIS_element> GisLayer;
 	private MetaData data;
 	private String description;
 /**
@@ -49,7 +49,7 @@ public String name() {
 	return description;
 }
 /**
- * simple add Gis-element funtion 
+ * simple add Gis-element function 
  */
 	
 	public boolean add(GIS_element arg0) {
@@ -64,7 +64,7 @@ public String name() {
 	@Override
 	public boolean addAll(Collection<? extends GIS_element> arg0) {
 		MyGisLayer p = (MyGisLayer) arg0;
-		for(MyGisElement e:p.GisLayer)
+		for(GIS_element e:p.GisLayer)
 			this.add(e);
 
 		return true;
@@ -92,7 +92,7 @@ public String name() {
 	
 	public boolean contains(Object arg0) {
 	for (int i = 0; i < GisLayer.size(); i++) {
-		if(GisLayer.get(i).IsEquals((MyGisElement)(arg0)));
+		if(((MyGisElement) GisLayer.get(i)).IsEquals((MyGisElement)(arg0)));
 		return true;
 	}
 		return false;
@@ -124,18 +124,18 @@ public String name() {
 		return GisLayer.isEmpty();
 	}
 
-//	@Override
-////	public Iterator<MyGisElement> iterator() {
-////		return GisLayer.iterator();
-////
-////	}
-//
-//	@Override
+	@Override
+	public Iterator<GIS_element> iterator() {
+		return GisLayer.iterator();
+
+	}
+
+	@Override
 	/**
 	 * removes an object from the layer
 	 */
 	public boolean remove(Object arg0) {
-		Iterator<MyGisElement> iter=GisLayer.iterator();
+		Iterator<GIS_element> iter=GisLayer.iterator();
 		while(iter.hasNext()) {
 			if(iter.next().equals((MyGisElement)(arg0))) {
 				iter.remove();
@@ -223,12 +223,12 @@ public String name() {
 		sb.append("<?xml version"+(char)34+"1.0"+(char)34+" encoding="+(char)34+"UTF-8"+(char)34+"?><kml xmlns="+(char)34+"http://www.opengis.net/kml/2.2"+(char)34+"><Document><Style id="+(char)34+"red"+(char)34+"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/red-dot.png</href></Icon></IconStyle></Style><Style id="+(char)34+"yellow"+(char)34+"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/yellow-dot.png</href></Icon></IconStyle></Style><Style id="+(char)34+"green"+(char)34+"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href></Icon></IconStyle></Style><Folder><name>"+this.description+"</name>");
 //		for (Iterator<MyGisElement> iterator = GisLayer.iterator(); iterator.hasNext();) {
 //			MyGisElement myGisElement = (MyGisElement) iterator.next();
-		Iterator<MyGisElement> iter=GisLayer.iterator();
+		Iterator<GIS_element> iter=GisLayer.iterator();
 		while(iter.hasNext()) {
 		
 			
 //		sb.append("<Placemark><name><![CDATA["+e.getdata()+"]]></name><description><![CDATA[color: <b>"+e.getcolor()+"</b><br/>Capabilities: <b>null</b><br/>Frequency: <b>2412</b><br/>Timestamp: <b>1512117845000</b><br/>Date: <b>2017-12-01 10:44:05</b>]]></description><styleUrl>#red</styleUrl>			<Point>			<coordinates>34.81190851897319,32.17188758190333</coordinates></Point>			</Placemark>");
-		sb.append("<Placemark><name><![CDATA["+iter.next().getdata()+"]]></name><description><![CDATA[color: <b>"+iter.next().getcolor()+"</b><br/>Capabilities: <b>null</b<br/>Date: <b>"+iter.next().getTime()+"</b>]]></description><styleUrl>#red</styleUrl>			<Point>			<coordinates>"+iter.next().getPoint2d()+"</coordinates></Point>			</Placemark>");
+	//	sb.append("<Placemark><name><![CDATA["+iter.next().getdata()+"]]></name><description><![CDATA[color: <b>"+iter.next().getcolor()+"</b><br/>Capabilities: <b>null</b<br/>Date: <b>"+iter.next().getTime()+"</b>]]></description><styleUrl>#red</styleUrl>			<Point>			<coordinates>"+iter.next().getPoint2d()+"</coordinates></Point>			</Placemark>");
 }
 
 		pw.write(sb.toString());
@@ -239,11 +239,7 @@ public String name() {
 	/**
 	 * Iterator
 	 */
-	@Override
-	public Iterator<GIS_element> iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 
 }
