@@ -37,9 +37,10 @@ public class MetaData implements Meta_data{
 	 * @param p
 	 * @return corrent Time
 	 */
-	public LocalDateTime correntTime (MyGisElement p) { // returns the Utc number for example: israel = 2
+	public String correntTime (MyGisElement p) { // returns the Utc number for example: israel = 2
 		LocalDateTime ldt = LocalDateTime.now();
-		return ldt;
+		String ldt1 = ldt.toString();
+		return ldt1;
 	}
 	/**
 	 * 
