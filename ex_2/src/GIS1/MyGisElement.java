@@ -152,6 +152,10 @@ public class MyGisElement implements GIS_element {
 		
 		return s;
 		}
+	public boolean IsEquals (MyGisElement e) {
+		return p.equals(e.p);
+	}
+
 	
 	
 }
