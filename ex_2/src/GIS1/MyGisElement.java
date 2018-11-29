@@ -26,7 +26,7 @@ public class MyGisElement implements GIS_element {
  * description
  */
 	
-	private Point3D p; 
+	public Point3D p; 
 	private String color, data, description,timing ;
 	private long UTC;
 	private MetaData d;
@@ -35,6 +35,14 @@ public class MyGisElement implements GIS_element {
 	
 	
 	/**constructors */
+	public MyGisElement( Point3D p1, String color1,String data1, String description1,String timing1, long utc1) {
+		p=p1;
+		color = color1;
+		description = description1;
+		timing = timing1;
+		data = data1;
+		UTC = utc1;
+	}
 
 	public MyGisElement( Point3D p1, String color1, String description1) {
 	d = new MetaData();
@@ -46,15 +54,6 @@ public class MyGisElement implements GIS_element {
 	UTC = d.getUTC(this);
 	
 	}
-	public MyGisElement( Point3D p1, String color1,String data1, String description1,String timing1, long utc1) {
-		p=p1;
-		color = color1;
-		description = description1;
-		timing = timing1;
-		data = data1;
-		UTC = utc1;
-	}
-
 	public MyGisElement(Point3D p1) {
 	d = new MetaData();
 		p=p1;
@@ -161,7 +160,10 @@ public class MyGisElement implements GIS_element {
 		return s;
 		}
 	public boolean IsEquals (MyGisElement e) {
-		return p.equals(e.p);
+		if(e.color.equals(this.color)&&e.p.equals(this.p)&&e.data.equals(this.data)&&e.description.equals(this.description)) {
+			return true;
+		}
+		return false;
 	}
 
 	
