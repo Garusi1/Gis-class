@@ -1,4 +1,4 @@
-[13:14, 11/29/2018] раеш огоз: package GIS1;
+package GIS1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -50,12 +50,16 @@ public String name() {
 }
 /**
  * simple add Gis-element function 
+ * @return 
  */
 	
 	public boolean add(GIS_element arg0) {
-		// TODO Auto-generated method stub
-		GisLayer.add((MyGisElement) arg0);
+
+		 ArrayList< GIS_element> GisLayer=new  ArrayList< GIS_element>();
+		GisLayer.add((MyGisElement)arg0);
 		return true;
+		
+		
 	}
 
 	/**
@@ -120,8 +124,11 @@ public String name() {
  */
 	@Override
 	public boolean isEmpty() {
+		if(GisLayer.isEmpty()==true) {
+			return true;
+		}
 
-		return GisLayer.isEmpty();
+		return false;
 	}
 
 	@Override
