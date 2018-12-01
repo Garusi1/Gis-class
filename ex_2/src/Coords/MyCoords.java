@@ -11,27 +11,30 @@ import com.sun.javafx.scene.paint.GradientUtils.Point;
 public class MyCoords implements coords_converter {
 
 	/**
+	 * 
+	 * for gps points we used the usual Point3D while: long = x , lat = y , alt = z
+	 */
 
-		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
+	/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
 
 	public  Point3D add(Point3D gps, Point3D local_vector_in_meter) { //https://stackoverflow.com/questions/7477003/calculating-new-longitude-latitude-from-old-n-meters
 		MyCoords mc = new MyCoords();
-
-		Point3D out = new Point3D (gps.Gps2Meter());
-		out.add(local_vector_in_meter);
-		out = out.meter2Gps();
-		//double earth = 6378.137;  //radius of the earth in kilometer
-		//		double earth = 6371;
-		//		double	pi = Math.PI;
-		//		double m = (1 / ((2 * pi / 360) * earth)) / 1000;  //1 meter in degree
 		//
-		//		double new_latitude = gps.y() + (local_vector_in_meter.y() * m);
-		//		double  new_longitude = gps.x() + (local_vector_in_meter.x() * m) / Math.cos(gps.y() * (pi / 180));
+		//		Point3D out = new Point3D (gps.Gps2Meter());
+		//		out.add(local_vector_in_meter);
+		//		out = out.meter2Gps();
+		double earth = 6378.137;  //radius of the earth in kilometer
+		//				double earth = 6371;
+		double	pi = Math.PI;
+		double m = (1 / ((2 * pi / 360) * earth)) / 1000;  //1 meter in degree
+
+		double new_latitude = gps.y() + (local_vector_in_meter.y() * m);
+		double  new_longitude = gps.x() + (local_vector_in_meter.x() * m) / Math.cos(gps.y() * (pi / 180));
 
 
-		//		Point3D outputGps = new Point3D(new_longitude, new_latitude, gps.z()+local_vector_in_meter.z());
+		Point3D outputGps = new Point3D(new_longitude, new_latitude, gps.z()+local_vector_in_meter.z());
 
-		return out;
+		return outputGps;
 
 	}
 
@@ -102,30 +105,27 @@ public class MyCoords implements coords_converter {
 	 * @param gps0
 	 * @param gps1
 	 * @return elevation between the points
+	 * if the points is above / under each other return -1
+	 * if the points are in the height return 0
 	 */
-	
+
 	public  double elevation (Point3D gps0, Point3D gps1) {
 		Point3D p1 = gps0.Gps2Meter();
 		Point3D p2 = gps1.Gps2Meter();
-		
-		double dx = p2.x() - p1.x();
-		double dy = p2.x() - p1.y();
-		double dz = gps1.z() - gps0.z();
-		double dis = Math.sqrt(dx*dx+dy*dy);
-		
-		if (dis == 0 && dz==0) return -1;
-		if (dis == 0) if(dz>0) return 90; else return -90;
 
-		double ans = ((dz/dis)*45);
-		 if (ans>90 && ans<270) return 180-ans;
-		 if (ans>270) return ans-360;
-	
-		 
-		 return ans;
-		
+		double dis = Math.sqrt((Math.pow((p2.x()-p1.x()),2)+Math.pow((p2.y()-p1.y()),2)));
+		double dz = p2.z() - p1.z();
+		if(dis == 0) if(dz>0) return 90; else return -90;
+		if(dz == 0)  return 0;
 
-		
+		return Math.atan(dz/dis)*180/Math.PI;
 	}
+
+
+
+
+
+
 
 }
 

@@ -131,12 +131,12 @@ public String name() {
 		return false;
 	}
 
-	@Override
-	public Iterator<GIS_element> iterator() {
-		return GisLayer.iterator();
-
-	}
-
+//	@Override
+////	public Iterator<GIS_element> iterator() {
+////		return GisLayer.iterator();
+////
+////	}
+//
 	@Override
 	/**
 	 * removes an object from the layer
@@ -243,10 +243,21 @@ public String name() {
 		System.out.println("done!");
 		return"done";
 	}
+	
+	public String getDes() {
+		return description;
+	}
+	public ArrayList<GIS_element> getArrayList() {
+		return GisLayer;
+	}
+	@Override
+	public Iterator<GIS_element> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
 	/**
 	 * Iterator
 	 */
 	
 
-
-}

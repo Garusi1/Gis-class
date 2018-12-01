@@ -361,7 +361,7 @@ public class Point3D implements Geom_element, Serializable
 		double metx = +(p.x()-_x)*Math.cos(_y*Math.PI/180)/m2g;	
 		double mety = +(p.y()-_y)/m2g;
 
-		Point3D out = new Point3D(metx, mety, _z-p.z());
+		Point3D out = new Point3D(metx, mety,p.z()-_z);
 		
 		return out;
 	}

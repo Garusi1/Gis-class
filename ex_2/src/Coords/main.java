@@ -20,9 +20,12 @@ public class main {
 		
 		Point3D p = new Point3D(35.209039,32.103315 , 670);
 		
-		Point3D p1 = new Point3D(35.209939, 32.103315, 1000000000);
+		Point3D p1 = new Point3D(35.205225, 32.106352, 650);
 		
-		Point3D local_vector_in_meter = new Point3D(-359, 337, -20);
+		
+		Point3D local_vector_in = new Point3D(-359.2492069, 337.6989921, -20);
+		
+		System.out.println(mc.add(p, local_vector_in).toString());
 		
 		double a[]= mc.azimuth_elevation_dist(p, p1);
 		

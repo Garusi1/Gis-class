@@ -12,28 +12,28 @@ import Geom.Point3D;
  * Orientation, color, string, timing...
  * @author Boaz Ben-Moshe
  *
-*/
+ */
 
 public class MyGisElement implements GIS_element {
-/** 
- * The object variables 
- * p- point3d with gps/geo/lat-long style coords
- * color
- * data - location of this point (for example :Israel/jerusalem)
- * UTC - the utc time-zone of this point
- * timing- the date and time of the element creation
- * d- metaData object
- * description
- */
-	
+	/** 
+	 * The object variables 
+	 * p- point3d with gps/geo/lat-long style coords
+	 * color
+	 * data - location of this point (for example :Israel/jerusalem)
+	 * UTC - the utc time-zone of this point
+	 * timing- the date and time of the element creation
+	 * d- metaData object
+	 * description
+	 */
+
 	public Point3D p; 
 	private String color, data, description,timing ;
 	private long UTC;
 	private MetaData d;
 
-	
-	
-	
+
+
+
 	/**constructors */
 	public MyGisElement( Point3D p1, String color1,String data1, String description1,String timing1, long utc1) {
 		p=p1;
@@ -45,17 +45,17 @@ public class MyGisElement implements GIS_element {
 	}
 
 	public MyGisElement( Point3D p1, String color1, String description1) {
-	d = new MetaData();
-	p=p1;
-	color = color1;
-	description = description1;
-	timing = d.correntTime(this);
-	data = d.getUTCLocation(this);
-	UTC = d.getUTC(this);
-	
+		d = new MetaData();
+		p=p1;
+		color = color1;
+		description = description1;
+		timing = d.correntTime(this);
+		data = d.getUTCLocation(this);
+		UTC = d.getUTC(this);
+
 	}
 	public MyGisElement(Point3D p1) {
-	d = new MetaData();
+		d = new MetaData();
 		p=p1;
 		color = "null";
 		timing = d.correntTime(this);
@@ -63,39 +63,39 @@ public class MyGisElement implements GIS_element {
 		UTC = d.getUTC(this);
 	}
 	public MyGisElement() {
-	d = new MetaData();
+		d = new MetaData();
 		p = null;
 		color = "null";
 		timing = d.correntTime(this);
 		data = d.getUTCLocation(this);
 		UTC = d.getUTC(this);
 	}
-	
+
 	/**general functions
 	 * 
 	 * sets and gets
 	 * @param p1
 	 */
 	public void setPoint (Point3D p1) {
-	p=p1;
+		p=p1;
 	}
 	public Point3D getPoint () {
 		return p;
-		
+
 	}
 	public String getdata () {
 		return data;
-		
+
 	}public String getcolor () {
 		return color;
-		
+
 	}public long getUTC () {
 		return UTC;
-		
+
 	}
 	public String getTime () {
 		return timing.toString();
-		
+
 	}
 	public String getPoint2dToString () {
 		String s ="";
@@ -104,24 +104,24 @@ public class MyGisElement implements GIS_element {
 		s+=this.p.y();
 
 		return s;
-		
+
 	}
 
 	public void setData (String color1,String description1) {
 		color = color1;
 		description = description1;
-		}
+	}
 	public void setMyGisElement (Point3D p1, String color1, String description1) {
 		p=p1;
 		color = color1;
 		description = description1;
 
-		}
+	}
 	public void setpoint (Point3D p1) {
 		p=p1;
-		
-		}
-	
+
+	}
+
 	/** updating the creating time of the object to NOW
 	 * 
 	 */
@@ -129,43 +129,46 @@ public class MyGisElement implements GIS_element {
 		d = new MetaData();
 		timing = d.correntTime(this) ;
 	}
-	
-	
+
+
 	public Geom_element getGeom() {
-	return (Geom_element) this;	
+		return (Geom_element) this;	
 	}
 	/**@return the meta Data object 
 	 * 
 	 */
 	public Meta_data getData() {
-		
+
 		return d;
 	}
-	
+
 	/**adds the vector values to the point, using add function from mycoords
 	 * 
 	 */
-	
+
 	public void translate(Point3D vec) {
 		MyCoords mc = new MyCoords();
 		p= mc.add(p, vec);
-		
-}
+
+	}
 	/**
 	 * toString function
 	 */
 	public String toString() {
 		String s = p.toString()+", "+color+", "+timing +", "+data+", "+UTC+", "+description;
-		
+
 		return s;
-		}
+	}
 	public boolean IsEquals (MyGisElement e) {
 		if(e.color.equals(this.color)&&e.p.equals(this.p)&&e.data.equals(this.data)&&e.description.equals(this.description)) {
 			return true;
 		}
 		return false;
 	}
+	public String getDes() {
+		return description;
+	}
 
-	
-	
+
+
 }
