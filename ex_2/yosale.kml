@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:kml xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:ns2="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0">
+    <ns2:Document>
+        <ns2:Placemark>
+            <ns2:name>hgj</ns2:name>
+            <ns2:open>1</ns2:open>
+            <ns2:TimeStamp>
+                <ns2:when>2018-12-02T12:26:20.084</ns2:when>
+            </ns2:TimeStamp>
+            <ns2:Point>
+                <ns2:coordinates>32.2222,32.2222</ns2:coordinates>
+            </ns2:Point>
+        </ns2:Placemark>
+        <ns2:Placemark>
+            <ns2:name>fggh</ns2:name>
+            <ns2:open>1</ns2:open>
+            <ns2:TimeStamp>
+                <ns2:when>2018-12-02T12:26:20.084</ns2:when>
+            </ns2:TimeStamp>
+            <ns2:Point>
+                <ns2:coordinates>32.2222,32.2223</ns2:coordinates>
+            </ns2:Point>
+        </ns2:Placemark>
+        <ns2:Placemark>
+            <ns2:name>vhjghj</ns2:name>
+            <ns2:open>1</ns2:open>
+            <ns2:TimeStamp>
+                <ns2:when>2018-12-02T12:26:20.084</ns2:when>
+            </ns2:TimeStamp>
+            <ns2:Point>
+                <ns2:coordinates>32.2222,32.2224</ns2:coordinates>
+            </ns2:Point>
+        </ns2:Placemark>
+    </ns2:Document>
+</ns2:kml>
