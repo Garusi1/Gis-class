@@ -11,8 +11,8 @@ import Geom.Point3D;
 /**
  * meta Data class
  * 
- * contains meta-Data about GIS objects 
- * @author mgaru
+ * contains meta-Data(information) about GIS objects 
+ * @author naor eliav and michae garusi.
  *
  */
 
@@ -33,7 +33,7 @@ public class MetaData implements Meta_data{
 		ldt = LocalDateTime.now();
 	}
 	/**
-	 * 
+	 * This fuction return the corrent time.
 	 * @param p
 	 * @return corrent Time
 	 */
@@ -43,7 +43,7 @@ public class MetaData implements Meta_data{
 		return ldt1;
 	}
 	/**
-	 * 
+	 * This function gets giselement and return it's UTC Zone
 	 * @param p
 	 * @returns the Utc zone for example: israel = 2
 	 */
@@ -57,7 +57,7 @@ public class MetaData implements Meta_data{
 		return UtcLocation;
 	}
 	/**
-	 * 
+	 * This function gets the GisElement object and return it's location.
 	 * @param p
 	 * @return  time-zone location of GIS object (for example - Israel/jerusalem)
 	 */
@@ -72,10 +72,18 @@ public class MetaData implements Meta_data{
 return null;
 	}
 	@Override
+	/**
+	 * This function return utc
+	 * @return  utc
+	 */
 	public long getUTC() {
 		// TODO Auto-generated method stub
 		return utc;
 	}
+	/**
+	 * This function return string
+	 * @return  string
+	 */
 	public String toString () {
 		String s = this.utcName +", "+this.utc+", "+this.ldt.toString();
 		return s;
