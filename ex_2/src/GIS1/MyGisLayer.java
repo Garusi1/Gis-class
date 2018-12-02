@@ -11,32 +11,50 @@ import GIS1.MyGisElement;
 
 import org.hamcrest.core.IsEqual;
 
+/**
+ * 
+ * This class represents a collection of GIS-ELEMENTS.
+ * 
+ * @author Naor and Michael
+ *
+ */
 
 public class MyGisLayer implements  GIS_layer {
-/**u
- * Gislayer - ArrayList of MyGisElements
- * data - meta - Data object
- * description
- */
+	/**
+	 * Gislayer - ArrayList of MyGisElements
+	 * data - meta-Data object
+	 * description
+	 */
 	private ArrayList< GIS_element> GisLayer;
 	private MetaData data;
 	private String description;
-/**
- * constructors
- */
+	/**
+	 *  Partial constructor that gets the description of the layer 
+	 */
 
-	public MyGisLayer() {
-		ArrayList<MyGisElement> GisLayer = new ArrayList<MyGisElement>() ;
+
+	public MyGisLayer(String des) {
+		GisLayer = new ArrayList<GIS_element>() ;
 		data = new MetaData();
+		this.description=des;
 	}
+	/**
+	 * full constructor that gets the description of the layer, and a GIS element 
+	 */
+
 	public MyGisLayer(MyGisElement e, String description1) {
-		ArrayList<MyGisElement> GisLayer = new ArrayList<>() ;
+		GisLayer = new ArrayList<GIS_element>() ;
 		GisLayer.add(e);
 		description = description1;
 		data = new MetaData();
 	}
-	public MyGisLayer(ArrayList<MyGisElement> GisLayer1, String description1) {
-		ArrayList<MyGisElement> GisLayer = GisLayer1 ;
+	/**
+	 * full constructor that gets the description of the layer, and a collection of elements 
+	 */
+
+	public MyGisLayer(ArrayList<GIS_element> GisLayer1, String description1) {
+		GisLayer = new ArrayList<GIS_element>() ;
+		GisLayer = GisLayer1 ;
 		data = new MetaData();
 		description = description1;
 	}
@@ -45,60 +63,70 @@ public class MyGisLayer implements  GIS_layer {
 	 * 
 	 * @return the description
 	 */
-public String name() {
-	return description;
-}
-/**
- * simple add Gis-element function 
- * @return 
- */
-	
-	public boolean add(GIS_element arg0) {
+	public String name() {
+		return description;
+	}
+	/**
+	 * simple add Gis-element function 
+	 * @return true while succeed adding
+	 */
 
-		 ArrayList< GIS_element> GisLayer=new  ArrayList< GIS_element>();
+	public boolean add(GIS_element arg0) {
 		GisLayer.add((MyGisElement)arg0);
 		return true;
-		
-		
+
+
 	}
 
 	/**
 	 * add collection of GIS-elememts
+	 * @return true while succeed adding
 	 */
 	@Override
-	public boolean addAll(Collection<? extends GIS_element> arg0) {
-		MyGisLayer p = (MyGisLayer) arg0;
-		for(GIS_element e:p.GisLayer)
-			this.add(e);
 
-		return true;
+	public boolean addAll(Collection<? extends GIS_element> arg0) {
+
+		if(arg0.isEmpty()==false) {
+			Iterator<GIS_element> iter=(Iterator<GIS_element>) arg0.iterator();
+			while(iter.hasNext()) {
+				MyGisElement e=(MyGisElement) iter.next();
+				GisLayer.add(e);
+
+			}
+			return true;
+		}
+		return false;
 	}
-//
 	private MyGisElement GisLayer(GIS_element e) {
-		return null;
+		return (MyGisElement) e;
 		// TODO Auto-generated method stub
 	}
-	
+
 	/**
 	 * clear the object
 	 */
-	
+
 	@Override
 	public void clear() {
-		GisLayer = null;
+		GisLayer.clear();
 		description=null;
 		data = null;
 		// TODO Auto-generated method stub
 
 	}
+	/**
+	 * check if the element exist in the layer
+	 * @return true if exist
+	 */
 
 	@Override
-	
+
 	public boolean contains(Object arg0) {
-	for (int i = 0; i < GisLayer.size(); i++) {
-		if(((MyGisElement) GisLayer.get(i)).IsEquals((MyGisElement)(arg0)));
-		return true;
-	}
+		for (int i = 0; i < GisLayer.size(); i++) {
+			if(((MyGisElement) GisLayer.get(i)).IsEquals((MyGisElement)(arg0))==true) {
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -107,21 +135,22 @@ public String name() {
 	 * @return true if the layer contains all the elements
 	 */
 	public boolean containsAll(Collection<?> arg0) {
+
 		MyGisLayer p = (MyGisLayer) arg0;
 		for (int i = 0; i < p.size(); i++) {
-			
-				if(p.GisLayer.contains(GisLayer.get(i))==false) {
-					return false;
-				
-				
+
+			if(p.GisLayer.contains(GisLayer.get(i))==false) {
+				return false;
+
+
 			}
-			
+
 		}
 		return true;
 	}
-/**
- * @return true if the layer is empty
- */
+	/**
+	 * @return true if the layer is empty
+	 */
 	@Override
 	public boolean isEmpty() {
 		if(GisLayer.isEmpty()==true) {
@@ -131,15 +160,12 @@ public String name() {
 		return false;
 	}
 
-//	@Override
-////	public Iterator<GIS_element> iterator() {
-////		return GisLayer.iterator();
-////
-////	}
-//
+
+
 	@Override
 	/**
-	 * removes an object from the layer
+	 *  removes an object from the layer
+	 *  @return true if succeed
 	 */
 	public boolean remove(Object arg0) {
 		Iterator<GIS_element> iter=GisLayer.iterator();
@@ -149,26 +175,28 @@ public String name() {
 				return true;
 			}
 		}
-		
-		
+
+
 		return false;
 	}
 
 	/**
 	 * removes Arraylist of gis-elements from the layer
+	 * 	 *  @return true if succeed
+
 	 */
 	@Override
 	public boolean removeAll(Collection<?> arg0) {
-		MyGisLayer p = (MyGisLayer) arg0;
-		if(p.containsAll(this.GisLayer)) {
-			for (int i = 0; i < p.size(); i++) {
-				this.GisLayer.remove(p.GisLayer.get(i));
-				return true;
-				
-			}
-		}
+		if(arg0.isEmpty()==false) {
 
+			Iterator<GIS_element> iter=(Iterator<GIS_element>) arg0.iterator();
+			while(iter.hasNext()) {
+				remove(iter.next());
+			}
+			return true;
+		}
 		return false;
+
 	}
 
 	@Override
@@ -188,8 +216,8 @@ public String name() {
 
 	@Override
 	public Object[] toArray() {
-		
-		
+
+
 		return null;
 	}
 
@@ -208,56 +236,29 @@ public String name() {
 		return data;
 	}
 	/**
-	 * gis layer to kml file function
-	 * @return
+	 * @return the description of the layer
 	 */
-	public String GislayerToKML(){
-		
-		String fileName = this.description+".kml";
-		PrintWriter pw = null;
-				
-		try 
-		{
-			pw = new PrintWriter(new File(fileName));
-		} 
-		catch (FileNotFoundException e) 
-		{
-			e.printStackTrace();
-			return "err";
-		}
 
-		StringBuilder sb = new StringBuilder();
-		sb.append("<?xml version"+(char)34+"1.0"+(char)34+" encoding="+(char)34+"UTF-8"+(char)34+"?><kml xmlns="+(char)34+"http://www.opengis.net/kml/2.2"+(char)34+"><Document><Style id="+(char)34+"red"+(char)34+"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/red-dot.png</href></Icon></IconStyle></Style><Style id="+(char)34+"yellow"+(char)34+"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/yellow-dot.png</href></Icon></IconStyle></Style><Style id="+(char)34+"green"+(char)34+"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href></Icon></IconStyle></Style><Folder><name>"+this.description+"</name>");
-//		for (Iterator<MyGisElement> iterator = GisLayer.iterator(); iterator.hasNext();) {
-//			MyGisElement myGisElement = (MyGisElement) iterator.next();
-		Iterator<GIS_element> iter=GisLayer.iterator();
-		while(iter.hasNext()) {
-		
-			
-//		sb.append("<Placemark><name><![CDATA["+e.getdata()+"]]></name><description><![CDATA[color: <b>"+e.getcolor()+"</b><br/>Capabilities: <b>null</b><br/>Frequency: <b>2412</b><br/>Timestamp: <b>1512117845000</b><br/>Date: <b>2017-12-01 10:44:05</b>]]></description><styleUrl>#red</styleUrl>			<Point>			<coordinates>34.81190851897319,32.17188758190333</coordinates></Point>			</Placemark>");
-	//	sb.append("<Placemark><name><![CDATA["+iter.next().getdata()+"]]></name><description><![CDATA[color: <b>"+iter.next().getcolor()+"</b><br/>Capabilities: <b>null</b<br/>Date: <b>"+iter.next().getTime()+"</b>]]></description><styleUrl>#red</styleUrl>			<Point>			<coordinates>"+iter.next().getPoint2d()+"</coordinates></Point>			</Placemark>");
-}
-
-		pw.write(sb.toString());
-		pw.close();
-		System.out.println("done!");
-		return"done";
-	}
-	
 	public String getDes() {
 		return description;
 	}
+	
+	/**
+	 * @return the arraylist of the layer
+	 */
 	public ArrayList<GIS_element> getArrayList() {
 		return GisLayer;
 	}
-	@Override
-	public Iterator<GIS_element> iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-}
 	/**
 	 * Iterator
 	 */
-	
 
+	@Override
+	public Iterator<GIS_element> iterator() {
+		return GisLayer.iterator();
+
+	}
+
+
+
+}

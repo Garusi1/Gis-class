@@ -365,7 +365,8 @@ public class Point3D implements Geom_element, Serializable
 		
 		return out;
 	}
-
+	
+	
 //	public double upangle1 (Point3D p) {
 //		double x = p.gpsToMeter()._x - this.gpsToMeter()._x;
 //		double y = p.gpsToMeter()._y - this.gpsToMeter()._y;
