@@ -5,12 +5,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.FileVisitResult;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 
 import GIS1.GIS_element;
 import GIS1.MyGisElement;
 import GIS1.MyGisLayer;
+import GIS1.MyGisProject;
 import Geom.Point3D;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
@@ -150,5 +153,13 @@ public static void layerToKml(MyGisLayer layer) {
     	
     	
     }
+
+
+
+
+		public FileVisitResult visitFile(Path file, BasicFileAttributes attrs, MyGisProject p) throws IOException {
+			// TODO Auto-generated method stub
+			return null;
+		}
 
 }
