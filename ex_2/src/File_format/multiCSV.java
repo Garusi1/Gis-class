@@ -20,7 +20,14 @@ import Geom.Point3D;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 
-/** Recursive listing with SimpleFileVisitor in JDK 7. */
+
+/**
+ * @author mgaru
+ * this scene a path and convert all the csv files to kml and addes them into gis project
+ * 
+ *  credits also for: // https://stackoverflow.com/questions/1844688/how-to-read-all-files-in-a-folder-from-java
+ */
+
 public final class multiCSV {
 	static CsvToKml c = new CsvToKml();
 	public static void main(String[] args) throws IOException{
@@ -30,6 +37,13 @@ public final class multiCSV {
 		
 		
 		}
+	/**
+	 * this is the center function
+	 * @param path
+	 * @return new gis project that include all the csv files converts to gis layers
+	 *
+	 */
+	
 	public static MyGisProject multi_CVS(String path ) {
 	
 	final File folder = new File(path);
@@ -37,10 +51,14 @@ public final class multiCSV {
 	listFilesForFolder(p, folder);
 	return p;
 	}
-		
-
-
-	public static void listFilesForFolder(MyGisProject p , final File folder ) {
+	/**
+	 * this is the recursive function that run over all the files in the path calls from the center function
+	 * @param MyGisProject p , final File folder
+	 * @save all the the cvs file as layers inside the gis project 
+	 * and as kml in the eclipse project path
+	 *
+	 */
+	public static void listFilesForFolder(MyGisProject p , final File folder ) { // https://stackoverflow.com/questions/1844688/how-to-read-all-files-in-a-folder-from-java
 	    for (final File fileEntry : folder.listFiles()) {
 	        if (fileEntry.isDirectory()) {
 	            listFilesForFolder(p, fileEntry);
