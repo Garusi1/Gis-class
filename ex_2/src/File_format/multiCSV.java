@@ -27,6 +27,8 @@ public final class multiCSV {
 		
 		MyGisProject p =multi_CVS("C:\\Users\\mgaru\\Desktop\\‏‏תיקיה חדשה");		
 		System.out.println(p.size());
+		
+		
 		}
 	public static MyGisProject multi_CVS(String path ) {
 	
