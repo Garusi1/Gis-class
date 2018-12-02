@@ -11,8 +11,17 @@ import com.sun.xml.internal.ws.policy.PolicyIntersector;
 
 import Geom.Point3D;
 
-class coordsTest {
+/**
+ * @author mgaru
+ * this class check mycoords by External parameters
+ */
 
+class coordsTest {
+	/**
+	 * checks if the point is valid gps points
+	 *
+	 */
+	
 	@Test
 	void isValid_GPS_PointTest() {
 		MyCoords c=new MyCoords();
@@ -78,15 +87,38 @@ System.out.println(dis);
 
 
 	}
+	/**
+	 * azimuth_elevation_distTest
+	 * 
+	 * divided to three tests
+	 */
+	
 	@Test
 	void azimuth_elevation_distTest() {
 		MyCoords c=new MyCoords();
 		Point3D p=new Point3D(34.8085 ,32.16275);
 		Point3D p1= new Point3D(34.813006686487164,32.16656500793215, 6356752.314199897);
-
 		double [] arr = c.azimuth_elevation_dist(p, p1);
-
-
+		double rightAzim = 45;
+		assertEquals(rightAzim, arr[0],0.01);
+	}
+	@Test
+	void elevationTest() {
+		MyCoords c=new MyCoords();
+		Point3D p=new Point3D(34.8085 ,32.16275);
+		Point3D p1= new Point3D(34.813006686487164,32.16656500793215, 6356752.314199897);
+		double [] arr = c.azimuth_elevation_dist(p, p1);
+		double rightAzim = 90;
+		assertEquals(rightAzim, arr[1],0.01);
+	}
+	@Test
+	void distanceTest() {
+		MyCoords c=new MyCoords();
+		Point3D p=new Point3D(34.8085 ,32.16275);
+		Point3D p1= new Point3D(34.813006686487164,32.16656500793215, 6356752.314199897);
+		double [] arr = c.azimuth_elevation_dist(p, p1);
+		double rightAzim = 6356752;
+		assertEquals(rightAzim, arr[2],1);
 	}
 
 }
