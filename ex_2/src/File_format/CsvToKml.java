@@ -18,8 +18,22 @@ import Geom.Point3D;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 
+
+
+/**
+ * @author Michael and naor
+ * 
+ * this class converts cvs to layers and layers to kml
+ *
+ */
+
 public class CsvToKml extends SimpleFileVisitor<Path> {
 	
+	/**
+	 * this function convert csv to gis layer
+	 * @return gislayer from the cvs file
+	 *
+	 */
 	
 	public static  MyGisLayer CsvToGisLayer(File f) {
       MyGisLayer L= new MyGisLayer(f.getName().substring(0, f.getName().length()-4));
@@ -67,10 +81,11 @@ public class CsvToKml extends SimpleFileVisitor<Path> {
 		       
 
 	}        
-	
-	
-
-		
+	/**
+	 * this function convert gis layer to kml
+	 * @return kml from the gis layer
+	 *
+	 */		
 public static void layerToKml(MyGisLayer layer) {
 		
 		final Kml kml = new Kml();
@@ -106,7 +121,7 @@ public static void layerToKml(MyGisLayer layer) {
 	
 
 		/**
-		 * HelloKML Sample project
+		 * main 
 		 */
 
     public static void main(String[] args) throws FileNotFoundException 

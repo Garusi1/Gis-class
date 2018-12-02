@@ -25,7 +25,17 @@ import de.micromata.opengis.kml.v_2_2_0.Placemark;
  * @author mgaru
  * this scene a path and convert all the csv files to kml and addes them into gis project
  * 
- *  credits also for: // https://stackoverflow.com/questions/1844688/how-to-read-all-files-in-a-folder-from-java
+ * 
+ * **importent** - this class can get only specific csv file with the following Fields headers:
+ * 1. x value - long value
+ * 2. y value - lat value
+ * 3. z value - alt value
+ * 4. String - data
+ * 5. String - description
+ * 6. String - timing - for example: 2018-12-02T12:26:20.084 
+ * 7.LOng - utc zone
+ * 
+ * 
  */
 
 public final class multiCSV {
