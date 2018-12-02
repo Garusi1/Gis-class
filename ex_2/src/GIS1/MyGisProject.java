@@ -205,7 +205,7 @@ return true;
 	@Override
 	public boolean retainAll(Collection<?> c) {
 		// TODO Auto-generated method stub
-		return false;
+		return gisProject.retainAll(c);
 	}
 
 	@Override
@@ -221,19 +221,19 @@ return true;
 	@Override
 	public Object[] toArray() {
 		// TODO Auto-generated method stub
-		return null;
+		return gisProject.toArray();
 	}
 
 	@Override
 	public <T> T[] toArray(T[] a) {
 		// TODO Auto-generated method stub
-		return null;
+		return gisProject.toArray(a);
 	}
 
 	@Override
 	public Meta_data get_Meta_data() {
 		// TODO Auto-generated method stub
-		return null;
+		return ProjecData;
 	}
 	
 	

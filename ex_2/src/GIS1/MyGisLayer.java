@@ -202,7 +202,7 @@ public class MyGisLayer implements  GIS_layer {
 	@Override
 	public boolean retainAll(Collection<?> arg0) {
 		// TODO Auto-generated method stub
-		return false;
+		return GisLayer.retainAll(arg0);
 	}
 
 	/**
@@ -218,13 +218,13 @@ public class MyGisLayer implements  GIS_layer {
 	public Object[] toArray() {
 
 
-		return null;
+		return GisLayer.toArray();
 	}
 
 	@Override
 	public <T> T[] toArray(T[] arg0) {
 		// TODO Auto-generated method stub
-		return null;
+		return GisLayer.toArray(arg0);
 	}
 	/**
 	 * @return the meta Data of the layer
