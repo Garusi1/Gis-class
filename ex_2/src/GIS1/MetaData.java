@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package GIS1;
 
 import java.time.LocalDateTime;
@@ -8,33 +11,37 @@ import com.skedgo.generator.TimeZoneMapperConverter;
 
 import Geom.Point3D;
 
+// TODO: Auto-generated Javadoc
 /**
  * meta Data class
  * 
- * contains meta-Data(information) about GIS objects 
- * @author naor eliav and michae garusi.
+ * contains meta-Data(information) about GIS objects .
  *
+ * @author naor eliav and michae garusi.
  */
 
 public class MetaData implements Meta_data{
-/**
- * utc - time-zone of GIS object
- * utcName - time-zone location of GIS object (for example - Israel/jerusalem)
- *  ldt - correntTime  of GIS object
- */
+
+/** utc - time-zone of GIS object utcName - time-zone location of GIS object (for example - Israel/jerusalem)  ldt - correntTime  of GIS object. */
 	public long utc;
+	
+	/** The utc name. */
 	public String  utcName;
+	
+	/** The ldt. */
 	public LocalDateTime ldt;
 		
 	/**
-	 * constructor
+	 * constructor.
 	 */
 	public MetaData () {
 		ldt = LocalDateTime.now();
 	}
+	
 	/**
 	 * This fuction return the corrent time.
-	 * @param p
+	 *
+	 * @param p the p
 	 * @return corrent Time
 	 */
 	public String correntTime (MyGisElement p) { // returns the Utc number for example: israel = 2
@@ -42,9 +49,12 @@ public class MetaData implements Meta_data{
 		String ldt1 = ldt.toString();
 		return ldt1;
 	}
+	
 	/**
-	 * This function gets giselement and return it's UTC Zone
-	 * @param p
+	 * This function gets giselement and return it's UTC Zone.
+	 *
+	 * @param p the p
+	 * @return the utc
 	 * @returns the Utc zone for example: israel = 2
 	 */
 	
@@ -56,9 +66,11 @@ public class MetaData implements Meta_data{
 		
 		return UtcLocation;
 	}
+	
 	/**
 	 * This function gets the GisElement object and return it's location.
-	 * @param p
+	 *
+	 * @param p the p
 	 * @return  time-zone location of GIS object (for example - Israel/jerusalem)
 	 */
 	public String getUTCLocation(MyGisElement p) {
@@ -67,10 +79,18 @@ public class MetaData implements Meta_data{
 			
 			return u;
 		}
+	
+	/* (non-Javadoc)
+	 * @see GIS1.Meta_data#get_Orientation()
+	 */
 	@Override
 	public Point3D get_Orientation() {
 return null;
 	}
+	
+	/* (non-Javadoc)
+	 * @see GIS1.Meta_data#getUTC()
+	 */
 	@Override
 	/**
 	 * This function return utc
@@ -80,8 +100,10 @@ return null;
 		// TODO Auto-generated method stub
 		return utc;
 	}
+	
 	/**
-	 * This function return string
+	 * This function return string.
+	 *
 	 * @return  string
 	 */
 	public String toString () {

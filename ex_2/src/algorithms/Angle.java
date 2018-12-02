@@ -14,6 +14,7 @@ package algorithms;
 
 import Geom.Geom_element;
 
+// TODO: Auto-generated Javadoc
 /**
  * Utility functions for working with angles.
  * Unless otherwise noted, methods in this class express angles in radians.
@@ -21,22 +22,25 @@ import Geom.Geom_element;
 public class Angle extends Geom.Point3D
 
 {
+  
+  /**
+   * Instantiates a new angle.
+   *
+   * @param x the x
+   * @param y the y
+   */
   public Angle(double x, double y) {
 		super(x, y);
 		// TODO Auto-generated constructor stub
 	}
 
-/**
-   * The value of 2*Pi
-   */
+/** The value of 2*Pi. */
   public static final double PI_TIMES_2 = 2.0 * Math.PI;
-  /**
-   * The value of Pi/2
-   */
+  
+  /** The value of Pi/2. */
   public static final double PI_OVER_2 = Math.PI / 2.0;
-  /**
-   * The value of Pi/4
-   */
+  
+  /** The value of Pi/4. */
   public static final double PI_OVER_4 = Math.PI / 4.0;
 
 //  private Angle() {}
@@ -203,8 +207,7 @@ public class Angle extends Geom.Point3D
    * Returns whether an angle must turn clockwise or counterclockwise
    * to overlap another angle.
    *
-   * @param ang1 an angle (in radians)
-   * @param ang2 an angle (in radians)
+   * @param angle the angle
    * @return whether a1 must turn CLOCKWISE, COUNTERCLOCKWISE or NONE to
    * overlap a2.
    */

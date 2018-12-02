@@ -1,27 +1,35 @@
+/*
+ * 
+ */
 package Geom;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class rectangle.
+ *
  * @author mgaru
- *this class represents rectangle
+ * this class represents rectangle
  */
 /**
  * @author mgaru
  *
  */
 public class rectangle {
-/**
- * center - rectangle center
- * x - width
- * y - length
- **/
+
+/** center - rectangle center x - width y - length. */
 	
 
 	private Point3D center;
+	
+	/** The y. */
 	private double x,y;
 	
 	/**
-	 * constructor
+	 * constructor.
 	 *
+	 * @param p the p
+	 * @param x1 the x 1
+	 * @param y1 the y 1
 	 */
 	
 	
@@ -32,16 +40,29 @@ public class rectangle {
 	}
 	
 	/**
-	 * gets functions
+	 * gets functions.
 	 *
+	 * @return the center
 	 */
 	
 	public Point3D getcenter() {
 		return center;
 	}
+	
+	/**
+	 * Gets the x.
+	 *
+	 * @return the x
+	 */
 	public double getx() {
 		return x;
 	}
+	
+	/**
+	 * Gets the y.
+	 *
+	 * @return the y
+	 */
 	public double gety() {
 		return y;
 	}

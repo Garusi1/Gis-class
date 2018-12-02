@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package File_format;
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,7 +24,10 @@ import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class multiCSV.
+ *
  * @author mgaru
  * this scene a path and convert all the csv files to kml and addes them into gis project
  * 
@@ -34,12 +40,19 @@ import de.micromata.opengis.kml.v_2_2_0.Placemark;
  * 5. String - description
  * 6. String - timing - for example: 2018-12-02T12:26:20.084 
  * 7.LOng - utc zone
- * 
- * 
  */
 
 public final class multiCSV {
+	
+	/** The c. */
 	static CsvToKml c = new CsvToKml();
+	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public static void main(String[] args) throws IOException{
 		
 		MyGisProject p =multi_CVS("C:\\Users\\mgaru\\Desktop\\‏‏תיקיה חדשה");		
@@ -47,11 +60,12 @@ public final class multiCSV {
 		
 		
 		}
+	
 	/**
-	 * this is the center function
-	 * @param path
-	 * @return new gis project that include all the csv files converts to gis layers
+	 * this is the center function.
 	 *
+	 * @param path the path
+	 * @return new gis project that include all the csv files converts to gis layers
 	 */
 	
 	public static MyGisProject multi_CVS(String path ) {
@@ -61,12 +75,14 @@ public final class multiCSV {
 	listFilesForFolder(p, folder);
 	return p;
 	}
+	
 	/**
-	 * this is the recursive function that run over all the files in the path calls from the center function
-	 * @param MyGisProject p , final File folder
-	 * @save all the the cvs file as layers inside the gis project 
-	 * and as kml in the eclipse project path
+	 * this is the recursive function that run over all the files in the path calls from the center function.
 	 *
+	 * @param p the p
+	 * @param folder the folder
+	 * @save all the the cvs file as layers inside the gis project
+	 * and as kml in the eclipse project path
 	 */
 	public static void listFilesForFolder(MyGisProject p , final File folder ) { // https://stackoverflow.com/questions/1844688/how-to-read-all-files-in-a-folder-from-java
 	    for (final File fileEntry : folder.listFiles()) {

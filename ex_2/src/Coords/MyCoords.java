@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Coords;
 
 
@@ -9,11 +12,18 @@ import java.util.Map;
 import com.sun.javafx.geom.AreaOp.AddOp;
 import com.sun.javafx.scene.paint.GradientUtils.Point;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MyCoords.
+ */
 public class MyCoords implements coords_converter {
 
 	/**
-	 * 
-	 * for gps points we used the usual Point3D while: long = x , lat = y , alt = z
+	 * for gps points we used the usual Point3D while: long = x , lat = y , alt = z.
+	 *
+	 * @param gps the gps
+	 * @param local_vector_in_meter the local vector in meter
+	 * @return the point 3 D
 	 */
 
 	/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
@@ -40,7 +50,13 @@ public class MyCoords implements coords_converter {
 	}
 
 
-	/** converts the gps points to meters and computes the distance between them like points */
+	/**
+	 *  converts the gps points to meters and computes the distance between them like points.
+	 *
+	 * @param gps0 the gps 0
+	 * @param gps1 the gps 1
+	 * @return the double
+	 */
 
 	public double distance3d(Point3D gps0, Point3D gps1) { 
 		MyCoords mc = new MyCoords();
@@ -53,7 +69,14 @@ public class MyCoords implements coords_converter {
 
 
 	}
-	/** computes the 3D vector (in meters) between two gps like points */
+	
+	/**
+	 *  computes the 3D vector (in meters) between two gps like points.
+	 *
+	 * @param gps0 the gps 0
+	 * @param gps1 the gps 1
+	 * @return the point 3 D
+	 */
 	public Point3D vector3D(Point3D gps0, Point3D gps1) {
 
 		MyCoords mc = new MyCoords();
@@ -62,8 +85,15 @@ public class MyCoords implements coords_converter {
 
 		return vector;
 	}
-	/** computes the polar representation of the 3D vector be gps0-->gps1 
-	 * Note: this method should return an azimuth (aka yaw), elevation (pitch), and distance*/
+	
+	/**
+	 *  computes the polar representation of the 3D vector be gps0-->gps1 
+	 * Note: this method should return an azimuth (aka yaw), elevation (pitch), and distance.
+	 *
+	 * @param gps0 the gps 0
+	 * @param gps1 the gps 1
+	 * @return the double[]
+	 */
 	public  double[] azimuth_elevation_dist(Point3D gps0, Point3D gps1) {
 
 		MyCoords mc = new MyCoords();
@@ -75,20 +105,24 @@ public class MyCoords implements coords_converter {
 		return ans;
 
 	}
+	
 	/**
-	 * return true iff this point is a valid lat, lon , lat coordinate: [-180,+180],[-90,+90],[-450, +inf]
-	 * @param p
-	 * @return
+	 * return true iff this point is a valid lat, lon , lat coordinate: [-180,+180],[-90,+90],[-450, +inf].
+	 *
+	 * @param p the p
+	 * @return true, if is valid GP S point
 	 */
 	public boolean isValid_GPS_Point(Point3D p) {
 		MyCoords mc = new MyCoords();
 
 		return(((Math.abs(p.x())<180)&&(Math.abs(p.y()))<90) &&((p.z()<450000 && p.z()>-450)));
 	}
+	
 	/**
-	 * 
-	 * @param gps0
-	 * @param gps1
+	 * Azimuth.
+	 *
+	 * @param gps0 the gps 0
+	 * @param gps1 the gps 1
 	 * @return azimuth
 	 */
 
@@ -101,10 +135,12 @@ public class MyCoords implements coords_converter {
 				Math.cos(srcLat) * Math.sin(dstLat) - 
 				Math.sin(srcLat) * Math.cos(dstLat) * Math.cos(dLng)));
 	}
+	
 	/**
-	 * 
-	 * @param gps0
-	 * @param gps1
+	 * Elevation.
+	 *
+	 * @param gps0 the gps 0
+	 * @param gps1 the gps 1
 	 * @return elevation between the points
 	 * if the points is above / under each other return -1
 	 * if the points are in the height return 0

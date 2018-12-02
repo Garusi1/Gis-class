@@ -15,6 +15,7 @@ import java.awt.Point;
 
 import algorithms.Angle;
 
+// TODO: Auto-generated Javadoc
 /**
  * Represents a planar triangle, and provides methods for calculating various
  * properties of triangles.
@@ -26,14 +27,19 @@ public class Triangle extends Point3D implements Geom_element
 
   
 
+/**
+ * Instantiates a new triangle.
+ *
+ * @param x the x
+ * @param y the y
+ * @param z the z
+ */
 public Triangle(double x, double y, double z) {
 		super(x, y, z);
 		// TODO Auto-generated constructor stub
 	}
 
-/**
-	 * 
-	 */
+/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 /**
@@ -66,11 +72,10 @@ public Triangle(double x, double y, double z) {
   /**
    * Computes the line which is the perpendicular bisector of the line segment
    * a-b.
-   * 
-   * @param a
-   *          a point
-   * @param b
-   *          another point
+   *
+   * @param a          a point
+   * @param b          another point
+   * @param c the c
    * @return the perpendicular bisector, as an HPoint3D
    */
 //  public static Point3D perpendicularBisector(Point3D a, Point3D b)
@@ -233,14 +238,11 @@ public Triangle(double x, double y, double z) {
   }
 
   /**
-   * Computes the length of the longest side of a triangle
-   * 
-   * @param a
-   *          a vertex of the triangle
-   * @param b
-   *          a vertex of the triangle
-   * @param c
-   *          a vertex of the triangle
+   * Computes the length of the longest side of a triangle.
+   *
+   * @param a          a vertex of the triangle
+   * @param b          a vertex of the triangle
+   * @param c          a vertex of the triangle
    * @return the length of the longest side of the triangle
    */
   public static double longestSideLength(Point3D a, Point3D b,
@@ -410,9 +412,7 @@ public Triangle(double x, double y, double z) {
     return z;
   }
 
-  /**
-   * The Point3Ds of the vertices of the triangle
-   */
+  /** The Point3Ds of the vertices of the triangle. */
   public Point3D p0, p1, p2;
 
   /**
@@ -498,8 +498,8 @@ public Triangle(double x, double y, double z) {
   }
 
   /**
-   * Computes the length of the longest side of this triangle
-   * 
+   * Computes the length of the longest side of this triangle.
+   *
    * @return the length of the longest side of this triangle
    */
   public double longestSideLength()

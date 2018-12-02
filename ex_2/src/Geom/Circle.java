@@ -1,16 +1,23 @@
+/*
+ * 
+ */
 package Geom;
 
 import java.io.Serializable;
 
 import Coords.MyCoords;
 
+// TODO: Auto-generated Javadoc
 /**
  * this class represents a simple circle.
  */
 @SuppressWarnings("serial")
 public class Circle implements Geom_element, Serializable {
 
+	/** The center. */
 	private Point3D center;
+	
+	/** The radius. */
 	private double radius;
 
 	/**
@@ -39,6 +46,9 @@ public class Circle implements Geom_element, Serializable {
 		this.radius = circ.radius;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Circle [center=" + center + ", raduis=" + radius + "]";
@@ -63,6 +73,12 @@ public class Circle implements Geom_element, Serializable {
 	}
 	
 
+	/**
+	 * Checks if is inside.
+	 *
+	 * @param c the c
+	 * @return true, if is inside
+	 */
 	public boolean isInside(Circle c) {
 		MyCoords mc = new MyCoords();
 		if (this.center.distance2D(c.center)>this.radius)
@@ -70,6 +86,13 @@ public class Circle implements Geom_element, Serializable {
 		
 		return true;
 }
+	
+	/**
+	 * All inside.
+	 *
+	 * @param c the c
+	 * @return true, if successful
+	 */
 	public boolean AllInside(Circle c) {
 		MyCoords mc = new MyCoords();
 		if (this.center.distance2D(c.center)>this.radius-c.radius)
@@ -78,12 +101,18 @@ public class Circle implements Geom_element, Serializable {
 		return true;
 }
 
+	/* (non-Javadoc)
+	 * @see Geom.Geom_element#distance3D(Geom.Point3D)
+	 */
 	@Override
 	public double distance3D(Point3D p) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	/* (non-Javadoc)
+	 * @see Geom.Geom_element#distance2D(Geom.Point3D)
+	 */
 	@Override
 	public double distance2D(Point3D p) {
 		// TODO Auto-generated method stub

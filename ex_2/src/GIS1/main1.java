@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package GIS1;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -75,9 +78,18 @@ import java.io.FileWriter;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class main1.
+ */
 public class main1 {
 
 	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 	
 		

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package GUI;
 //Comment out the following package statement to compile separately.
 
@@ -15,10 +18,18 @@ package GUI;
 import java.awt.*;
 import java.awt.event.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Example01.
+ */
 public class Example01 extends Frame {
-/**d
+
+/**
+ * d
  * Instantiates an Example01 object.
- **/
+ *
+ * @param args the arguments
+ */
 public static void main(String args[]) {
   new Example01();
 }
@@ -55,7 +66,9 @@ public Example01() {
  * cast the Graphics object to Graphics2D to illustrate
  * that we may use the same old graphics capabilities with
  * Graphics2D that we are used to using with Graphics.
- **/
+ *
+ * @param g the g
+ */
 public void paint(Graphics g) {
   //Here is how we used to draw a square with width
   //of 200, height of 200, and starting at x=50, y=50.

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package File_format;
 
 import java.io.BufferedReader;
@@ -20,19 +23,22 @@ import de.micromata.opengis.kml.v_2_2_0.Placemark;
 
 
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class CsvToKml.
+ *
  * @author Michael and naor
  * 
  * this class converts cvs to layers and layers to kml
- *
  */
 
 public class CsvToKml extends SimpleFileVisitor<Path> {
 	
 	/**
-	 * this function convert csv to gis layer
-	 * @return gislayer from the cvs file
+	 * this function convert csv to gis layer.
 	 *
+	 * @param f the f
+	 * @return gislayer from the cvs file
 	 */
 	
 	public static  MyGisLayer CsvToGisLayer(File f) {
@@ -81,10 +87,12 @@ public class CsvToKml extends SimpleFileVisitor<Path> {
 		       
 
 	}        
+	
 	/**
-	 * this function convert gis layer to kml
-	 * @return kml from the gis layer
+	 * this function convert gis layer to kml.
 	 *
+	 * @param layer the layer
+	 * @return kml from the gis layer
 	 */		
 public static void layerToKml(MyGisLayer layer) {
 		
@@ -121,8 +129,11 @@ public static void layerToKml(MyGisLayer layer) {
 	
 
 		/**
-		 * main 
-		 */
+ * main.
+ *
+ * @param args the arguments
+ * @throws FileNotFoundException the file not found exception
+ */
 
     public static void main(String[] args) throws FileNotFoundException 
     

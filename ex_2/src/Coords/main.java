@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Coords;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,8 +16,17 @@ import com.sun.javafx.geom.PickRay;
 import Geom.Point3D;
 import Geom.Triangle;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class main.
+ */
 public class main {
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 
 		MyCoords mc = new MyCoords();

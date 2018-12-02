@@ -1,15 +1,31 @@
+/*
+ * 
+ */
 package File_format;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Json_101.
+ */
 public class Json_101 {
 
-	   public static void main(String[] args){
+	   /**
+   	 * The main method.
+   	 *
+   	 * @param args the arguments
+   	 */
+   	public static void main(String[] args){
 		   encode();
 		   decode();
 	   }
-	   public static void encode() {
+	   
+   	/**
+   	 * Encode.
+   	 */
+   	public static void encode() {
 		  JSONObject obj = new JSONObject();
 	      obj.put("name","foo");
 	      double d = 10.123;
@@ -20,7 +36,10 @@ public class Json_101 {
 	      System.out.println(obj);
 	   }
 	   
-	   public static void decode() {
+	   /**
+   	 * Decode.
+   	 */
+   	public static void decode() {
 
 		  JSONParser parser = new JSONParser();
 		  String s = "[0,{\"1\":{\"2\":{\"3\":{\"4\":[5,{\"6\":7}]}}}}]";		

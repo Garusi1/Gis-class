@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package GIS1;
 
 import java.io.File;
@@ -11,6 +14,7 @@ import GIS1.MyGisElement;
 
 import org.hamcrest.core.IsEqual;
 
+// TODO: Auto-generated Javadoc
 /**
  * 
  * This class represents a collection of GIS-ELEMENTS.
@@ -20,16 +24,20 @@ import org.hamcrest.core.IsEqual;
  */
 
 public class MyGisLayer implements  GIS_layer {
-	/**
-	 * Gislayer - ArrayList of MyGisElements
-	 * data - meta-Data object
-	 * description
-	 */
+	
+	/** Gislayer - ArrayList of MyGisElements data - meta-Data object description. */
 	private ArrayList< GIS_element> GisLayer;
+	
+	/** The data. */
 	private MetaData data;
+	
+	/** The description. */
 	private String description;
+	
 	/**
-	 *  Partial constructor that gets the description of the layer 
+	 *  Partial constructor that gets the description of the layer.
+	 *
+	 * @param des the des
 	 */
 
 
@@ -38,8 +46,12 @@ public class MyGisLayer implements  GIS_layer {
 		data = new MetaData();
 		this.description=des;
 	}
+	
 	/**
-	 * full constructor that gets the description of the layer, and a GIS element 
+	 * full constructor that gets the description of the layer, and a GIS element.
+	 *
+	 * @param e the e
+	 * @param description1 the description 1
 	 */
 
 	public MyGisLayer(MyGisElement e, String description1) {
@@ -48,8 +60,12 @@ public class MyGisLayer implements  GIS_layer {
 		description = description1;
 		data = new MetaData();
 	}
+	
 	/**
-	 * full constructor that gets the description of the layer, and a collection of elements 
+	 * full constructor that gets the description of the layer, and a collection of elements.
+	 *
+	 * @param GisLayer1 the gis layer 1
+	 * @param description1 the description 1
 	 */
 
 	public MyGisLayer(ArrayList<GIS_element> GisLayer1, String description1) {
@@ -60,14 +76,18 @@ public class MyGisLayer implements  GIS_layer {
 	}
 
 	/**
-	 * 
+	 * Name.
+	 *
 	 * @return the description
 	 */
 	public String name() {
 		return description;
 	}
+	
 	/**
-	 * simple add Gis-element function 
+	 * simple add Gis-element function .
+	 *
+	 * @param arg0 the arg 0
 	 * @return true while succeed adding
 	 */
 
@@ -79,7 +99,9 @@ public class MyGisLayer implements  GIS_layer {
 	}
 
 	/**
-	 * add collection of GIS-elememts
+	 * add collection of GIS-elememts.
+	 *
+	 * @param arg0 the arg 0
 	 * @return true while succeed adding
 	 */
 	@Override
@@ -97,13 +119,20 @@ public class MyGisLayer implements  GIS_layer {
 		}
 		return false;
 	}
+	
+	/**
+	 * Gis layer.
+	 *
+	 * @param e the e
+	 * @return the my gis element
+	 */
 	private MyGisElement GisLayer(GIS_element e) {
 		return (MyGisElement) e;
 		// TODO Auto-generated method stub
 	}
 
 	/**
-	 * clear the object
+	 * clear the object.
 	 */
 
 	@Override
@@ -114,8 +143,11 @@ public class MyGisLayer implements  GIS_layer {
 		// TODO Auto-generated method stub
 
 	}
+	
 	/**
-	 * check if the element exist in the layer
+	 * check if the element exist in the layer.
+	 *
+	 * @param arg0 the arg 0
 	 * @return true if exist
 	 */
 
@@ -130,6 +162,9 @@ public class MyGisLayer implements  GIS_layer {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.util.Set#containsAll(java.util.Collection)
+	 */
 	@Override
 	/**
 	 * @return true if the layer contains all the elements
@@ -148,7 +183,10 @@ public class MyGisLayer implements  GIS_layer {
 		}
 		return true;
 	}
+	
 	/**
+	 * Checks if is empty.
+	 *
 	 * @return true if the layer is empty
 	 */
 	@Override
@@ -162,6 +200,9 @@ public class MyGisLayer implements  GIS_layer {
 
 
 
+	/* (non-Javadoc)
+	 * @see java.util.Set#remove(java.lang.Object)
+	 */
 	@Override
 	/**
 	 *  removes an object from the layer
@@ -182,8 +223,10 @@ public class MyGisLayer implements  GIS_layer {
 
 	/**
 	 * removes Arraylist of gis-elements from the layer
-	 * 	 *  @return true if succeed
-
+	 * 	 *  @return true if succeed.
+	 *
+	 * @param arg0 the arg 0
+	 * @return true, if successful
 	 */
 	@Override
 	public boolean removeAll(Collection<?> arg0) {
@@ -199,6 +242,9 @@ public class MyGisLayer implements  GIS_layer {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.util.Set#retainAll(java.util.Collection)
+	 */
 	@Override
 	public boolean retainAll(Collection<?> arg0) {
 		// TODO Auto-generated method stub
@@ -206,6 +252,8 @@ public class MyGisLayer implements  GIS_layer {
 	}
 
 	/**
+	 * Size.
+	 *
 	 * @return the number of elements in the layer
 	 */
 	@Override
@@ -214,6 +262,9 @@ public class MyGisLayer implements  GIS_layer {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.util.Set#toArray()
+	 */
 	@Override
 	public Object[] toArray() {
 
@@ -221,12 +272,18 @@ public class MyGisLayer implements  GIS_layer {
 		return GisLayer.toArray();
 	}
 
+	/* (non-Javadoc)
+	 * @see java.util.Set#toArray(java.lang.Object[])
+	 */
 	@Override
 	public <T> T[] toArray(T[] arg0) {
 		// TODO Auto-generated method stub
 		return GisLayer.toArray(arg0);
 	}
+	
 	/**
+	 * Gets the meta data.
+	 *
 	 * @return the meta Data of the layer
 	 */
 
@@ -235,7 +292,10 @@ public class MyGisLayer implements  GIS_layer {
 
 		return data;
 	}
+	
 	/**
+	 * Gets the des.
+	 *
 	 * @return the description of the layer
 	 */
 
@@ -244,13 +304,18 @@ public class MyGisLayer implements  GIS_layer {
 	}
 	
 	/**
+	 * Gets the array list.
+	 *
 	 * @return the arraylist of the layer
 	 */
 	public ArrayList<GIS_element> getArrayList() {
 		return GisLayer;
 	}
+	
 	/**
-	 * Iterator
+	 * Iterator.
+	 *
+	 * @return the iterator
 	 */
 
 	@Override

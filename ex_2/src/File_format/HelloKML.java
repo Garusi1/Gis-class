@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package File_format;
 
 import java.io.File;
@@ -5,10 +8,17 @@ import java.io.FileNotFoundException;
 
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class HelloKML.
+ */
 public class HelloKML {
 
 	/**
-	 * HelloKML Sample project
+	 * HelloKML Sample project.
+	 *
+	 * @param args the arguments
+	 * @throws FileNotFoundException the file not found exception
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
 		final Kml kml = new Kml();
