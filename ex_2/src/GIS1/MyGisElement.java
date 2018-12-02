@@ -35,7 +35,17 @@ public class MyGisElement implements GIS_element {
 
 
 	/**constructors */
+	public MyGisElement( Point3D p1, String color1,String data1, String description1,String timing1) {
+		d = new MetaData();
+		p=p1;
+		color = color1;
+		description = description1;
+		timing = timing1;
+		data = data1;
+		
+	}
 	public MyGisElement( Point3D p1, String color1,String data1, String description1,String timing1, long utc1) {
+		d = new MetaData();
 		p=p1;
 		color = color1;
 		description = description1;
@@ -94,7 +104,7 @@ public class MyGisElement implements GIS_element {
 
 	}
 	public String getTime () {
-		return timing.toString();
+		return timing;
 
 	}
 	public String getPoint2dToString () {

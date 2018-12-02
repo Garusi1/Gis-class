@@ -19,6 +19,8 @@ import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 
 public class CsvToKml extends SimpleFileVisitor<Path> {
+	
+	
 	public static  MyGisLayer CsvToGisLayer(File f) {
       MyGisLayer L= new MyGisLayer(f.getName().substring(0, f.getName().length()-4));
 
@@ -43,14 +45,14 @@ public class CsvToKml extends SimpleFileVisitor<Path> {
 	                String[] userInfo = line.split(cvsSplitBy);
 	                
 	              Point3D p = new Point3D ((Double.parseDouble(userInfo[0])),(Double.parseDouble(userInfo[1])),(Double.parseDouble(userInfo[2])));
-	              MyGisElement pp = new MyGisElement(p, userInfo[3],userInfo[5], userInfo[6], "", Long.parseLong(userInfo[4]));
+	              MyGisElement pp = new MyGisElement(p, userInfo[3],userInfo[4], userInfo[5], userInfo[6]);
 	              L.add(pp);
-	              System.out.println();
+	              
 	         
 	              ;
-	                System.out.println("X: " + userInfo[0] + " , Y: " + userInfo[1] +
-	                		" z: " + userInfo[2] + " ,timing: " + userInfo[3]+ " ,UTC zone: "
-	                				+ ""+ userInfo[4]+ " ,data: "+ userInfo[5]+ " ,description: "+ userInfo[6]);
+//	                System.out.println("X: " + userInfo[0] + " , Y: " + userInfo[1] +
+//	                		" z: " + userInfo[2] + " ,timing: " + userInfo[7]+ " ,UTC zone: "
+//	                				+ ""+ userInfo[8]+ " ,data: "+ userInfo[5]+ " ,description: "+ userInfo[6]);
 	            }
 
 	        } catch (IOException e) 
@@ -79,6 +81,7 @@ public static void layerToKml(MyGisLayer layer) {
 			MyGisElement my = (MyGisElement) gis_element;
 			Placemark place = doc.createAndAddPlacemark().withName(my.getDes()).withOpen(Boolean.TRUE);
 			place.createAndSetTimeStamp().withWhen(my.getTime());
+			
 			place.createAndSetPoint().addToCoordinates(my.getPoint2dToString());
 			
 		}
@@ -115,51 +118,7 @@ public static void layerToKml(MyGisLayer layer) {
     	m=CsvToGisLayer( file);
     	layerToKml(m);
     	
-    //	File c= new File(" ");
-    //	MyGisLayer l=	CsvToGisLayer(c);
-//
-//        String csvFile = "WigleWifi_20171201110209.csv";
-//        String line = "";
-//        String cvsSplitBy = ",";
-//        MyGisLayer L= new MyGisLayer();
-//
-//        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) 
-//        {
-//        	line = br.readLine();
-//            while ((line = br.readLine()) != null) 
-//            {
-//                String[] userInfo = line.split(cvsSplitBy);
-//                
-//              Point3D p = new Point3D ((Double.parseDouble(userInfo[0])),(Double.parseDouble(userInfo[1])),(Double.parseDouble(userInfo[2])));
-//              MyGisElement pp = new MyGisElement(p, userInfo[3],userInfo[5], userInfo[6], "", Long.parseLong(userInfo[4]));
-//              L.add(pp);
-//              System.out.println();
-//             //System.out.println(L.isEmpty()); 
-//              ;
-//                System.out.println("X: " + userInfo[0] + " , Y: " + userInfo[1] +
-//                		" z: " + userInfo[2] + " ,timing: " + userInfo[3]+ " ,UTC zone: "
-//                				+ ""+ userInfo[4]+ " ,data: "+ userInfo[5]+ " ,description: "+ userInfo[6]);
-//            }
-//
-//        } catch (IOException e) 
-//        {
-//            e.printStackTrace();
-//            
-//            File x=new File("hey");
-//            
-//        }
-    	
-    	
-    	
-    	
-    }
+  }
 
-
-
-
-		public FileVisitResult visitFile(Path file, BasicFileAttributes attrs, MyGisProject p) throws IOException {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
+	
 }

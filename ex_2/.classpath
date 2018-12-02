@@ -19,5 +19,6 @@
 	<classpathentry kind="lib" path="C:/Users/mgaru/Downloads/kmlLibrary/kmlLibrary/jaxb-impl-2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mgaru/Downloads/kmlLibrary/kmlLibrary/jaxb-xjc-2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mgaru/Downloads/kmlLibrary/kmlLibrary/stax-api-1.0-2.jar"/>
+	<classpathentry kind="src" path="/ex"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
