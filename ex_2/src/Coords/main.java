@@ -1,14 +1,15 @@
 package Coords;
-import Coords.MyCoords;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.Point;
 
 import com.sun.javafx.geom.AreaOp.AddOp;
-import com.sun.javafx.geom.PickRay;
 
 import Coords.MyCoords;
+
+import com.sun.javafx.geom.PickRay;
+
 import Geom.Point3D;
 import Geom.Triangle;
 
