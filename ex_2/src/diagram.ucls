@@ -24,16 +24,7 @@
     <position height="62" width="146" x="960" y="237"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <class id="6" language="java" name="File_format.CSVReader" project="ex_2" file="/ex_2/src/File_format/CSVReader.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="116" width="152" x="523" y="11"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="Geom.Point3D" project="ex_2" file="/ex_2/src/Geom/Point3D.java" binary="false" 
+  <class id="6" language="java" name="Geom.Point3D" project="ex_2" file="/ex_2/src/Geom/Point3D.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="1176" width="330" x="2416" y="1483"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -42,7 +33,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="GIS1.MyGisLayer" project="ex_2" file="/ex_2/src/GIS1/MyGisLayer.java" 
+  <class id="7" language="java" name="GIS1.MyGisLayer" project="ex_2" file="/ex_2/src/GIS1/MyGisLayer.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3550" y="435"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -51,7 +42,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="9" language="java" name="GIS1.GIS_element" project="ex_2" file="/ex_2/src/GIS1/GIS_element.java" 
+  <interface id="8" language="java" name="GIS1.GIS_element" project="ex_2" file="/ex_2/src/GIS1/GIS_element.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="136" width="212" x="2865" y="1483"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -60,7 +51,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="10" language="java" name="Geom.Vector3D" project="ex_2" file="/ex_2/src/Geom/Vector3D.java" binary="false" 
+  <class id="9" language="java" name="Geom.Vector3D" project="ex_2" file="/ex_2/src/Geom/Vector3D.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="476" width="349" x="1368" y="11"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -69,16 +60,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="File_format.CSVWriter" project="ex_2" file="/ex_2/src/File_format/CSVWriter.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="116" width="152" x="2132" y="11"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="12" language="java" name="Geom.Circle" project="ex_2" file="/ex_2/src/Geom/Circle.java" binary="false" 
+  <class id="10" language="java" name="Geom.Circle" project="ex_2" file="/ex_2/src/Geom/Circle.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="236" width="195" x="2181" y="907"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -87,7 +69,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="13" language="java" name="GIS1.Meta_data" project="ex_2" file="/ex_2/src/GIS1/Meta_data.java" 
+  <interface id="11" language="java" name="GIS1.Meta_data" project="ex_2" file="/ex_2/src/GIS1/Meta_data.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="136" width="204" x="3215" y="1483"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -96,7 +78,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="14" language="java" name="GIS1.MetaData" project="ex_2" file="/ex_2/src/GIS1/MetaData.java" binary="false" 
+  <class id="12" language="java" name="GIS1.MetaData" project="ex_2" file="/ex_2/src/GIS1/MetaData.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="276" width="329" x="3255" y="907"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -105,7 +87,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="GIS1.MyGisElement" project="ex_2" file="/ex_2/src/GIS1/MyGisElement.java" 
+  <class id="13" language="java" name="GIS1.MyGisElement" project="ex_2" file="/ex_2/src/GIS1/MyGisElement.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="416" width="329" x="2865" y="907"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -114,7 +96,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="File_format.Json_101" project="ex_2" file="/ex_2/src/File_format/Json_101.java" 
+  <class id="14" language="java" name="File_format.Json_101" project="ex_2" file="/ex_2/src/File_format/Json_101.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="156" width="152" x="2516" y="11"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -123,7 +105,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="Geom.Triangle" project="ex_2" file="/ex_2/src/Geom/Triangle.java" binary="false" 
+  <class id="15" language="java" name="Geom.Triangle" project="ex_2" file="/ex_2/src/Geom/Triangle.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="536" width="409" x="2416" y="907"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -132,7 +114,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="18" language="java" name="GIS1.GIS_layer" project="ex_2" file="/ex_2/src/GIS1/GIS_layer.java" 
+  <interface id="16" language="java" name="GIS1.GIS_layer" project="ex_2" file="/ex_2/src/GIS1/GIS_layer.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="96" width="221" x="3624" y="907"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -141,7 +123,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="19" language="java" name="Geom.Geom_element" project="ex_2" file="/ex_2/src/Geom/Geom_element.java" 
+  <interface id="17" language="java" name="Geom.Geom_element" project="ex_2" file="/ex_2/src/Geom/Geom_element.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="116" width="224" x="2284" y="2699"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -150,7 +132,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="20" language="java" name="GIS1.GIS_project" project="ex_2" file="/ex_2/src/GIS1/GIS_project.java" 
+  <interface id="18" language="java" name="GIS1.GIS_project" project="ex_2" file="/ex_2/src/GIS1/GIS_project.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="96" width="221" x="2954" y="11"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -159,7 +141,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="21" language="java" name="algorithms.Angle" project="ex_2" file="/ex_2/src/algorithms/Angle.java" 
+  <class id="19" language="java" name="algorithms.Angle" project="ex_2" file="/ex_2/src/algorithms/Angle.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="396" width="425" x="2548" y="2699"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -168,7 +150,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="Coords.main" project="ex_2" file="/ex_2/src/Coords/main.java" binary="false" 
+  <class id="20" language="java" name="Coords.main" project="ex_2" file="/ex_2/src/Coords/main.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-68" y="402"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -177,7 +159,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="Coords.coordsTest" project="ex_2" file="/ex_2/src/Coords/coordsTest.java" 
+  <class id="21" language="java" name="Coords.coordsTest" project="ex_2" file="/ex_2/src/Coords/coordsTest.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="586" y="452"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -186,7 +168,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="24" language="java" name="Coords.coords_converter" project="ex_2" 
+  <interface id="22" language="java" name="Coords.coords_converter" project="ex_2" 
     file="/ex_2/src/coords_converter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="233" y="708"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -195,7 +177,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="25" language="java" name="Coords.MyCoords" project="ex_2" file="/ex_2/src/Coords/MyCoords.java" 
+  <class id="23" language="java" name="Coords.MyCoords" project="ex_2" file="/ex_2/src/Coords/MyCoords.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="233" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -204,105 +186,105 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="26">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <realization id="27">    
+  <realization id="24">    
     <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="19"/>  
+    <end type="TARGET" refId="16"/>  
   </realization>  
-  <association id="28">    
+  <realization id="25">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="22"/>  
+  </realization>  
+  <association id="26">    
     <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="29" name="p">        
+      <attribute id="27" name="p1">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="30" minimum="0" maximum="1">        
+      <multiplicity id="28" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="31">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <association id="32">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="33" name="p2">        
+  <association id="29">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="30" name="data">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="34" minimum="0" maximum="1">        
+      <multiplicity id="31" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="35">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="36" name="center">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="37" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="38">    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="24"/>  
-  </realization>  
-  <association id="39">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="40" name="p1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="41" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="42">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="43" name="p0">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="44" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="45">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="46" name="data">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="47" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="48">    
+  <generalization id="32">    
     <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="9"/>  
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="33">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="34" name="center">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="35" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="36">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="8"/>  
   </realization>  
-  <realization id="49">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="18"/>  
+  <association id="37">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="38" name="p">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="40">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="17"/>  
   </realization>  
-  <realization id="50">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="13"/>  
+  <association id="41">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="42" name="p2">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="43" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="44">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="45" name="p0">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="47">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <realization id="48">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="11"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
