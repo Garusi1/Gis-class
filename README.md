@@ -58,7 +58,7 @@ A test file is attached to the project. You just need to run it.
 Eclipse
 
 # Authors:
-Naor Eliav and michael garusi
+Naor Eliav and Michael Garusi
 
 # Acknowledgments:
 In the project I used Wikipedia to write a number of functuations in
