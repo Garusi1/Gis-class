@@ -3,6 +3,30 @@
  */
 package File_format;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
+import de.micromata.opengis.kml.v_2_2_0.AltitudeMode;
+import de.micromata.opengis.kml.v_2_2_0.Boundary;
+import de.micromata.opengis.kml.v_2_2_0.ColorMode;
+import de.micromata.opengis.kml.v_2_2_0.Coordinate;
+import de.micromata.opengis.kml.v_2_2_0.Document;
+import de.micromata.opengis.kml.v_2_2_0.Folder;
+import de.micromata.opengis.kml.v_2_2_0.Kml;
+import de.micromata.opengis.kml.v_2_2_0.LinearRing;
+import de.micromata.opengis.kml.v_2_2_0.MultiGeometry;
+import de.micromata.opengis.kml.v_2_2_0.Placemark;
+import de.micromata.opengis.kml.v_2_2_0.Polygon;
+import de.micromata.opengis.kml.v_2_2_0.Style;
+
+import java.util.HashMap;
+import java.util.List;
+
+import com.skedgo.generator.Util;
+import com.sun.deploy.uitoolkit.impl.fx.Utils;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,8 +42,10 @@ import GIS1.MyGisElement;
 import GIS1.MyGisLayer;
 import GIS1.MyGisProject;
 import Geom.Point3D;
+import de.micromata.opengis.kml.v_2_2_0.ColorMode;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
+import de.micromata.opengis.kml.v_2_2_0.StyleSelector;
 
 
 
@@ -99,14 +125,25 @@ public static void layerToKml(MyGisLayer layer) {
 		final Kml kml = new Kml();
 		de.micromata.opengis.kml.v_2_2_0.Document doc = kml.createAndSetDocument();
 		System.out.println("abcd");
-		
-		for (GIS_element gis_element : layer) {
+
+		for (GIS_element gis_element : layer) { // for each loop over the elements in the layer
 			MyGisElement my = (MyGisElement) gis_element;
-			Placemark place = doc.createAndAddPlacemark().withName(my.getDes()).withOpen(Boolean.TRUE);
-			place.createAndSetTimeStamp().withWhen(my.getTime());
+			Placemark place = doc.createAndAddPlacemark().withName(my.getDes()).withOpen(Boolean.TRUE); // opens placemark
+			place.createAndSetTimeStamp().withWhen(my.getTime());// adds time to the placemark
+			place.createAndSetPoint().addToCoordinates(my.p.toString()); // adds cordinats to the placemars
+			place.createAndSetLookAt().withLongitude(my.p.x()).withLatitude(my.p.y()).withAltitude(0).withRange(12000000); // adds the zoom to the placemark
+			 Style newValue = new Style();
+			  place.getStyleSelector().add(newValue);
 			
-			place.createAndSetPoint().addToCoordinates(my.getPoint2dToString());
-			
+//			int colorValue = (int) ((my.p.z() / 10000) * 255);
+//			/*
+//			 * value <-> color conversion calculate percental value (with the max value) and use it for the hex color value 0 % => yellow 50 % =>
+//			 * orange 100 % => red
+//			 */
+//			String color = Utils.getHexColor(0, (255 - colorValue), 255, true); // KML color format: inverse order of RGB
+			place.setStyleUrl("C:\\Users\\mgaru\\Desktop\\‏‏תיקיה חדשה (2)");
+				
+
 		}
 //		kml.createAndSetPlacemark().withName("London, UK").withOpen(Boolean.TRUE).createAndSetPoint().addToCoordinates(-0.126236, 51.500152);
 //		kml.createAndSetPlacemark().withName("japan, Tokyo").withOpen(Boolean.TRUE).createAndSetPoint().addToCoordinates(-0.12656736, 53.500152);

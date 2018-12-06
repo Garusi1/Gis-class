@@ -2,33 +2,103 @@
 <ns2:kml xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:ns2="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0">
     <ns2:Document>
         <ns2:Placemark>
-            <ns2:name>hgj</ns2:name>
+            <ns2:name>Michael HOUSE</ns2:name>
             <ns2:open>1</ns2:open>
+            <ns2:LookAt>
+                <ns2:longitude>35.1797</ns2:longitude>
+                <ns2:latitude>31.7364</ns2:latitude>
+                <ns2:altitude>0.0</ns2:altitude>
+                <ns2:heading>0.0</ns2:heading>
+                <ns2:tilt>0.0</ns2:tilt>
+                <ns2:range>1.2E7</ns2:range>
+            </ns2:LookAt>
             <ns2:TimeStamp>
-                <ns2:when>2018-12-02T12:26:20.084</ns2:when>
+                <ns2:when>2018-12-02T12:27:20.084</ns2:when>
             </ns2:TimeStamp>
+            <ns2:styleUrl>C:\Users\mgaru\Desktop\‏‏תיקיה חדשה (2)</ns2:styleUrl>
+            <ns2:Style/>
             <ns2:Point>
-                <ns2:coordinates>32.2222,32.2222</ns2:coordinates>
+                <ns2:coordinates>35.1797,31.7364,30.0</ns2:coordinates>
             </ns2:Point>
         </ns2:Placemark>
         <ns2:Placemark>
-            <ns2:name>fggh</ns2:name>
+            <ns2:name>NAOR HOUSE</ns2:name>
             <ns2:open>1</ns2:open>
+            <ns2:LookAt>
+                <ns2:longitude>35.283181</ns2:longitude>
+                <ns2:latitude>31.8493734</ns2:latitude>
+                <ns2:altitude>0.0</ns2:altitude>
+                <ns2:heading>0.0</ns2:heading>
+                <ns2:tilt>0.0</ns2:tilt>
+                <ns2:range>1.2E7</ns2:range>
+            </ns2:LookAt>
             <ns2:TimeStamp>
                 <ns2:when>2018-12-02T12:26:20.084</ns2:when>
             </ns2:TimeStamp>
+            <ns2:styleUrl>C:\Users\mgaru\Desktop\‏‏תיקיה חדשה (2)</ns2:styleUrl>
+            <ns2:Style/>
             <ns2:Point>
-                <ns2:coordinates>32.2222,32.2223</ns2:coordinates>
+                <ns2:coordinates>35.283181,31.8493734,31.0</ns2:coordinates>
             </ns2:Point>
         </ns2:Placemark>
         <ns2:Placemark>
-            <ns2:name>vhjghj</ns2:name>
+            <ns2:name>hakiria</ns2:name>
             <ns2:open>1</ns2:open>
+            <ns2:LookAt>
+                <ns2:longitude>34.78483</ns2:longitude>
+                <ns2:latitude>32.074257</ns2:latitude>
+                <ns2:altitude>0.0</ns2:altitude>
+                <ns2:heading>0.0</ns2:heading>
+                <ns2:tilt>0.0</ns2:tilt>
+                <ns2:range>1.2E7</ns2:range>
+            </ns2:LookAt>
             <ns2:TimeStamp>
-                <ns2:when>2018-12-02T12:26:20.084</ns2:when>
+                <ns2:when>2018-12-02T12:28:20.084</ns2:when>
             </ns2:TimeStamp>
+            <ns2:styleUrl>C:\Users\mgaru\Desktop\‏‏תיקיה חדשה (2)</ns2:styleUrl>
+            <ns2:Style/>
             <ns2:Point>
-                <ns2:coordinates>32.2222,32.2224</ns2:coordinates>
+                <ns2:coordinates>34.78483,32.074257,32.0</ns2:coordinates>
+            </ns2:Point>
+        </ns2:Placemark>
+        <ns2:Placemark>
+            <ns2:name>burgerMarket</ns2:name>
+            <ns2:open>1</ns2:open>
+            <ns2:LookAt>
+                <ns2:longitude>35.2137824</ns2:longitude>
+                <ns2:latitude>31.7847007</ns2:latitude>
+                <ns2:altitude>0.0</ns2:altitude>
+                <ns2:heading>0.0</ns2:heading>
+                <ns2:tilt>0.0</ns2:tilt>
+                <ns2:range>1.2E7</ns2:range>
+            </ns2:LookAt>
+            <ns2:TimeStamp>
+                <ns2:when>2018-12-02T12:30:20.084</ns2:when>
+            </ns2:TimeStamp>
+            <ns2:styleUrl>C:\Users\mgaru\Desktop\‏‏תיקיה חדשה (2)</ns2:styleUrl>
+            <ns2:Style/>
+            <ns2:Point>
+                <ns2:coordinates>35.2137824,31.7847007</ns2:coordinates>
+            </ns2:Point>
+        </ns2:Placemark>
+        <ns2:Placemark>
+            <ns2:name>hatsot</ns2:name>
+            <ns2:open>1</ns2:open>
+            <ns2:LookAt>
+                <ns2:longitude>35.2133798</ns2:longitude>
+                <ns2:latitude>31.7844643</ns2:latitude>
+                <ns2:altitude>0.0</ns2:altitude>
+                <ns2:heading>0.0</ns2:heading>
+                <ns2:tilt>0.0</ns2:tilt>
+                <ns2:range>1.2E7</ns2:range>
+            </ns2:LookAt>
+            <ns2:TimeStamp>
+                <ns2:when>2018-12-02T12:32:20.084</ns2:when>
+            </ns2:TimeStamp>
+            <ns2:styleUrl>C:\Users\mgaru\Desktop\‏‏תיקיה חדשה (2)</ns2:styleUrl>
+            <ns2:Style/>
+            <ns2:Point>
+                <ns2:coordinates>35.2133798,31.7844643,9.0</ns2:coordinates>
             </ns2:Point>
         </ns2:Placemark>
     </ns2:Document>
