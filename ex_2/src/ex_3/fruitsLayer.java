@@ -1,4 +1,4 @@
-package ex_3;
+                                                                      package ex_3;
 
 import java.util.ArrayList;
 
@@ -7,6 +7,7 @@ import Geom.Point3D;
 public class fruitsLayer {
 	
 	private ArrayList<fruits> FruitList;
+	private int sum  = 0;
 	
 	public fruitsLayer (ArrayList<fruits> FruitList1) {
 		FruitList = new ArrayList<fruits>() ;

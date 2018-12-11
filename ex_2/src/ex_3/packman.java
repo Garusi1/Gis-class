@@ -5,27 +5,29 @@ import Geom.Point3D;
 public class packman {
 	
 	private Point3D packmanPoint;
-	private String _color;
+	double speed;
+	double Radius;
+	private static int id=-1;
 	
 	public packman(Point3D p, String color) {
 		packmanPoint = p;
-		_color = color;	
+		id++;
 	}
 	public packman(Point3D p) {
 		packmanPoint = p;
-		_color = "";
+		id++;
+	}
+	public packman(double x, double y) {
+		packmanPoint = new Point3D(x,y);
+		id++;
 	}
 	public Point3D getPoint() {
 		return packmanPoint;
 	}
-	public String getColor() {
-		return _color;
-	}
+	
 	public void setPoint(Point3D p) {
 		packmanPoint = p;
 	}
-	public void setColor(String color) {
-		_color = color;
-	}
+
 	
 }

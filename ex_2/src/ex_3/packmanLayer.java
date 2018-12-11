@@ -14,6 +14,10 @@ public class packmanLayer {
 		packmanList = new ArrayList<packman>();
 		packmanList.add(packman1);	
 	}
+	public packmanLayer() {
+		
+		// TODO Auto-generated constructor stub
+	}
 	public void add(packman packman1) {
 		packmanList = new ArrayList<packman>();
 		packmanList.add(packman1);	
