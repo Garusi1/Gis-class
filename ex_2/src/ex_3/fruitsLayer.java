@@ -12,6 +12,7 @@ public class fruitsLayer {
 	public fruitsLayer (ArrayList<fruits> FruitList1) {
 		FruitList = new ArrayList<fruits>() ;
 		FruitList = FruitList1;
+		
 		}
 	public fruitsLayer () {
 		FruitList = new ArrayList<fruits>();
