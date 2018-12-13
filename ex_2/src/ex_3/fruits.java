@@ -14,6 +14,12 @@ public class fruits {
 		id = generalId;
 		generalId++;
 	}
+	public fruits() {
+		onOff = 1;	
+		id = generalId;
+		generalId++;
+
+	}
 	public fruits(double x, double y, double z) {
 		fruitPoint= new Point3D(x,y,z) ;
 		onOff = 1;	
@@ -21,10 +27,10 @@ public class fruits {
 		generalId++;
 
 	}
-	public String toString() {
-		
-		return ("x: "+fruitPoint.x() +" y: "+fruitPoint.y() +" generalId: "+id);
-	}
+//	public String toString() {
+//		
+//		return ("x: "+fruitPoint.x() +" y: "+fruitPoint.y() +" generalId: "+id);
+//	}
 	
 	public void setOff() {
 		onOff = 0;	
@@ -36,6 +42,19 @@ public class fruits {
 	public int getOnOff() {
 		return onOff;
 	}
+	
+	public String toString() {
+		return (fruitPoint.toString()+id);
+	}
+	public fruits copy() {
+		fruits f = new fruits();
+		f.fruitPoint = fruitPoint;
+		f.id = id;
+		f.onOff = onOff;
+		
+		return f;
+	}
+	
 	
 
 }

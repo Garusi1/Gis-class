@@ -10,7 +10,7 @@ import Geom.Point3D;
 public class Path {
 
 	private ArrayList<Point3D> pathPoints;
-	private String timing;
+	private double timing =0;
 	
 	/** The data. */
 	private MetaData data;
@@ -36,6 +36,32 @@ public class Path {
 	}
 		public void add(Point3D p) {
 			pathPoints.add(p);
+		}
+		public void plusSecond() {
+		timing ++;
+		}
+		public void addToTiming(double time) {
+			timing+=time;
+		}
+		public String toString() {
+			String s = "";
+			for (Point3D point3d : pathPoints) {
+				s+=point3d.toString()+"\n";
+			}
+			return(s);
+		}
+		public int size() {
+			return(pathPoints.size());
+		}
+		
+		public String getPathCoords(Path p) {
+			 String s = "";
+			 for (Point3D point3d : pathPoints) {
+				 s+= point3d.toString()+"-";			
+			} 
+			 return s;
+			 
+			
 		}
 
 		
