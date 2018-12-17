@@ -3,6 +3,7 @@
 import java.util.ArrayList;
 
 import Geom.Point3D;
+import game.fruits;
 
 public class fruitsLayer {
 	

@@ -17,9 +17,11 @@ public class Point3D implements Geom_element, Serializable
 	 * This class represents a 3D point in space.
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** The z. */
 	private double _x,_y,_z;
+
+	private double time;
 
 	/**
 	 * Instantiates a new point 3 D.
@@ -35,7 +37,7 @@ public class Point3D implements Geom_element, Serializable
 		_y=y;
 		_z=z;
 	}
-	
+
 	/**
 	 * Instantiates a new point 3 D.
 	 *
@@ -86,7 +88,7 @@ public class Point3D implements Geom_element, Serializable
 		_y = Double.parseDouble(a[1]);
 		_z = Double.parseDouble(a[2]);
 	}
-	
+
 	/**
 	 * Sets the x.
 	 *
@@ -95,7 +97,7 @@ public class Point3D implements Geom_element, Serializable
 	public void setX(double x) {
 		this._x=x;
 	}
-	
+
 	/**
 	 * Sets the y.
 	 *
@@ -104,7 +106,7 @@ public class Point3D implements Geom_element, Serializable
 	public void setY(double y) {
 		this._y=y;
 	}
-	
+
 	/**
 	 * Sets the z.
 	 *
@@ -124,13 +126,22 @@ public class Point3D implements Geom_element, Serializable
 	 * @return the double
 	 */
 	public double x() {return _x;}
-	
+
 	/**
 	 * Y.
 	 *
 	 * @return the double
 	 */
 	public double y() {return _y;}
+
+	public void setTime(double x) 
+	{
+		time = x;
+	}
+	public double getTime() 
+	{
+		return time; 
+	}
 	
 	/**
 	 * Z.
@@ -138,7 +149,7 @@ public class Point3D implements Geom_element, Serializable
 	 * @return the double
 	 */
 	public double z() {return _z;}
-	
+
 	/**
 	 * Ix.
 	 *
@@ -146,14 +157,14 @@ public class Point3D implements Geom_element, Serializable
 	 */
 	// conversion to int
 	public int ix() {return (int)_x;}
-	
+
 	/**
 	 * Iy.
 	 *
 	 * @return the int
 	 */
 	public int iy() {return (int)_y;}
-	
+
 	/**
 	 * Iz.
 	 *
@@ -190,7 +201,7 @@ public class Point3D implements Geom_element, Serializable
 	 * @param y the y
 	 */
 	public void add(double x, double y){this.add(x,y,0);}
-	
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -280,7 +291,7 @@ public class Point3D implements Geom_element, Serializable
 
 	/** The Constant ERROR. */
 	public final static int ONSEGMENT = 0,  LEFT = 1, RIGHT = 2, INFRONTOFA = 3, BEHINDB = 4, ERROR = 5;
-	
+
 	/** The Constant UP. */
 	public final static int DOWN = 6, UP = 7;
 
@@ -389,7 +400,7 @@ public class Point3D implements Geom_element, Serializable
 		if(center!=null && size>0)
 			rescale(center,size,size,size);
 	}
-	
+
 	/**
 	 * Rescale.
 	 *
@@ -423,7 +434,7 @@ public class Point3D implements Geom_element, Serializable
 		_x = (center.x() +  radius * Math.cos(a+angle)); // moves the point to the new location (radius in the angel from the center)
 		_y = (center.y() +  radius * Math.sin(a+angle));
 	}								
-	
+
 	/**
 	 *  computes the angleXY between p1 and p2 in RADIANS: <br><br>
 	 * 	up:(PI/2)  , down (-PI/2) , right(0),  left(+- PI).   [-PI, +PI]
@@ -435,7 +446,7 @@ public class Point3D implements Geom_element, Serializable
 		if(p==null) throw new RuntimeException("** Error: Point3D angle got null **");
 		return Math.atan2((p._y-_y), (p._x-_x));
 	}
-	
+
 	/**
 	 *  computes the angleXY between p1 and p2 in RADIANS: <br><br>
 	 * 	up:(PI/2)  , down (1.5PI) , right(0),  left(PI).   [0,2PI].
@@ -449,7 +460,7 @@ public class Point3D implements Geom_element, Serializable
 		if (ans<0) ans = 2*Math.PI+ans;
 		return ans;
 	}
-	
+
 	/**
 	 *  computes the angleZ between p1 and p2 in RADIANS.
 	 *
@@ -473,7 +484,7 @@ public class Point3D implements Geom_element, Serializable
 		else ans = 450-a_deg;
 		return ans;
 	}
-	
+
 	/**
 	 *  return the vertical angles in DEGREES of the vector this-->p.
 	 *
@@ -485,7 +496,7 @@ public class Point3D implements Geom_element, Serializable
 		ans = Math.atan2((p._z-_z), this.distance2D(p));
 		return Math.toDegrees(ans);
 	}
-	
+
 	/**
 	 *  return the vertical angles in DEGREES of the vector this-->p, .
 	 *
@@ -498,7 +509,7 @@ public class Point3D implements Geom_element, Serializable
 		ans = Math.atan2((p._z+h-_z), this.distance2D(p));
 		return Math.toDegrees(ans);
 	}
-	
+
 	/**
 	 *  transform from radians to angles.
 	 *
@@ -506,7 +517,7 @@ public class Point3D implements Geom_element, Serializable
 	 * @return the double
 	 */
 	public static double r2d(double a) { return Math.toDegrees(a);}
-	
+
 	/**
 	 *  transform from radians to angles.
 	 *
@@ -515,64 +526,64 @@ public class Point3D implements Geom_element, Serializable
 	 */
 	public static double d2r(double a) { return Math.toRadians(a);}
 
-//	public Point3D gpsToMeter () {
-//		double m2g = 0.000008993;
-//
-//		double g2m = 1/0.000008993;
-//		double metX = _x*g2m;
-//		double metY= _y*g2m;
-//		double metZ = _z;
-//
-//		Point3D output = new Point3D(metX, metY, metZ);
-//
-//		return output;
-//	}
-//	
-//	public Point3D MerToGeo() { // https://www.colby.edu/chemistry/Colby%20Compass/AcqBathometricData.pdf
-// 		double	RadToDeg = 57.29577951322447;
-//		double DegToRad = 0.0174532925199;
-////		double b = 6356752.3142;
-//		double b = 6378100; // another radius of earth
-//		double	PI = 3.141592654;
-//		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
-//		double	HALF_PI = 1.570796327;
-//		double MerToGeoLong = _x * RadToDeg / b;
-//		double MerToGeoLat = RadToDeg * (2 * Math.atan(Math.exp(_y / b)) - HALF_PI);
-//		double nn =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
-//		double z = b * Math.cos(q);
-//		
-//		Point3D output = new Point3D(MerToGeoLong,MerToGeoLat,z);	
-//		
-//		return output;}
-//	public Point3D gpsToMer() {
-// 		double DegToRad = 0.0174532925199;
-//		double b = 6378100; // another radius of earth
-////		double b = 6356752.3142; 
-//		final double R = 6371000;
-//		final double P = Math.PI/180;
-//		double lat0 = Math.cos(_y*P);
-// 		
-//		double PI = 3.141592654;
-//		double HALF_PI = 1.570796327;
-//		double GeoToMerX = _x * DegToRad * b;
-//		double	GeoToMerY = b * (Math.log((Math.tan((_y * DegToRad + HALF_PI) * 0.5))));
-//		double Gps_z =  Math.cos(_x);
-//		System.out.println(GeoToMerY);
-//		Point3D p = new Point3D(GeoToMerX, GeoToMerY,Gps_z);
-//		double rad_x = _x*P;
-//		double rad_y = _y*P;
-//				
-//		double x = Math.cos(rad_x)*lat0*R;
-//		double y = Math.sin(rad_y)*R;
-// 		Point3D p1 = new Point3D(x, y, _z);
-//		return p1;}
+	//	public Point3D gpsToMeter () {
+	//		double m2g = 0.000008993;
+	//
+	//		double g2m = 1/0.000008993;
+	//		double metX = _x*g2m;
+	//		double metY= _y*g2m;
+	//		double metZ = _z;
+	//
+	//		Point3D output = new Point3D(metX, metY, metZ);
+	//
+	//		return output;
+	//	}
+	//	
+	//	public Point3D MerToGeo() { // https://www.colby.edu/chemistry/Colby%20Compass/AcqBathometricData.pdf
+	// 		double	RadToDeg = 57.29577951322447;
+	//		double DegToRad = 0.0174532925199;
+	////		double b = 6356752.3142;
+	//		double b = 6378100; // another radius of earth
+	//		double	PI = 3.141592654;
+	//		double q =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
+	//		double	HALF_PI = 1.570796327;
+	//		double MerToGeoLong = _x * RadToDeg / b;
+	//		double MerToGeoLat = RadToDeg * (2 * Math.atan(Math.exp(_y / b)) - HALF_PI);
+	//		double nn =Math.atan(_z/Math.sqrt((_x*_x+_y*_y)));
+	//		double z = b * Math.cos(q);
+	//		
+	//		Point3D output = new Point3D(MerToGeoLong,MerToGeoLat,z);	
+	//		
+	//		return output;}
+	//	public Point3D gpsToMer() {
+	// 		double DegToRad = 0.0174532925199;
+	//		double b = 6378100; // another radius of earth
+	////		double b = 6356752.3142; 
+	//		final double R = 6371000;
+	//		final double P = Math.PI/180;
+	//		double lat0 = Math.cos(_y*P);
+	// 		
+	//		double PI = 3.141592654;
+	//		double HALF_PI = 1.570796327;
+	//		double GeoToMerX = _x * DegToRad * b;
+	//		double	GeoToMerY = b * (Math.log((Math.tan((_y * DegToRad + HALF_PI) * 0.5))));
+	//		double Gps_z =  Math.cos(_x);
+	//		System.out.println(GeoToMerY);
+	//		Point3D p = new Point3D(GeoToMerX, GeoToMerY,Gps_z);
+	//		double rad_x = _x*P;
+	//		double rad_y = _y*P;
+	//				
+	//		double x = Math.cos(rad_x)*lat0*R;
+	//		double y = Math.sin(rad_y)*R;
+	// 		Point3D p1 = new Point3D(x, y, _z);
+	//		return p1;}
 
 	/**
- * Meter 2 gps.
- *
- * @return the point 3 D
- */
-public Point3D meter2Gps () {
+	 * Meter 2 gps.
+	 *
+	 * @return the point 3 D
+	 */
+	public Point3D meter2Gps () {
 
 		double m2g = 0.000008993;
 
@@ -585,7 +596,7 @@ public Point3D meter2Gps () {
 		return output;
 
 	}
-	
+
 	/**
 	 * Gps 2 meter.
 	 *
@@ -604,7 +615,7 @@ public Point3D meter2Gps () {
 		return output;
 
 	}
-	
+
 	/**
 	 * Vector.
 	 *
@@ -612,26 +623,30 @@ public Point3D meter2Gps () {
 	 * @return the point 3 D
 	 */
 	public Point3D vector (Point3D p) {
-		
+
 		double m2g = 0.000008993;
 
 		double metx = +(p.x()-_x)*Math.cos(_y*Math.PI/180)/m2g;	
 		double mety = +(p.y()-_y)/m2g;
 
 		Point3D out = new Point3D(metx, mety,p.z()-_z);
-		
+
 		return out;
 	}
-	
-	
-//	public double upangle1 (Point3D p) {
-//		double x = p.gpsToMeter()._x - this.gpsToMeter()._x;
-//		double y = p.gpsToMeter()._y - this.gpsToMeter()._y;
-//		double z = p.z()-_z;
-//		
-//		return ((z/mc.)*45);
-//
-//	}
+
+
+
+
+
+
+	//	public double upangle1 (Point3D p) {
+	//		double x = p.gpsToMeter()._x - this.gpsToMeter()._x;
+	//		double y = p.gpsToMeter()._y - this.gpsToMeter()._y;
+	//		double z = p.z()-_z;
+	//		
+	//		return ((z/mc.)*45);
+	//
+	//	}
 
 
 

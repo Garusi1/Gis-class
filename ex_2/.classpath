@@ -2,6 +2,11 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_191"/>
 	<classpathentry excluding="GIS/" kind="src" path="src"/>
+	<classpathentry kind="src" path="Users/mgaru/Desktop/שנה ב/מונחה עצמים/תמונות">
+		<attributes>
+			<attribute name="ignore_optional_problems" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="C:/Users/mgaru/Desktop/שנה ב/מונחה עצמים/gps to utc/LatLongToTimezone-master/utc.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mgaru/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar" sourcepath="C:/Users/mgaru/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1-sources.jar">
@@ -14,7 +19,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/mgaru/Downloads/kmlLibrary/kmlLibrary/activation-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mgaru/Downloads/kmlLibrary/kmlLibrary/JavaAPIforKml-2.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mgaru/Downloads/kmlLibrary/kmlLibrary/JavaAPIforKml-2.2.1.jar" sourcepath=""/>
 	<classpathentry kind="lib" path="C:/Users/mgaru/Downloads/kmlLibrary/kmlLibrary/jaxb-api-2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mgaru/Downloads/kmlLibrary/kmlLibrary/jaxb-impl-2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mgaru/Downloads/kmlLibrary/kmlLibrary/jaxb-xjc-2.2.jar"/>

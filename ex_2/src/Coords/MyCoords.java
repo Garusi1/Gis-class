@@ -63,7 +63,9 @@ public class MyCoords implements coords_converter {
 
 		Point3D v = gps0.vector(gps1);
 
+//		double dis = Math.sqrt(v.x()*v.x()+v.y()*v.y());
 		double dis = Math.sqrt(v.x()*v.x()+v.y()*v.y()+v.z()*v.z());
+
 
 		return dis;
 

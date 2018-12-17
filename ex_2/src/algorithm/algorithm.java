@@ -1,17 +1,25 @@
-package ex_3;
+package algorithm;
 
 import java.util.ArrayList;
 
 import Coords.MyCoords;
 import Geom.Point3D;
+import game.Game;
+import game.Solution;
+import game.fruits;
+import game.packman;
 
 public class algorithm {
 /**
+ * 
  * 
  * @param packList
  * @param fruitLIst
  * @return solution - array lists of the packmans pathes 
  */
+	static double time=0;
+	
+	
 	public Solution pathCalc(ArrayList<packman> packList, ArrayList<fruits> fruitLIst) {
 		double x = System.currentTimeMillis();
 		Solution solution = new Solution();
@@ -51,9 +59,23 @@ public class algorithm {
 	 */
 	public double timeFruitToPack(fruits f, packman p) {
 		MyCoords mc = new MyCoords();
-		double dis = mc.distance3d(f.getPoint(),p.getPoint())-p.Radius;
+		double dis = 0;
+		if(p.getRadius()>mc.distance3d(f.getPoint(),p.getPoint())) {dis=0;}
+		else {dis = mc.distance3d(f.getPoint(),p.getPoint())-p.getRadius();}
 //the time that will take the packman to arrive to the fruits, includes the start time of the game and the packman radius.
-		double time = (dis/p.speed)+p.timing; 
+		double time = (dis/p.getSpeed())+p.getTiming(); 
+		System.out.println("algo time: "+time);
+		return time;
+	}
+	
+	public double timeForPack(fruits f, packman p) {
+		MyCoords mc = new MyCoords();
+		double dis = 0;
+		if(p.getRadius()>mc.distance3d(f.getPoint(),p.getPoint())) {dis=0;}
+		else {dis = mc.distance3d(f.getPoint(),p.getPoint())-p.getRadius();}
+//the time that will take the packman to arrive to the fruits, includes the start time of the game and the packman radius.
+		double time = (dis/p.getSpeed()); 
+//		System.out.println("algo time: "+time);
 		return time;
 	}
 	/**
@@ -67,19 +89,7 @@ public class algorithm {
 		return s;
 	}
 
-	public packman minDistance2Lists (ArrayList<packman> packList, ArrayList<fruits> fruitLIst){
-		double minDistance = timeFruitToPack(fruitLIst.get(0),packList.get(0));
-		packman p  = packList.get(0);
-		for (fruits fruits1 : fruitLIst) {
-			for (packman packman1 : packList) {
-				if (timeFruitToPack(fruits1,packman1)<minDistance) {
-					minDistance=timeFruitToPack(fruits1,packman1);	
-					p=packman1;
-				}		
-			}		
-		}
-		return p;
-	}
+
 	/**
 	 * 
 	 * @param packList
@@ -96,7 +106,7 @@ public class algorithm {
 				p=packman1;
 			}		
 		}		
-
+System.out.println("mindis= "+minDistance);
 		return p;
 	}
 	/**
@@ -109,12 +119,18 @@ public class algorithm {
 
 	public void buildpath(packman p,fruits f) {
 		MyCoords mc = new MyCoords();
-		if(mc.distance3d(f.getPoint(),p.getPoint())>p.Radius){
+		if(mc.distance3d(f.getPoint(),p.getPoint())>p.getRadius()){
 			Point3D vetor2Frut = mc.vector3D(p.getPoint(), f.getPoint()); // 3D vector from the packman to the fruit
 			// builds the shortest path from the packmann to the fruit
+			f.getPoint().setTime(timeFruitToPack(f, p));
 			p.path.add(f.getPoint());
+			p.addToPackTime(timeForPack(f, p));
 			p.path.addToTiming(timeFruitToPack(f, p));
+
 			p.setPoint(mc.add(p.getPoint(), vetor2Frut)); // moves the packman point to the fruit point
+			
+//			p.Stops++;
+		
 		}
 
 	}

@@ -1,4 +1,4 @@
-package ex_3;
+package game;
 
 import java.util.ArrayList;
 
@@ -9,8 +9,9 @@ import Geom.Point3D;
 
 public class Path {
 
-	private ArrayList<Point3D> pathPoints;
-	private double timing =0;
+	public ArrayList<Point3D> pathPoints;
+	public double timing =0;
+	//למצוא דרך להצמיד זמן לנקודה
 	
 	/** The data. */
 	private MetaData data;
@@ -63,6 +64,10 @@ public class Path {
 			 
 			
 		}
+		public Point3D getPathPoint(int i) {
+			return pathPoints.get(i);
+		}
+		
 
 		
 }

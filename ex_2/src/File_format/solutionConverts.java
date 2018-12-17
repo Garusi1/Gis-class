@@ -1,4 +1,4 @@
-package ex_3;
+package File_format;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Style;
+import game.Path;
+import game.Solution;
 
 public class solutionConverts {
 	
@@ -15,7 +17,7 @@ public class solutionConverts {
 		Path p = new Path();
 		de.micromata.opengis.kml.v_2_2_0.Document doc = kml.createAndSetDocument();
 		System.out.println("abcd");
-
+		
 		for (int i = 0; i<sol.size();i++) { 
 
 			Placemark place = doc.createAndAddPlacemark().withName("point").withOpen(Boolean.TRUE); // opens placemark
@@ -34,10 +36,11 @@ public class solutionConverts {
 			//			 * orange 100 % => red
 			//			 */
 			//			String color = Utils.getHexColor(0, (255 - colorValue), 255, true); // KML color format: inverse order of RGB
+
 			place.setStyleUrl("C:\\Users\\mgaru\\git\\Gis-class");
 
-
 		}
+
 		System.out.println("I passed the for loop!!!");
 
 		//marshals to console

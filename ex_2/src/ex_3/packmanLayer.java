@@ -2,6 +2,8 @@ package ex_3;
 
 import java.util.ArrayList;
 
+import game.packman;
+
 public class packmanLayer {
 	
 	private ArrayList<packman> packmanList;

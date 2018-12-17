@@ -46,6 +46,11 @@ public class main {
 			System.out.println(a[i]);
 		}
 		
+		Point3D p11 = new Point3D(35.2023, 32.10588,0); 
+		Point3D p22 = new Point3D(35.2023, 32.1020,0); 
+	
+		System.out.println("hfjksdhfkhdskjfhksdj"+mc.distance3d(p11, p22));
+		
 //				
 		
 	}

@@ -33,6 +33,7 @@ class coordsTest {
 		MyCoords c=new MyCoords();
 		Point3D p=new Point3D(50,5);
 		boolean x=c.isValid_GPS_Point(p);
+		
 		assertTrue(x);
 	}
 	

@@ -13,7 +13,7 @@ package Geom;
 
 import java.awt.Point;
 
-import algorithms.Angle;
+//import algorithms.Angle;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -58,16 +58,16 @@ public Triangle(double x, double y, double z) {
    *          a vertex of the triangle
    * @return true if the triangle is acute
    */
-  public static boolean isAcute(Point3D a, Point3D b, Point3D c)
-  {
-    if (!Angle.isAcute(a, b, c))
-      return false;
-    if (!Angle.isAcute(b, c, a))
-      return false;
-    if (!Angle.isAcute(c, a, b))
-      return false;
-    return true;
-  }
+//  public static boolean isAcute(Point3D a, Point3D b, Point3D c)
+//  {
+//    if (!Angle.isAcute(a, b, c))
+//      return false;
+//    if (!Angle.isAcute(b, c, a))
+//      return false;
+//    if (!Angle.isAcute(c, a, b))
+//      return false;
+//    return true;
+//  }
 
   /**
    * Computes the line which is the perpendicular bisector of the line segment
@@ -457,10 +457,10 @@ public Triangle(double x, double y, double z) {
    * 
    * @return true if this triangle is acute
    */
-  public boolean isAcute()
-  {
-    return isAcute(this.p0, this.p1, this.p2);
-  }
+//  public boolean isAcute()
+//  {
+//    return isAcute(this.p0, this.p1, this.p2);
+//  }
 
   /**
    * Computes the circumcentre of this triangle. The circumcentre is the centre

@@ -1,15 +1,15 @@
-package ex_3;
+package game;
 
 import java.util.ArrayList;
 
 public class Solution {
 
 	private ArrayList<Path> solution;
-	
+
 	
 	public Solution() {
 		solution = new ArrayList<Path>();
-	}
+ 	}
 	
 	public void add(Path path) {
 		solution.add(path);
@@ -25,5 +25,6 @@ public class Solution {
 	public Path getPath(int num) {
 		return solution.get(num);
 	}
+	
 	
 }

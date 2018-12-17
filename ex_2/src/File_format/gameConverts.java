@@ -1,4 +1,4 @@
-package ex_3;
+package File_format;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,6 +18,9 @@ import Geom.Point3D;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Style;
+import game.Game;
+import game.fruits;
+import game.packman;
 
 public class gameConverts 
 {
@@ -53,6 +56,10 @@ public class gameConverts
 		sb.append("Speed/Weight");
 		sb.append(',');
 		sb.append("Radius");
+		sb.append(',');
+		sb.append(game.getFruitList().size());
+		sb.append(',');
+		sb.append(game.getPackmanList().size());
 		sb.append(',');
 		sb.append('\n');
 		int i = 0;
@@ -103,12 +110,14 @@ public class gameConverts
 		System.out.println("abcd");
 
 		for (int i = 0; i<game.getFruitList().size();i++) { 
-
+			
 			Placemark place = doc.createAndAddPlacemark().withName("F").withOpen(Boolean.TRUE); // opens placemark
 			//			place.createAndSetTimeStamp().withWhen(my.getTime());// adds time to the placemark
+		
 			place.createAndSetPoint().addToCoordinates(game.getFruitList().get(i).getPoint().toString()); // adds cordinats to the placemars
 			place.createAndSetLookAt().withLongitude(35.2067).withLatitude(32.1044).withAltitude(0).withRange(12000000); // adds the zoom to the placemark
 			Style newValue = new Style();
+			place.withName("F").withStyleUrl("packman" + "F");
 			place.getStyleSelector().add(newValue);
 
 
@@ -166,7 +175,7 @@ public class gameConverts
 	public static void main(String[] args)
 	{
 		gameConverts cr = new gameConverts();
-		csvConverts cf = new csvConverts();
+		csvToGame cf = new csvToGame();
 		File f = new File("game_1543685769754.csv");
 		System.out.println(f.exists());
 		ArrayList<packman> m = cf.CsvToPackmanList(f);
@@ -174,6 +183,8 @@ public class gameConverts
 		Game game = new Game(m,me);
 		cr.gameToCsv(game);
 		cr.gameToKml(game);
+		Placemark place = new  Placemark();
+
 
 	}
 }

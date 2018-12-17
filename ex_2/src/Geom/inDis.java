@@ -1,7 +1,7 @@
 /*
  * 
  */
-package algorithms;
+package Geom;
 
 import com.sun.javafx.scene.paint.GradientUtils.Point;
 
@@ -10,8 +10,6 @@ import GIS1.GIS_element;
 import GIS1.GIS_layer;
 import GIS1.MyGisElement;
 import GIS1.MyGisLayer;
-import Geom.Circle;
-import Geom.rectangle;
 import javafx.geometry.Point3D;
 
 // TODO: Auto-generated Javadoc
