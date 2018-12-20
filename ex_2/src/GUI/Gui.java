@@ -32,10 +32,28 @@ import game.gameConverts;
 import game.packman;
 import game_Solution.Solution;
 import game_Solution.algorithm;
+import game_Solution.solutionConverts;
 
-/*
- * This class is about showing all the game in gui
- */
+/**
+ * This class is about showing all the game in gui(graphic user interface).
+ * 
+ * The class contains some parameters:
+ * x_length-the distance between the two extremes at the top of the frame.
+ * y_length-the distance between the two extremes at the side of the frame.
+ * Width-the width of the frame in pixeles/
+ * Heigth-the height of the frame in pixeles.
+ *Point3D leftUp-The point at the top left of the frame
+ *Point3D rightDown-The point at the right down of the frame
+ *BufferedImage myImage-the image of the map of ariel
+ *BufferedImage myImage2-the image of the packman.
+ *BufferedImage myImage3-the image of the fruit.
+ *packlist-arrayList of pack
+ *frulist-list of fruits
+ *weidth- the curren width of the frame
+ *height-the current height of the frame.
+ *
+ *@author naor eliav and michael garusi
+ **/
 public class Gui extends JFrame implements MouseListener
 {
 	final double x_length=1114.8926260415562;
@@ -44,8 +62,8 @@ public class Gui extends JFrame implements MouseListener
 	int Heigth=642;
 
 
-	final Point3D leftUp=new Point3D(35.202316,32.105729);
-	final Point3D rightDown=new Point3D(35.210720,32.102096);
+	final Point3D leftUp=new Point3D(35.202469,32.105770);
+	final Point3D rightDown=new Point3D(35.211588,32.101899);
 
 
 	public BufferedImage myImage;
@@ -65,15 +83,21 @@ public class Gui extends JFrame implements MouseListener
 	int width=getWidth();
 	int height=getHeight();
 
-
+	/**
+	 *This is the constructor of the gui 
+	 */
 	public Gui() 
 	{
 		initGUI();		
 		this.addMouseListener(this); 
 	}
-
+	/**
+	 * The function that run the gui
+	 */
 	private void initGUI() 
 	{
+
+		//All the menues
 		MenuBar menuBar = new MenuBar();
 
 		Menu menu = new Menu("Add Object"); 
@@ -91,11 +115,13 @@ public class Gui extends JFrame implements MouseListener
 		MenuItem item2 = new MenuItem("Add Fruit");
 		MenuItem item3 = new MenuItem("Clear Game");
 		MenuItem item4 = new MenuItem("Export to Csv");
-		MenuItem item5 = new MenuItem("Export to Kml");
+		MenuItem item5 = new MenuItem("Export Game to Kml");
+		MenuItem item7 = new MenuItem("Export Game Solution to Kml");
+
 		MenuItem item6 = new MenuItem("run");
-		
 
 
+		//action listeners
 		item.addActionListener(  new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
@@ -156,16 +182,27 @@ public class Gui extends JFrame implements MouseListener
 		}
 				);
 		item6.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				gameflag = 4;
 				algorithm al = new algorithm();
 				sol=	al.pathCalc(pack,fru);
 				repaint();
-				
+
 			}
 		});
+
+
+		item7.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				solutionConverts st = new solutionConverts();
+				st.solutionTo(sol);
+			}
+		});
+
 
 
 
@@ -183,6 +220,8 @@ public class Gui extends JFrame implements MouseListener
 		menu2.add(item6);
 		menu3.add(item4);
 		menu3.add(item5);
+		menu3.add(item7);
+
 
 		menu4.add(item3);
 
@@ -196,7 +235,7 @@ public class Gui extends JFrame implements MouseListener
 		}
 
 		try {
-			myImage2=ImageIO.read(new File("Packman.JPEG"));}
+			myImage2=ImageIO.read(new File("Packman.PNG"));}
 		catch (Exception e) {
 			e.printStackTrace();}
 
@@ -207,12 +246,14 @@ public class Gui extends JFrame implements MouseListener
 
 	}
 
-
+	//This is the function that make the painting on the jframe
 	public void paint(Graphics g)
 	{
 		map m = new map();
 		Image test=myImage.getScaledInstance(this.getWidth(), this.getHeight(), myImage.SCALE_SMOOTH);
 		g.drawImage(test,10,50, this.getWidth()-20, this.getHeight()-55, null);
+
+		//case of run game
 
 		if(gameflag ==4) {
 			for (int i = 0; i < sol.size(); i++) {
@@ -221,30 +262,27 @@ public class Gui extends JFrame implements MouseListener
 				int B= (int)(Math.random()*256);
 				Color c = new Color(R, G, B);	
 				for (int j = 0; j < sol.getPath(i).pathPoints.size()-1; j++) {
-								
-				
+
+
 					Point3D p =sol.getPath(i).pathPoints.get(j) ;
 					Point3D p1 = sol.getPath(i).pathPoints.get(j+1);
 					int x1 = (int)m.GPS2Pixel(p).x();
 					int y1 = (int)m.GPS2Pixel(p).y();
 					int x2 = (int)m.GPS2Pixel(p1).x();
 					int y2 = (int)m.GPS2Pixel(p1).y();
-			
+
 					g.setColor(c);
-					g.drawLine(x1,y1,x2,y2);
+					g.drawLine((x1*getWidth())/Width,(y1*getHeight())/Heigth,(x2*getWidth())/Width,(y2*getHeight())/Heigth);
 				}
 			}
 		}
+
+		//open csv case
 
 		if(gameflag==0) {
 			for (int i = 0; i < pack.size(); i++) {
 				Point3D w=m.GPS2Pixel(pack.get(i).getPoint());
 				g.drawImage(myImage2,((int)w.x()*getWidth())/Width,((int)w.y()*getHeight())/Heigth ,null);
-				
-				
-				
-				
-				
 
 			}
 
@@ -260,18 +298,24 @@ public class Gui extends JFrame implements MouseListener
 		if(gameflag!=0)
 		{
 
-//			for (int i = 0; i < pack.size(); i++) {
-//				g.drawImage(myImage2,(int)(pack.get(i).getPoint().x()*getWidth()),(int)(pack.get(i).getPoint().y()*getHeight()) ,30,30,null);
-//			}
-			
-			for (int i = 0; i < pack.size(); i++) {
-				Point3D w=m.GPS2Pixel(pack.get(i).getPoint());
-//				g.drawImage(myImage2,((int)w.x()*getWidth())/Width,((int)w.y()*getHeight())/Heigth ,null);
-				g.drawImage(myImage2,((int)w.x()*getWidth()/Width),((int)w.y()*getHeight()/Heigth),null);
-				
 
+
+			for (int i = 0; i < pack.size(); i++) {
+	
+				Point3D w=m.GPS2Pixel(pack.get(i).getPoint());
+
+
+
+				System.out.println(" check"+ " "+(int)(w.x()/Width*getWidth()));
+
+//				g.drawImage(myImage2,((int)w.x()*getWidth()/Width),((int)w.y()*getHeight()/Heigth),null);
 				
 				
+				g.drawImage(myImage2,((int)w.x()*getWidth()/Width),((int)w.y()*getHeight()/Heigth),null);
+
+
+
+
 			}
 
 
@@ -279,14 +323,19 @@ public class Gui extends JFrame implements MouseListener
 
 			for (int i = 0; i < fru.size(); i++) {
 				Point3D w=m.GPS2Pixel(fru.get(i).getPoint());
-//				g.drawImage(myImage2,((int)w.x()*getWidth())/Width,((int)w.y()*getHeight())/Heigth ,null);
+
 				g.drawImage(myImage3,((int)w.x()*getWidth()/Width),((int)w.y()*getHeight()/Heigth),null);
 
 			}
+
+
+
+
 		}
-
-
 	}
+
+
+
 
 
 	@Override
@@ -304,19 +353,24 @@ public class Gui extends JFrame implements MouseListener
 
 		if(gameflag==1)
 		{
-			Point3D p= m.Pixel2GPS(arg.getX() ,arg.getY());
+			Point3D p= m.Pixel2GPS((( arg.getX()/(double)getWidth())*Width),(arg.getY())/((double)getHeight())*Heigth);
+//			double x11= (getWidth()-arg.getX())/(double)getWidth();
+//			System.out.println(x11);
+//			Point3D p= m.Pixel2GPS(arg.getX(),arg.getY());
 			packman z=new packman(p.x(),p.y(),0,1,1);
+			
 			pack.add(z);
 			repaint();
 		}else if(gameflag==-1) {
 
-			Point3D p= m.Pixel2GPS(arg.getX() ,arg.getY());
+			Point3D p= m.Pixel2GPS((( arg.getX()/(double)getWidth())*Width),(arg.getY())/((double)getHeight())*Heigth);
 			fruits f=new fruits(p.x(),p.y(),0);
 			fru.add(f);
 			repaint();
 		}
 
 	}
+
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
@@ -389,7 +443,9 @@ public class Gui extends JFrame implements MouseListener
 
 			fru= ctg.CsvToFruiteList(f);
 
-			pack= CsvToPackmanList( f);
+			pack= ctg.CsvToPackmanList( f);
+
+			g.set(fru, pack);			
 			repaint();
 
 
@@ -409,54 +465,5 @@ public class Gui extends JFrame implements MouseListener
 
 	}
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public static ArrayList<packman>  CsvToPackmanList(File f) {
-		ArrayList<packman> packList = new ArrayList<packman>();
-
-		String extension = "";
-
-		int i = f.getName().lastIndexOf('.');
-		if (i > 0) {
-			extension = f.getName().substring(i+1);
-		}
-
-		if(extension.equals("csv")) {
-
-			String line = "";
-			String cvsSplitBy = ",";
-
-
-			try (BufferedReader br = new BufferedReader(new FileReader(f))) 
-			{
-				line = br.readLine();
-				while ((line = br.readLine()) != null) 
-				{
-					String[] userInfo = line.split(cvsSplitBy);
-					if(userInfo[0].toUpperCase().equals("P")) {
-						packman p = new packman(Double.parseDouble(userInfo[3]),Double.parseDouble(userInfo[2]),
-								Double.parseDouble(userInfo[4]),Double.parseDouble(userInfo[5]),Double.parseDouble(userInfo[6]));
-						packList.add(p);
-
-					}
-
-
-
-				}
-
-			} catch (IOException e) 
-			{
-				e.printStackTrace();
-			}
-			return packList;
-		}
-		else {
-			return null;
-		}
-
-
-	}       
-
-	
-	
 }

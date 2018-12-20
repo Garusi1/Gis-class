@@ -36,6 +36,12 @@ public ArrayList<packman> getPackmanList() {
 	return packmanList;
 }
 
+public void set(ArrayList<fruits> fru, ArrayList<packman> pack) {
+	packmanList = pack;
+	FruitList = fru;
+	
+}
+
 public Point3D getLocationByTime(double time) {
 //	
 //	if(time == 0 || time>game time) {

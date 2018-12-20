@@ -108,8 +108,6 @@ public void solutionTo(Solution s) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-gameConverts gc = new gameConverts();
-gc.gameToKml(s.getGame());
 
 }
     	

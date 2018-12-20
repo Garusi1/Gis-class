@@ -70,6 +70,9 @@ solutionConverts sC = new solutionConverts();
 	System.out.println(packList.get(0).getLocationByTime(10));
 	
 		System.out.println("time of eating: "+max);
+		
+		
+		
 //sC.solutionToKml(s);		
 
 

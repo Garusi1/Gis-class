@@ -21,9 +21,19 @@ import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Style;
 
+/**
+ * This class contains some function that export game to csv file and to kml file
+ * @author Naor eliav and michael garusi
+ *
+ */
+
 public class gameConverts 
 {
-
+/**
+ * this function get object type of game and export it to csv file
+ * 
+ * @param game-game
+ */
 	public void gameToCsv(Game game){
 		int id = (int)(Math.random()*10000);
 		String fileName = "Game" +id+".csv";
@@ -101,7 +111,11 @@ public class gameConverts
 		System.out.println("done!");
 		System.out.println(fileName);}
 
-
+	/**
+	 * this function get object type of game and export it to csv file
+	 * @param game
+	 * @return file csv
+	 */
 	public File gameToCsvTest(Game game){
 		int id = (int)(Math.random()*10000);
 		String fileName = "Game" +id+".csv";
@@ -180,7 +194,11 @@ public class gameConverts
 		System.out.println(fileName);
 		File f = new File(fileName);
 		return  f;}
-
+	
+/**
+ * this function get game and export it to kml
+ * @param game-game
+ */
 	public void gameToKml(Game game) {
 		ArrayList<fruits> FruitList = game.getFruitList();
 		ArrayList<packman> PackmanList = game.getPackmanList();
@@ -219,7 +237,7 @@ public class gameConverts
 
 			Placemark place = doc.createAndAddPlacemark().withName("P").withOpen(Boolean.TRUE); // opens placemark
 			//			place.createAndSetTimeStamp().withWhen(my.getTime());// adds time to the placemark
-			place.createAndSetPoint().addToCoordinates(game.getFruitList().get(i).getPoint().toString()); // adds cordinats to the placemars
+			place.createAndSetPoint().addToCoordinates(game.getPackmanList().get(i).getPoint().toString()); // adds cordinats to the placemars
 //			place.createAndSetTimeStamp().withWhen(game.getPackmanList().get(i).getPoint().getLdt().toString());// adds time to the placemark
 
 			place.createAndSetLookAt().withLongitude(35.2067).withLatitude(32.1044).withAltitude(0).withRange(12000000); // adds the zoom to the placemark
@@ -259,21 +277,17 @@ public class gameConverts
 
 	public static void main(String[] args)
 	{
-//		gameConverts cr = new gameConverts();
-//		csvToGame cf = new csvToGame();
-//		File f = new File("game_1543685769754.csv");
-//		System.out.println(f.exists());
-//		ArrayList<packman> m = cf.CsvToPackmanList(f);
-//		ArrayList<fruits> me = cf.CsvToFruiteList(f);
-//		Game game = new Game(m,me);
-//		cr.gameToCsv(game);
-//		cr.gameToKml(game);
-//		Placemark place = new  Placemark();
+		gameConverts cr = new gameConverts();
+		csvToGame cf = new csvToGame();
+		File f = new File("game_1543693822377.csv");
+		System.out.println(f.exists());
+		ArrayList<packman> m = cf.CsvToPackmanList(f);
+		ArrayList<fruits> me = cf.CsvToFruiteList(f);
+		Game game = new Game(m,me);
+		cr.gameToCsv(game);
+		cr.gameToKml(game);
+		Placemark place = new  Placemark();
 
 
 	}
 }
-
-
-
-
