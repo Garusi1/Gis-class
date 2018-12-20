@@ -101,6 +101,86 @@ public class gameConverts
 		System.out.println("done!");
 		System.out.println(fileName);}
 
+
+	public File gameToCsvTest(Game game){
+		int id = (int)(Math.random()*10000);
+		String fileName = "Game" +id+".csv";
+		PrintWriter pw = null;
+		ArrayList<fruits> FruitList = game.getFruitList();
+		ArrayList<packman> packmanList = game.getPackmanList();
+
+		try 
+		{
+			pw = new PrintWriter(new File(fileName));
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+			return null;
+		}
+
+		StringBuilder sb = new StringBuilder();
+		sb.append("Type");
+		sb.append(',');
+		sb.append("id");
+		sb.append(',');
+		sb.append("Lat");
+		sb.append(',');
+		sb.append("Lon");
+		sb.append(',');
+		sb.append("Alt");
+		sb.append(',');
+		sb.append("Speed/Weight");
+		sb.append(',');
+		sb.append("Radius");
+		sb.append(',');
+		sb.append(game.getFruitList().size());
+		sb.append(',');
+		sb.append(game.getPackmanList().size());
+		sb.append(',');
+		sb.append('\n');
+		int i = 0;
+		for(; i<game.getFruitList().size(); i++) {
+			sb.append("F");
+			sb.append(',');
+			sb.append(i);
+			sb.append(',');
+			sb.append(FruitList.get(i).getPoint().y());
+			sb.append(',');
+			sb.append(FruitList.get(i).getPoint().x());
+			sb.append(',');
+			sb.append(FruitList.get(i).getPoint().z());
+			sb.append(',');
+			sb.append("1");
+			sb.append(',');
+			sb.append("");
+			sb.append(',');
+			sb.append('\n');}
+		for(; i<(game.getPackmanList().size()+game.getFruitList().size()); i++) {
+			int j=0;
+			sb.append("P");
+			sb.append(',');
+			sb.append(i);
+			sb.append(',');
+			sb.append(packmanList.get(j).getPoint().y());
+			sb.append(',');
+			sb.append(packmanList.get(j).getPoint().x());
+			sb.append(',');
+			sb.append(packmanList.get(j).getPoint().z());
+			sb.append(',');
+			sb.append("1");
+			sb.append(',');
+			sb.append("1");
+			sb.append(',');
+			sb.append('\n');}
+
+		pw.write(sb.toString());
+		pw.close();
+		System.out.println("done!");
+		System.out.println(fileName);
+		File f = new File(fileName);
+		return  f;}
+
 	public void gameToKml(Game game) {
 		ArrayList<fruits> FruitList = game.getFruitList();
 		ArrayList<packman> PackmanList = game.getPackmanList();
@@ -114,7 +194,7 @@ public class gameConverts
 			//			place.createAndSetTimeStamp().withWhen(my.getTime());// adds time to the placemark
 		
 			place.createAndSetPoint().addToCoordinates(game.getFruitList().get(i).getPoint().toString()); // adds cordinats to the placemars
-			place.createAndSetTimeStamp().withWhen(game.getFruitList().get(i).getPoint().getLdt().toString());// adds time to the placemark
+//			place.createAndSetTimeStamp().withWhen(game.getFruitList().get(i).getPoint().getLdt().toString());// adds time to the placemark
 			place.createAndSetLookAt().withLongitude(35.2067).withLatitude(32.1044).withAltitude(0).withRange(12000000); // adds the zoom to the placemark
 			Style newValue = new Style();
 //			IconStyle w = new IconStyle();

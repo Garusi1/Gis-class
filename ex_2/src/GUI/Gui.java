@@ -35,7 +35,7 @@ import game_Solution.algorithm;
 /*
  * This class is about showing all the game in gui
  */
-public class MainWindow extends JFrame implements MouseListener
+public class Gui extends JFrame implements MouseListener
 {
 	final double x_length=1114.8926260415562;
 	final double y_length=327.4627423203879;
@@ -65,7 +65,7 @@ public class MainWindow extends JFrame implements MouseListener
 	int height=getHeight();
 
 
-	public MainWindow() 
+	public Gui() 
 	{
 		initGUI();		
 		this.addMouseListener(this); 
@@ -242,9 +242,7 @@ public class MainWindow extends JFrame implements MouseListener
 				
 				
 				
-				
-//				g.setColor(Color.BLUE);
-//				g.drawLine((int)w.x(), (int)w.y(), 545, 434);
+
 			}
 
 
@@ -259,15 +257,27 @@ public class MainWindow extends JFrame implements MouseListener
 		if(gameflag!=0)
 		{
 
+//			for (int i = 0; i < pack.size(); i++) {
+//				g.drawImage(myImage2,(int)(pack.get(i).getPoint().x()*getWidth()),(int)(pack.get(i).getPoint().y()*getHeight()) ,30,30,null);
+//			}
+			
 			for (int i = 0; i < pack.size(); i++) {
-				g.drawImage(myImage2,(int)(pack.get(i).getPoint().x()*getWidth()),(int)(pack.get(i).getPoint().y()*getHeight()) ,30,30,null);
+				Point3D w=m.GPS2Pixel(pack.get(i).getPoint());
+//				g.drawImage(myImage2,((int)w.x()*getWidth())/Width,((int)w.y()*getHeight())/Heigth ,null);
+				g.drawImage(myImage2,((int)w.x()*getWidth()/Width),((int)w.y()*getHeight()/Heigth),null);
+				
+
+				
+				
 			}
 
 
 
 
 			for (int i = 0; i < fru.size(); i++) {
-				g.drawImage(myImage3,(int)(fru.get(i).getPoint().x()*getWidth()),(int)(fru.get(i).getPoint().y()*getHeight()) ,30,30,null);
+				Point3D w=m.GPS2Pixel(fru.get(i).getPoint());
+//				g.drawImage(myImage2,((int)w.x()*getWidth())/Width,((int)w.y()*getHeight())/Heigth ,null);
+				g.drawImage(myImage3,((int)w.x()*getWidth()/Width),((int)w.y()*getHeight()/Heigth),null);
 
 			}
 		}
@@ -278,6 +288,8 @@ public class MainWindow extends JFrame implements MouseListener
 
 	@Override
 	public void mouseClicked(MouseEvent arg) {
+		map m = new map();
+
 		System.out.println("mouse Clicked");
 		double xx = arg.getX();
 		xx=xx/getWidth();
@@ -289,11 +301,14 @@ public class MainWindow extends JFrame implements MouseListener
 
 		if(gameflag==1)
 		{
-			packman z=new packman(xx,yy,0,1,1);
+			Point3D p= m.Pixel2GPS(arg.getX() ,arg.getY());
+			packman z=new packman(p.x(),p.y(),0,1,1);
 			pack.add(z);
 			repaint();
 		}else if(gameflag==-1) {
-			fruits f=new fruits(xx,yy,0);
+
+			Point3D p= m.Pixel2GPS(arg.getX() ,arg.getY());
+			fruits f=new fruits(p.x(),p.y(),0);
 			fru.add(f);
 			repaint();
 		}

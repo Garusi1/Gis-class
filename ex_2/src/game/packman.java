@@ -97,29 +97,7 @@ public class packman {
 		if(time <= 0) {return path.getPathPoint(0);}
 		if(time >= timing) {return path.getPathPoint(path.size()-1);}
 		
-//		Iterator<Point3D> iter = (Iterator<Point3D>) path.pathPoints ;
-//		while(iter.hasNext()) {
-//			if(iter.next().getTime()==time)  {return iter.next();}
-//			
-//			if(time>iter.next().getTime()){
-//			
-//			Point3D befor = iter.next();
-//			iter.next();
-//			Point3D after = iter.next();
-//			double difference = (time-befor.getTime())/(after.getTime()-befor.getTime());
-//			Point3D oldVec = 	mc.vector3D(befor, after);
-//			double newx = difference*oldVec.x();
-//			double newy = difference*oldVec.y();
-//			double newz = difference*oldVec.z();
-//			Point3D newVec = new Point3D(newx, newy, newz);
-//			
-//			Point3D result = mc.add(befor, newVec);
-//			
-//			return result;}
-//			
-//			iter.next();
-//		}
-		
+	
 		for (int i = 0; i <path.pathPoints.size(); i++) {
 			if(path.pathPoints.get(i).getTime()==time) return path.pathPoints.get(i);
 			if(time>path.pathPoints.get(i).getTime()){

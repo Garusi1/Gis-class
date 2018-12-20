@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="ex_3.mainmain" project="ex_2" file="/ex_2/src/ex_3/mainmain.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="403" y="-31"/>    
+  <class id="1" language="java" name="game_Solution.solutionConverts" project="ex_2" 
+    file="/ex_2/src/game_Solution/solutionConverts.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="136" width="221" x="2898" y="1202"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="game_Solution.solutionConverts" project="ex_2" 
-    file="/ex_2/src/game_Solution/solutionConverts.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="160" x="556" y="-31"/>    
+  <class id="2" language="java" name="game.gameConverts" project="ex_2" file="/ex_2/src/game/gameConverts.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="156" width="195" x="3159" y="1202"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,34 +21,34 @@
   </class>  
   <class id="3" language="java" name="game.Game" project="ex_2" file="/ex_2/src/game/Game.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2513" y="104"/>    
+    <position height="236" width="340" x="3898" y="2134"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="ex_3.Gui" project="ex_2" file="/ex_2/src/ex_3/Gui.java" binary="false" 
+  <class id="4" language="java" name="game.packman" project="ex_2" file="/ex_2/src/game/packman.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="171" width="151" x="756" y="-31"/>    
+    <position height="-1" width="-1" x="3604" y="2634"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="game.gameConverts" project="ex_2" file="/ex_2/src/game/gameConverts.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="141" x="947" y="-31"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="game_Solution.Solution" project="ex_2" 
+  <class id="5" language="java" name="game_Solution.Solution" project="ex_2" 
     file="/ex_2/src/game_Solution/Solution.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1998" y="667"/>    
+    <position height="216" width="176" x="4078" y="1878"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="GUI.map" project="ex_2" file="/ex_2/src/GUI/map.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="256" width="272" x="3394" y="1202"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="GUI.Main" project="ex_2" file="/ex_2/src/GUI/Main.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="1128" y="-31"/>    
+    <position height="116" width="152" x="3706" y="1202"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,86 +66,135 @@
   </class>  
   <class id="8" language="java" name="game_Solution.algorithm" project="ex_2" 
     file="/ex_2/src/game_Solution/algorithm.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="315" x="1281" y="-31"/>    
+    <position height="236" width="448" x="4282" y="1202"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="game.packman" project="ex_2" file="/ex_2/src/game/packman.java" binary="false" 
+  <class id="9" language="java" name="game.fruits" project="ex_2" file="/ex_2/src/game/fruits.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2377" y="793"/>    
+    <position height="-1" width="-1" x="4653" y="2251"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="game.fruits" project="ex_2" file="/ex_2/src/game/fruits.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2744" y="787"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="11" language="java" name="game_Solution.Path" project="ex_2" file="/ex_2/src/game_Solution/Path.java" 
+  <class id="10" language="java" name="game.csvToGame" project="ex_2" file="/ex_2/src/game/csvToGame.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2308" y="1230"/>    
+    <position height="176" width="344" x="4770" y="1202"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="12">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="13" name="solution">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="14" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  <class id="11" language="java" name="game.gameTest" project="ex_2" file="/ex_2/src/game/gameTest.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="156" width="303" x="5154" y="1202"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="game_Solution.Path" project="ex_2" file="/ex_2/src/game_Solution/Path.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4133" y="2717"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="GUI.MainWindow" project="ex_2" file="/ex_2/src/GUI/MainWindow.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="636" width="344" x="3898" y="1202"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="14">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="15" name="packmanList"/>      
+      <multiplicity id="16" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="15">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="16" name="FruitList">        
-        <position height="0" width="0" x="58" y="54"/>      
-      </attribute>      
-      <multiplicity id="17" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="58" y="54"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="18">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="19" name="packmanList">        
-        <position height="0" width="0" x="-64" y="33"/>      
-      </attribute>      
-      <multiplicity id="20" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-64" y="33"/>      
-      </multiplicity>    
+  <association id="17">    
+    <bendpoint x="4289" y="1878"/>    
+    <bendpoint x="4289" y="2134"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="18" name="fru"/>      
+      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="21">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="22" name="path">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="23" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  <association id="20">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="21" name="FruitList"/>      
+      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="23">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="24" name="path"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <bendpoint x="4268" y="2134"/>    
+    <bendpoint x="4268" y="2410"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="27" name="solution"/>      
+      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="30" name="game"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="33" name="sol"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <bendpoint x="3907" y="1878"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="36" name="g"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
+    <bendpoint x="3867" y="1878"/>    
+    <bendpoint x="3867" y="2134"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="39" name="pack"/>      
+      <multiplicity id="40" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

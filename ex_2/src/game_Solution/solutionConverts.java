@@ -79,7 +79,7 @@ public void solutionTo(Solution s) {
 			place.createAndSetLookAt().withLongitude(p.getPoint(j).x()).withLatitude(p.getPoint(j).y()).withAltitude(0).withRange(12000000); // adds the zoom to the placemark
 			 Style newValue = new Style();
 			  place.getStyleSelector().add(newValue);
-			System.out.println("michael the king "+p.getPoint(j).getLdt().toString());
+//			System.out.println("michael the king "+p.getPoint(j).getLdt().toString());
 //			int colorValue = (int) ((my.p.z() / 10000) * 255);
 //			/*
 //			 * value <-> color conversion calculate percental value (with the max value) and use it for the hex color value 0 % => yellow 50 % =>
