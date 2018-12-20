@@ -1,10 +1,13 @@
-package game;
+package game_Solution;
 
 import java.util.ArrayList;
+
+import game.Game;
 
 public class Solution {
 
 	private ArrayList<Path> solution;
+	private Game game;
 
 	
 	public Solution() {
@@ -24,6 +27,12 @@ public class Solution {
 	}
 	public Path getPath(int num) {
 		return solution.get(num);
+	}
+	public Game getGame() {
+		return game;
+	}
+	public void setGame(Game game1) {
+		game = game1;
 	}
 	
 	

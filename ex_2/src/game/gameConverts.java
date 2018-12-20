@@ -1,4 +1,5 @@
-package File_format;
+package game;
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,12 +16,10 @@ import GIS1.GIS_element;
 import GIS1.MyGisElement;
 import GIS1.MyGisLayer;
 import Geom.Point3D;
+import de.micromata.opengis.kml.v_2_2_0.IconStyle;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Style;
-import game.Game;
-import game.fruits;
-import game.packman;
 
 public class gameConverts 
 {
@@ -115,8 +114,12 @@ public class gameConverts
 			//			place.createAndSetTimeStamp().withWhen(my.getTime());// adds time to the placemark
 		
 			place.createAndSetPoint().addToCoordinates(game.getFruitList().get(i).getPoint().toString()); // adds cordinats to the placemars
+			place.createAndSetTimeStamp().withWhen(game.getFruitList().get(i).getPoint().getLdt().toString());// adds time to the placemark
 			place.createAndSetLookAt().withLongitude(35.2067).withLatitude(32.1044).withAltitude(0).withRange(12000000); // adds the zoom to the placemark
 			Style newValue = new Style();
+//			IconStyle w = new IconStyle();
+//			w.setColor("red");
+//			newValue.setIconStyle(w);
 			place.withName("F").withStyleUrl("packman" + "F");
 			place.getStyleSelector().add(newValue);
 
@@ -137,6 +140,8 @@ public class gameConverts
 			Placemark place = doc.createAndAddPlacemark().withName("P").withOpen(Boolean.TRUE); // opens placemark
 			//			place.createAndSetTimeStamp().withWhen(my.getTime());// adds time to the placemark
 			place.createAndSetPoint().addToCoordinates(game.getFruitList().get(i).getPoint().toString()); // adds cordinats to the placemars
+//			place.createAndSetTimeStamp().withWhen(game.getPackmanList().get(i).getPoint().getLdt().toString());// adds time to the placemark
+
 			place.createAndSetLookAt().withLongitude(35.2067).withLatitude(32.1044).withAltitude(0).withRange(12000000); // adds the zoom to the placemark
 			Style newValue = new Style();
 			place.getStyleSelector().add(newValue);
@@ -174,16 +179,16 @@ public class gameConverts
 
 	public static void main(String[] args)
 	{
-		gameConverts cr = new gameConverts();
-		csvToGame cf = new csvToGame();
-		File f = new File("game_1543685769754.csv");
-		System.out.println(f.exists());
-		ArrayList<packman> m = cf.CsvToPackmanList(f);
-		ArrayList<fruits> me = cf.CsvToFruiteList(f);
-		Game game = new Game(m,me);
-		cr.gameToCsv(game);
-		cr.gameToKml(game);
-		Placemark place = new  Placemark();
+//		gameConverts cr = new gameConverts();
+//		csvToGame cf = new csvToGame();
+//		File f = new File("game_1543685769754.csv");
+//		System.out.println(f.exists());
+//		ArrayList<packman> m = cf.CsvToPackmanList(f);
+//		ArrayList<fruits> me = cf.CsvToFruiteList(f);
+//		Game game = new Game(m,me);
+//		cr.gameToCsv(game);
+//		cr.gameToKml(game);
+//		Placemark place = new  Placemark();
 
 
 	}

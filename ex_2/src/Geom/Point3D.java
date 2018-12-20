@@ -7,6 +7,7 @@ package Geom;
 import java.awt.Point;
 import java.io.Serializable;
 // TODO: Auto-generated Javadoc
+import java.time.LocalDateTime;
 
 /**
  * The Class Point3D.
@@ -22,6 +23,8 @@ public class Point3D implements Geom_element, Serializable
 	private double _x,_y,_z;
 
 	private double time;
+	
+	private LocalDateTime ldt;
 
 	/**
 	 * Instantiates a new point 3 D.
@@ -142,6 +145,15 @@ public class Point3D implements Geom_element, Serializable
 	{
 		return time; 
 	}
+	public void setLdt(double x, LocalDateTime ldt1) 
+	{
+		ldt = ldt1.plusSeconds((long)x);
+	}
+	public LocalDateTime getLdt() 
+	{
+		return ldt;
+	}
+	
 	
 	/**
 	 * Z.

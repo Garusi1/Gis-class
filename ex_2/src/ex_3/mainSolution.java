@@ -4,12 +4,12 @@ import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-import File_format.csvToGame;
-import File_format.gameConverts;
-import File_format.solutionConverts;
-import algorithm.algorithm;
 import game.Game;
-import game.Solution;
+import game.csvToGame;
+import game.gameConverts;
+import game_Solution.Solution;
+import game_Solution.algorithm;
+import game_Solution.solutionConverts;
 
 public class mainSolution {
 

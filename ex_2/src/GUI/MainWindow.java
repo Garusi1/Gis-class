@@ -1,5 +1,6 @@
-package map;
+package GUI;
 
+import java.awt.Color;
 import java.awt.FileDialog;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -17,20 +18,30 @@ import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 
 import Geom.Point3D;
+import game.Game;
 import game.fruits;
+import game.gameConverts;
 import game.packman;
+import game_Solution.Solution;
+import game_Solution.algorithm;
 
-
+/*
+ * This class is about showing all the game in gui
+ */
 public class MainWindow extends JFrame implements MouseListener
 {
 	final double x_length=1114.8926260415562;
 	final double y_length=327.4627423203879;
+	int Width=1433;
+	int Heigth=642;
+
 
 	final Point3D leftUp=new Point3D(35.202316,32.105729);
 	final Point3D rightDown=new Point3D(35.210720,32.102096);
@@ -41,8 +52,10 @@ public class MainWindow extends JFrame implements MouseListener
 	public BufferedImage myImage3;
 	ArrayList<packman> pack=new ArrayList<packman>();
 	ArrayList<fruits> fru=new ArrayList<fruits>();
+	Solution sol = new Solution();
 	public static int i=0;
-	public int Game=0;
+	public int gameflag=0;
+	game.Game g=new game.Game(pack,fru);
 
 
 	int x = -1;
@@ -78,13 +91,14 @@ public class MainWindow extends JFrame implements MouseListener
 		MenuItem item3 = new MenuItem("Clear Game");
 		MenuItem item4 = new MenuItem("Export to Csv");
 		MenuItem item5 = new MenuItem("Export to Kml");
-
+		MenuItem item6 = new MenuItem("run");
+		
 
 
 		item.addActionListener(  new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
-				Game=0;
+				gameflag=0;
 				readFileDialog();
 
 
@@ -95,7 +109,7 @@ public class MainWindow extends JFrame implements MouseListener
 			public void actionPerformed(ActionEvent e)
 			{
 
-				Game=1;
+				gameflag=1;
 				repaint();
 
 			}
@@ -105,7 +119,7 @@ public class MainWindow extends JFrame implements MouseListener
 		item2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
-				Game=-1;
+				gameflag=-1;
 				repaint();
 
 			}
@@ -123,6 +137,33 @@ public class MainWindow extends JFrame implements MouseListener
 			}
 		}
 				);
+		item4.addActionListener( new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				gameConverts ga=new gameConverts();
+				ga.gameToCsv(g);
+			}
+		}
+				);
+		item5.addActionListener( new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				gameConverts ga=new gameConverts();
+				ga.gameToKml(g);
+			}
+		}
+				);
+		item6.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				gameflag = 4;
+				algorithm al = new algorithm();
+				sol=	al.pathCalc(pack,fru);
+				repaint();
+				
+			}
+		});
 
 
 
@@ -137,11 +178,12 @@ public class MainWindow extends JFrame implements MouseListener
 		menu.add(item1);
 		menu.add(item2);
 		menu1.add(item);
+		menu2.add(item6);
 		menu3.add(item4);
 		menu3.add(item5);
 
 		menu4.add(item3);
-	
+
 
 		this.setMenuBar(menuBar);
 
@@ -152,12 +194,12 @@ public class MainWindow extends JFrame implements MouseListener
 		}
 
 		try {
-			myImage2=ImageIO.read(new File("Packman.PNG"));}
+			myImage2=ImageIO.read(new File("Packman.JPEG"));}
 		catch (Exception e) {
 			e.printStackTrace();}
 
 		try {
-			myImage3 = ImageIO.read(new File("Fruit.PNG"));}
+			myImage3 = ImageIO.read(new File("Fruit.JPEG"));}
 		catch (Exception e) {
 			e.printStackTrace();}
 
@@ -166,31 +208,55 @@ public class MainWindow extends JFrame implements MouseListener
 
 	public void paint(Graphics g)
 	{
+		map m = new map();
 		Image test=myImage.getScaledInstance(this.getWidth(), this.getHeight(), myImage.SCALE_SMOOTH);
 		g.drawImage(test,10,50, this.getWidth()-20, this.getHeight()-55, null);
 
-
-
-		if(Game==0) {
-			for (int i = 0; i < pack.size(); i++) {
-				Point3D w=GPS2Pixel(pack.get(i).getPoint());
-				//w.set(w.x()/getWidth(), w.y()/getHeight(),0);
+		if(gameflag ==4) {
+			for (int i = 0; i < sol.size(); i++) {
+				for (int j = 0; j < sol.getPath(i).pathPoints.size()-1; j++) {
+								
 				
-			
-				g.drawImage(myImage2,(int)w.x(),(int)w.y() ,null);
-			}
+					Point3D p =sol.getPath(i).pathPoints.get(j) ;
+					Point3D p1 = sol.getPath(i).pathPoints.get(j+1);
+					int x1 = (int)m.GPS2Pixel(p).x();
+					int y1 = (int)m.GPS2Pixel(p).y();
+					int x2 = (int)m.GPS2Pixel(p1).x();
+					int y2 = (int)m.GPS2Pixel(p1).y();
+					
+					if(i==0) {g.setColor(Color.BLUE);}
+					if(i==1) {g.setColor(Color.GREEN);}
+					if(i==2) {g.setColor(Color.red);}
 
+					g.drawLine(x1,y1,x2,y2);
+				}
+			}
+		}
+
+		if(gameflag==0) {
+			for (int i = 0; i < pack.size(); i++) {
+				Point3D w=m.GPS2Pixel(pack.get(i).getPoint());
+				g.drawImage(myImage2,((int)w.x()*getWidth())/Width,((int)w.y()*getHeight())/Heigth ,null);
+				
+				
+				
+				
+				
+				
+//				g.setColor(Color.BLUE);
+//				g.drawLine((int)w.x(), (int)w.y(), 545, 434);
+			}
 
 
 
 			for (int i = 0; i < fru.size(); i++) {
-				Point3D u=GPS2Pixel(fru.get(i).getPoint());
-				g.drawImage(myImage3,(int)u.x(),(int)u.y(),null);
+				Point3D u=m.GPS2Pixel(fru.get(i).getPoint());
+				g.drawImage(myImage3,((int)u.x()*getWidth())/Width,((int)u.y()*getHeight())/Heigth,null);
 			}
 		}
-		
 
-		if(Game!=0)
+
+		if(gameflag!=0)
 		{
 
 			for (int i = 0; i < pack.size(); i++) {
@@ -221,12 +287,12 @@ public class MainWindow extends JFrame implements MouseListener
 		x = arg.getX()/getWidth();
 		y = arg.getY()/getHeight();
 
-		if(Game==1)
+		if(gameflag==1)
 		{
 			packman z=new packman(xx,yy,0,1,1);
 			pack.add(z);
 			repaint();
-		}else if(Game==-1) {
+		}else if(gameflag==-1) {
 			fruits f=new fruits(xx,yy,0);
 			fru.add(f);
 			repaint();
@@ -273,7 +339,7 @@ public class MainWindow extends JFrame implements MouseListener
 
 		fd.setFilenameFilter(new FilenameFilter() {
 
-			
+
 			@Override
 
 			public boolean accept(File dir, String name) {
@@ -290,7 +356,7 @@ public class MainWindow extends JFrame implements MouseListener
 
 		String fileName = fd.getFile();
 
-		
+
 
 		try {
 
@@ -306,8 +372,8 @@ public class MainWindow extends JFrame implements MouseListener
 
 			pack= CsvToPackmanList( f);
 			repaint();
-			
-			
+
+
 
 			br.close();
 
@@ -321,7 +387,7 @@ public class MainWindow extends JFrame implements MouseListener
 
 		}
 
-		
+
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -450,28 +516,6 @@ public class MainWindow extends JFrame implements MouseListener
 
 
 	}   
-	public static void main(String[] args) {
-		int x= getXfromLon(32.105314, 35.206752);
-		System.out.println(x);
-
-	}
-	public  Point3D Pixel2GPS(double Dx , double Dy) {
-
-
-		double lon_x = Dx / x_length+leftUp.y();
-		double lat_y = Dy / y_length+leftUp.x(); // or RightdDown.x()
-
-		Point3D ans_in_Gps = new Point3D(lat_y,lon_x);
-
-		return ans_in_Gps;
-	}
-	public  Point3D GPS2Pixel(Point3D p) {
-//		(x_length/(p.x()-leftUp.y()));
-		double Dx =((p.x()-leftUp.x())/(rightDown.x()-leftUp.x()))*x_length;
-		
-		double Dy = (Math.abs((p.y()-leftUp.y()))/(leftUp.y()-rightDown.y()))*y_length;
-
-		return new Point3D(Dx,Dy);
-	}
+	
 
 }

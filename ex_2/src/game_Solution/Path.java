@@ -1,4 +1,4 @@
-package game;
+package game_Solution;
 
 import java.util.ArrayList;
 
@@ -64,9 +64,15 @@ public class Path {
 			 
 			
 		}
+		
+		public Point3D getPoint(int i ) {
+			return pathPoints.get(i);
+		}
+		
 		public Point3D getPathPoint(int i) {
 			return pathPoints.get(i);
 		}
+		
 		
 
 		

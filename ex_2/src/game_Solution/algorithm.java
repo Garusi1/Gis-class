@@ -1,11 +1,13 @@
-package algorithm;
+package game_Solution;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+import com.sun.tools.xjc.reader.xmlschema.bindinfo.BIConversion.Static;
 
 import Coords.MyCoords;
 import Geom.Point3D;
 import game.Game;
-import game.Solution;
 import game.fruits;
 import game.packman;
 
@@ -17,28 +19,34 @@ public class algorithm {
  * @param fruitLIst
  * @return solution - array lists of the packmans pathes 
  */
-	static double time=0;
+	static LocalDateTime timeldt;
 	
 	
 	public Solution pathCalc(ArrayList<packman> packList, ArrayList<fruits> fruitLIst) {
+		timeldt = timeldt.now();
 		double x = System.currentTimeMillis();
 		Solution solution = new Solution();
 		packman p = new packman();
 //		ArrayList<fruits> tempfrut = new ArrayList<fruits>();
 		
 //		while(fruitLIst.size()>0)
-		{
+		
+			
+			for (int i = 0; i<packList.size(); i++) {
+				packList.get(i).path.pathPoints.get(0).setLdt(0, timeldt);
+			}
+			
 			for (fruits fruits1 : fruitLIst) {
 //				if(fruits1.getOnOff()==1) {
 					p=mintimeFruitToPackList(packList, fruits1); 
-					// gotothefruit
+//					p.path.pathPoints.get(0).setLdt(1, timeldt);
 					buildpath(p, fruits1);
 //					fruits1.setOff();
 
 //				}
 //				fruitLIst.remove(fruits1);
 			}
-		}
+		
 		for (packman pack : packList) {
 			solution.add(pack.path);			
 		}
@@ -122,11 +130,13 @@ System.out.println("mindis= "+minDistance);
 		if(mc.distance3d(f.getPoint(),p.getPoint())>p.getRadius()){
 			Point3D vetor2Frut = mc.vector3D(p.getPoint(), f.getPoint()); // 3D vector from the packman to the fruit
 			// builds the shortest path from the packmann to the fruit
-			f.getPoint().setTime(timeFruitToPack(f, p));
+			double dis = timeFruitToPack(f, p);
+			f.getPoint().setTime(timeFruitToPack(f, p)); // saves the time of the arrive inside the point
+			f.getPoint().setLdt(dis,timeldt);
 			p.path.add(f.getPoint());
 			p.addToPackTime(timeForPack(f, p));
 			p.path.addToTiming(timeFruitToPack(f, p));
-
+			
 			p.setPoint(mc.add(p.getPoint(), vetor2Frut)); // moves the packman point to the fruit point
 			
 //			p.Stops++;

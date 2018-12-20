@@ -1,4 +1,4 @@
-package File_format;
+package game;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,9 +12,6 @@ import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 import GIS1.MyGisElement;
 import GIS1.MyGisLayer;
 import Geom.Point3D;
-import game.Game;
-import game.fruits;
-import game.packman;
 
 public class csvToGame {
 

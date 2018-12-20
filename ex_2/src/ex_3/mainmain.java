@@ -6,12 +6,13 @@ import java.util.ArrayList;
 
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
-import File_format.csvToGame;
-import File_format.solutionConverts;
-import algorithm.algorithm;
-import game.Solution;
+import game.Game;
+import game.csvToGame;
 import game.fruits;
 import game.packman;
+import game_Solution.Solution;
+import game_Solution.algorithm;
+import game_Solution.solutionConverts;
 import sun.nio.ch.FileKey;
 
 public class mainmain {
@@ -21,7 +22,7 @@ public class mainmain {
 		algorithm al = new algorithm();
 		csvToGame cF = new csvToGame();
 solutionConverts sC = new solutionConverts();
-		File f = new File("game_1543684662657.csv");
+		File f = new File("game_1543693822377.csv");
 
 		ArrayList<packman> packList =  cF.CsvToPackmanList(f);
 		System.out.println(packList.size());
@@ -37,10 +38,15 @@ solutionConverts sC = new solutionConverts();
 			System.out.println(fruits1.toString());
 
 		}
+		
+		Game game = new Game(packList, fruitList);
 
 
 		Solution s = new Solution();
 		s=	al.pathCalc(packList,fruitList);
+		solutionConverts sc = new solutionConverts();
+		s.setGame(game);
+		sc.solutionTo(s);
 		int sum = 0;
 		System.out.println("now ");
 		for (int i = 0 ; i<s.size(); i++ ) {
@@ -60,6 +66,9 @@ solutionConverts sC = new solutionConverts();
 			System.out.println("time pack "+i +" = "+pack.getTiming());
 			i++;
 		}
+		
+	System.out.println(packList.get(0).getLocationByTime(10));
+	
 		System.out.println("time of eating: "+max);
 //sC.solutionToKml(s);		
 
