@@ -35,5 +35,9 @@ public class Solution {
 		game = game1;
 	}
 	
+	public void clearSolution() {
+		solution.clear();
+	}
+	
 	
 }

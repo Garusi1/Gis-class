@@ -26,6 +26,7 @@ import javax.swing.JMenuItem;
 
 import Geom.Point3D;
 import game.Game;
+import game.csvToGame;
 import game.fruits;
 import game.gameConverts;
 import game.packman;
@@ -132,6 +133,7 @@ public class Gui extends JFrame implements MouseListener
 			{
 				pack.clear();
 				fru.clear();
+				sol.clearSolution();
 				repaint();
 				System.out.println("It was cleared");
 			}
@@ -214,6 +216,10 @@ public class Gui extends JFrame implements MouseListener
 
 		if(gameflag ==4) {
 			for (int i = 0; i < sol.size(); i++) {
+				int R = (int)(Math.random()*256);
+				int G = (int)(Math.random()*256);
+				int B= (int)(Math.random()*256);
+				Color c = new Color(R, G, B);	
 				for (int j = 0; j < sol.getPath(i).pathPoints.size()-1; j++) {
 								
 				
@@ -223,11 +229,8 @@ public class Gui extends JFrame implements MouseListener
 					int y1 = (int)m.GPS2Pixel(p).y();
 					int x2 = (int)m.GPS2Pixel(p1).x();
 					int y2 = (int)m.GPS2Pixel(p1).y();
-					
-					if(i==0) {g.setColor(Color.BLUE);}
-					if(i==1) {g.setColor(Color.GREEN);}
-					if(i==2) {g.setColor(Color.red);}
-
+			
+					g.setColor(c);
 					g.drawLine(x1,y1,x2,y2);
 				}
 			}
@@ -375,6 +378,7 @@ public class Gui extends JFrame implements MouseListener
 
 		try {
 
+			csvToGame ctg = new csvToGame();
 
 			FileReader fr = new FileReader(folder + fileName);
 
@@ -383,7 +387,7 @@ public class Gui extends JFrame implements MouseListener
 
 			File f = new File(fileName);
 
-			fru= CsvToFruiteList(f);
+			fru= ctg.CsvToFruiteList(f);
 
 			pack= CsvToPackmanList( f);
 			repaint();
@@ -453,84 +457,6 @@ public class Gui extends JFrame implements MouseListener
 
 	}       
 
-	public static int getXfromLon(double latitude, double longitude) {
-		// get x value
-		int mapWidth =642 , mapHeight =1433 ;
-		int pX = (int)((longitude+180.)*(mapWidth/360.));
-
-		// convert from degrees to radians
-		double latRad = latitude*Math.PI/180.;
-
-		// get y value
-		double mercN = Math.log(Math.tan((Math.PI/4.)+(latRad/2.)));
-		int pY = (int)((mapHeight/2.)-(mapWidth*mercN/(2.*Math.PI)));
-		//System.out.println("x = "+pX+", y = "+pY);
-		return pX;
-
-	}
-	public static int getYfromLat(double latitude, double longitude) {
-		// get x value
-		int mapWidth =642 , mapHeight =1433 ;
-		int pX = (int)((longitude+180.)*(mapWidth/360.));
-
-		// convert from degrees to radians
-		double latRad = latitude*Math.PI/180.;
-
-		// get y value
-		double mercN = Math.log(Math.tan((Math.PI/4.)+(latRad/2.)));
-		int pY = (int)((mapHeight/2.)-(mapWidth*mercN/(2.*Math.PI)));
-		//System.out.println("x = "+pX+", y = "+pY);
-		return pY;
-
-
-
-
-	}
-	public static ArrayList<fruits>  CsvToFruiteList(File f) {
-		ArrayList<fruits> fruitList = new ArrayList<fruits>();
-
-		String extension = "";
-
-		int i = f.getName().lastIndexOf('.');
-		if (i > 0) {
-			extension = f.getName().substring(i+1);
-		}
-
-		if(extension.equals("csv")) {
-
-			String line = "";
-			String cvsSplitBy = ",";
-
-
-			try (BufferedReader br = new BufferedReader(new FileReader(f))) 
-			{
-				line = br.readLine();
-				while ((line = br.readLine()) != null) 
-				{
-					String[] userInfo = line.split(cvsSplitBy);
-					if(userInfo[0].toUpperCase().equals("F")) {
-						fruits fr = new fruits(Double.parseDouble(userInfo[3]),Double.parseDouble(userInfo[2]),Double.parseDouble(userInfo[4]));
-						fruitList.add(fr);
-
-					}
-
-
-
-				}
-
-			} catch (IOException e) 
-			{
-				e.printStackTrace();
-			}
-			return fruitList;
-		}
-		else {
-			return null;
-		}
-
-
-
-	}   
 	
-
+	
 }
