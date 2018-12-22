@@ -15,13 +15,14 @@ public class TestThreads {
 	 * @param a the arguments
 	 */
 	public static void main(String[] a) {
-		MyThread t0 = new MyThread("aaaaaaaaaaaaaaaaaaaaaa");
-		MyThread t1 = new MyThread("bbbbbbbbbbbbbbbbbbbbbb");
-	//	t0.run();
-	//	t1.run();
-		t0.start();
-		t1.start();
-		System.out.println("done main");
+////		MyThread t0 = new MyThread("aaaaaaaaaaaaaaaaaaaaaa");
+////		MyThread t1 = new MyThread("bbbbbbbbbbbbbbbbbbbbbb");
+////		MyThread t3 = new MyThread("kk");
+//	//	t0.run();
+//	//	t1.run();
+//		t0.start();
+//		t1.start();
+//		System.out.println("done main");
 	}
 	
 }

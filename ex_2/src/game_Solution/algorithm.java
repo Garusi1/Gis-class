@@ -23,59 +23,70 @@ public class algorithm {
 	
 	
 	public Solution pathCalc(ArrayList<packman> packList, ArrayList<fruits> fruitLIst) {
-		timeldt = timeldt.now();
-		double x = System.currentTimeMillis();
+		timeldt = timeldt.now(); // the start time - for the kml file
+		double x = System.currentTimeMillis(); // checks the algorithm running time
 		Solution solution = new Solution();
 		packman p = new packman();
-//		ArrayList<fruits> tempfrut = new ArrayList<fruits>();
-		
-//		while(fruitLIst.size()>0)
-		
 			
-			for (int i = 0; i<packList.size(); i++) {
+			
+			for (int i = 0; i<packList.size(); i++) { //  loop the adds the same start time to all the packmans
 				packList.get(i).path.pathPoints.get(0).setLdt(0, timeldt);
 			}
 			
-			for (fruits fruits1 : fruitLIst) {
-//				if(fruits1.getOnOff()==1) {
-					p=mintimeFruitToPackList(packList, fruits1); 
-//					p.path.pathPoints.get(0).setLdt(1, timeldt);
-					buildpath(p, fruits1);
+			for (fruits fruits1 : fruitLIst) { // the algorithm main loop - going on all of the fruit and finds the closest packman in space and time
+					p=mintimeFruitToPackList(packList, fruits1); // p is the closest packman
+					buildpath(p, fruits1); // builds the path from p to the fruit
 //					fruits1.setOff();
 
-//				}
-//				fruitLIst.remove(fruits1);
 			}
 		
-		for (packman pack : packList) {
+		for (packman pack : packList) { //adds all the packman pathes to the solution
 			solution.add(pack.path);			
 		}
-		//		gis elements
-
 
 		 x = (System.currentTimeMillis()-x)/1000;
-		 System.out.println("runnuing time: "+x);
+		 System.out.println("runnuing time: "+x); // prints the algorithm running time
 		return solution;
 
+	}
+	/**
+	 * the run game function
+	 * @param game
+	 * @return solution
+	 */
+	
+	public Solution runGame(Game game) {
+		Solution s = pathCalc(game.getPackmanList(),game.getFruitList())	;
+		return s;
 	}
 	/**
 	 * 
 	 * @param fruit
 	 * @param packman
-	 * @return the time that takes the packman to arrive to the fruit
+	 * @return the time that takes the packman to arrive to the fruit,
+	 *  includes the path time before the eating
 	 * 
 	 */
 	public double timeFruitToPack(fruits f, packman p) {
 		MyCoords mc = new MyCoords();
 		double dis = 0;
+		// if - the distance is bigger than the packman radius - there is no time to add
 		if(p.getRadius()>mc.distance3d(f.getPoint(),p.getPoint())) {dis=0;}
-		else {dis = mc.distance3d(f.getPoint(),p.getPoint())-p.getRadius();}
+		// distance calculation - using "my coords" function
+		else {dis = mc.distance3d(f.getPoint(),p.getPoint())-p.getRadius();} 
 //the time that will take the packman to arrive to the fruits, includes the start time of the game and the packman radius.
 		double time = (dis/p.getSpeed())+p.getTiming(); 
-		System.out.println("algo time: "+time);
+//		System.out.println("algo time: "+time);
 		return time;
 	}
 	
+	/**
+	 * 
+	 * @param fruits
+	 * @param packman
+	 * @return the time that takes the packman to arrive to the fruit 
+	 * - not includes the path time before the eating 
+	 */
 	public double timeForPack(fruits f, packman p) {
 		MyCoords mc = new MyCoords();
 		double dis = 0;
@@ -86,19 +97,7 @@ public class algorithm {
 //		System.out.println("algo time: "+time);
 		return time;
 	}
-	/**
-	 * 
-	 * @param game
-	 * @return solution
-	 */
-	
-	public Solution runGame(Game game) {
-		Solution s = pathCalc(game.getPackmanList(),game.getFruitList())	;
-		return s;
-	}
-
-
-	/**
+		/**
 	 * 
 	 * @param packList
 	 * @param fruit
@@ -132,10 +131,10 @@ System.out.println("mindis= "+minDistance);
 			// builds the shortest path from the packmann to the fruit
 			double dis = timeFruitToPack(f, p);
 			f.getPoint().setTime(timeFruitToPack(f, p)); // saves the time of the arrive inside the point
-			f.getPoint().setLdt(dis,timeldt);
-			p.path.add(f.getPoint());
-			p.addToPackTime(timeForPack(f, p));
-			p.path.addToTiming(timeFruitToPack(f, p));
+			f.getPoint().setLdt(dis,timeldt); // sets the time of eating in the fruit time
+			p.path.add(f.getPoint());			//adds the fruit point to the packman path
+			p.addToPackTime(timeForPack(f, p));	//adds the time of this eating to the packman
+			p.path.addToTiming(timeFruitToPack(f, p)); // adds the time of this eating to the path point 
 			
 			p.setPoint(mc.add(p.getPoint(), vetor2Frut)); // moves the packman point to the fruit point
 			

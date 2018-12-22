@@ -51,7 +51,7 @@ import game_Solution.solutionConverts;
  *frulist-list of fruits
  *weidth- the curren width of the frame
  *height-the current height of the frame.
- *
+ *A
  *@author naor eliav and michael garusi
  **/
 public class Gui extends JFrame implements MouseListener

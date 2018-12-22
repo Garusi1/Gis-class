@@ -18,7 +18,6 @@ public class Path {
 
 	public ArrayList<Point3D> pathPoints;
 	public double timing =0;
-	//למצוא דרך להצמיד זמן לנקודה
 	
 	private MetaData data;
 	
