@@ -18,15 +18,15 @@ import game.gameConverts;
  * \
  * This class converts the game solution to kml file.
  *
- * @author mgaru
+ * @author Naor
  */
 
 public class solutionConverts {
 
 	/**
-	 * Solution to.
+	 * Solution to Kml
 	 *
-	 * @param s the s
+	 * @param solution object
 	 */
 	public void solutionTo(Solution s) {
 
