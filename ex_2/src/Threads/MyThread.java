@@ -17,29 +17,54 @@ public class MyThread extends Thread {
 
 	/** The name. */
 	static Point3D p1;
+	
+	/** The t. */
 	Thread t;
 
 	/**
 	 * Instantiates a new my thread.
 	 *
-	 * @param name the name
+	 * @param p the p
 	 */
 	public MyThread(Point3D p) {
 		t = new Thread();
 		 p1=p;
 		t.start();
 	}
+	
+	/**
+	 * Instantiates a new my thread.
+	 */
 	public MyThread() {
 		t = new Thread();
 		t.start();
 
 	}
+	
+	/**
+	 * Sets the point.
+	 *
+	 * @param p the new point
+	 */
 	public void setPoint(Point3D p ) {
 		p1=p;
 
 	}
+	
+	/**
+	 * Gets the point.
+	 *
+	 * @return the point
+	 */
 	public Point3D getPoint() {
 		return p1;}
+	
+	/**
+	 * Draw path.
+	 *
+	 * @param p the p
+	 * @throws InterruptedException the interrupted exception
+	 */
 	/* (non-Javadoc)
 	 * @see java.lang.Thread#toString()
 	 */
@@ -55,6 +80,10 @@ public class MyThread extends Thread {
 
 		}
 	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Thread#run()
+	 */
 	public void run() {
 		for(int i=0;i<100;i++) {
 			System.out.println(i+") "+this.toString());

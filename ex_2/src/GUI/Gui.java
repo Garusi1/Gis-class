@@ -34,6 +34,7 @@ import game_Solution.Solution;
 import game_Solution.algorithm;
 import game_Solution.solutionConverts;
 
+// TODO: Auto-generated Javadoc
 /**
  * This class is about showing all the game in gui(graphic user interface).
  * 
@@ -56,43 +57,78 @@ import game_Solution.solutionConverts;
  **/
 public class Gui extends JFrame implements MouseListener
 {
+	
+	/** The x length. */
 	final double x_length=1114.8926260415562;
+	
+	/** The y length. */
 	final double y_length=327.4627423203879;
+	
+	/** The Width. */
 	int Width=1433;
+	
+	/** The Heigth. */
 	int Heigth=642;
 
 
+	/** The left up. */
 	final Point3D leftUp=new Point3D(35.202469,32.105770);
+	
+	/** The right down. */
 	final Point3D rightDown=new Point3D(35.211588,32.101899);
 
 
+	/** The my image. */
 	public BufferedImage myImage;
+	
+	/** The my image 2. */
 	public BufferedImage myImage2;
+	
+	/** The my image 3. */
 	public BufferedImage myImage3;
+	
+	/** The pack. */
 	ArrayList<packman> pack=new ArrayList<packman>();
+	
+	/** The fru. */
 	ArrayList<fruits> fru=new ArrayList<fruits>();
+	
+	/** The sol. */
 	Solution sol = new Solution();
+	
+	/** The i. */
 	public static int i=0;
+	
+	/** The gameflag. */
 	public int gameflag=0;
+	
+	/** The g. */
 	game.Game g=new game.Game(pack,fru);
 
 
+	/** The x. */
 	int x = -1;
+	
+	/** The y. */
 	int y = -1;
 
+	/** The width. */
 	int width=getWidth();
+	
+	/** The height. */
 	int height=getHeight();
 
 	/**
-	 *This is the constructor of the gui 
+	 * This is the constructor of the gui.
 	 */
 	public Gui() 
 	{
 		initGUI();		
 		this.addMouseListener(this); 
 	}
+	
 	/**
-	 * The function that run the gui
+	 * The function that run the gui.
 	 */
 	private void initGUI() 
 	{
@@ -246,6 +282,9 @@ public class Gui extends JFrame implements MouseListener
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.Window#paint(java.awt.Graphics)
+	 */
 	//This is the function that make the painting on the jframe
 	public void paint(Graphics g)
 	{
@@ -338,6 +377,9 @@ public class Gui extends JFrame implements MouseListener
 
 
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseClicked(MouseEvent arg) {
 		map m = new map();
@@ -372,24 +414,36 @@ public class Gui extends JFrame implements MouseListener
 	}
 
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
@@ -398,6 +452,9 @@ public class Gui extends JFrame implements MouseListener
 
 
 
+	/**
+	 * Read file dialog.
+	 */
 	public void readFileDialog() {
 
 		//		try read from the file

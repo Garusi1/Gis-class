@@ -3,6 +3,7 @@ package game;
 import java.util.ArrayList;
 
 import Geom.Point3D;
+// TODO: Auto-generated Javadoc
 /**
  * This class represent object type of game.
  * the class fields are:
@@ -14,11 +15,18 @@ import Geom.Point3D;
  */
 
 public class Game {
+	
+	/** The packman list. */
 	private ArrayList<packman> packmanList;
+	
+	/** The Fruit list. */
 	private ArrayList<fruits> FruitList;
+	
+	/** The game time. */
 	private double gameTime = 0;
+	
 	/**
-	 * default constructor
+	 * default constructor.
 	 */
 	public Game() {
 		packmanList = new ArrayList<packman>();
@@ -28,8 +36,9 @@ public class Game {
 	
 	/**
 	 * constructor that get packman list and fruit list.
-	 * @param packmanList1
-	 * @param FruitList1
+	 *
+	 * @param packmanList1 the packman list 1
+	 * @param FruitList1 the fruit list 1
 	 */
 	public Game(ArrayList<packman> packmanList1, ArrayList<fruits> FruitList1) {
 		packmanList = new ArrayList<packman>();
@@ -45,31 +54,39 @@ public class Game {
 	public int size() {
 		return(packmanList.size()+FruitList.size());
 	}
+	
 	/**
-	 * this function get time and set it
-	 * @param time1
+	 * this function get time and set it.
+	 *
+	 * @param time1 the new time
 	 */
 	public void setTime(double time1) {
 		gameTime=time1;
 	}
+	
 	/**
-	 * This function returns the fruitlist
+	 * This function returns the fruitlist.
+	 *
 	 * @return fruitlist.
 	 */
 public ArrayList<fruits> getFruitList() {
 	return FruitList;
 }
+
 /**
- * This function returns the packmanlist
+ * This function returns the packmanlist.
+ *
  * @return packman list.
  */
 public ArrayList<packman> getPackmanList() {
 	return packmanList;
 }
+
 /**
- * this function get packlist and fruitlist and set it
- * @param fru
- * @param pack
+ * this function get packlist and fruitlist and set it.
+ *
+ * @param fru the fru
+ * @param pack the pack
  */
 public void set(ArrayList<fruits> fru, ArrayList<packman> pack) {
 	packmanList = pack;
@@ -77,6 +94,12 @@ public void set(ArrayList<fruits> fru, ArrayList<packman> pack) {
 	
 }
 
+/**
+ * Gets the location by time.
+ *
+ * @param time the time
+ * @return the location by time
+ */
 public Point3D getLocationByTime(double time) {
 //	
 //	if(time == 0 || time>game time) {

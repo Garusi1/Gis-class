@@ -8,9 +8,18 @@ import Coords.MyCoords;
 import Geom.Point3D;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Main.
+ */
 public class Main 
 {
 	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args)
 	{
 		Gui window = new Gui();

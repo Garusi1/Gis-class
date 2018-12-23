@@ -9,6 +9,7 @@ import java.io.Serializable;
 // TODO: Auto-generated Javadoc
 import java.time.LocalDateTime;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Point3D.
  */
@@ -22,8 +23,10 @@ public class Point3D implements Geom_element, Serializable
 	/** The z. */
 	private double _x,_y,_z;
 
+	/** The time. */
 	private double time;
 	
+	/** The ldt. */
 	private LocalDateTime ldt;
 
 	/**
@@ -137,18 +140,42 @@ public class Point3D implements Geom_element, Serializable
 	 */
 	public double y() {return _y;}
 
+	/**
+	 * Sets the time.
+	 *
+	 * @param x the new time
+	 */
 	public void setTime(double x) 
 	{
 		time = x;
 	}
+	
+	/**
+	 * Gets the time.
+	 *
+	 * @return the time
+	 */
 	public double getTime() 
 	{
 		return time; 
 	}
+	
+	/**
+	 * Sets the ldt.
+	 *
+	 * @param x the x
+	 * @param ldt1 the ldt 1
+	 */
 	public void setLdt(double x, LocalDateTime ldt1) 
 	{
 		ldt = ldt1.plusSeconds((long)x);
 	}
+	
+	/**
+	 * Gets the ldt.
+	 *
+	 * @return the ldt
+	 */
 	public LocalDateTime getLdt() 
 	{
 		return ldt;

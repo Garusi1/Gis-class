@@ -13,14 +13,21 @@ import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Style;
 import game.gameConverts;
 
-/**\
- * This class converts the game solution to kml file
- * @author mgaru
+// TODO: Auto-generated Javadoc
+/**
+ * \
+ * This class converts the game solution to kml file.
  *
+ * @author mgaru
  */
 
 public class solutionConverts {
 
+	/**
+	 * Solution to.
+	 *
+	 * @param s the s
+	 */
 	public void solutionTo(Solution s) {
 
 		final Kml kml = new Kml();

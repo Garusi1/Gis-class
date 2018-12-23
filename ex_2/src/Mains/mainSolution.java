@@ -1,4 +1,4 @@
-package ex_3;
+package Mains;
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -11,8 +11,17 @@ import game_Solution.Solution;
 import game_Solution.algorithm;
 import game_Solution.solutionConverts;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class mainSolution.
+ */
 public class mainSolution {
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 
 		gameConverts gc = new gameConverts();

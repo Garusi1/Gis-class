@@ -21,18 +21,20 @@ import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Style;
 
+// TODO: Auto-generated Javadoc
 /**
- * This class contains some function that export game to csv file and to kml file
- * @author Naor eliav and michael garusi
+ * This class contains some function that export game to csv file and to kml file.
  *
+ * @author Naor eliav and michael garusi
  */
 
 public class gameConverts 
 {
+
 /**
- * this function get object type of game and export it to csv file
- * 
- * @param game-game
+ * this function get object type of game and export it to csv file.
+ *
+ * @param game the game
  */
 	public void gameToCsv(Game game){
 		int id = (int)(Math.random()*10000);
@@ -112,8 +114,9 @@ public class gameConverts
 		System.out.println(fileName);}
 
 	/**
-	 * this function get object type of game and export it to csv file
-	 * @param game
+	 * this function get object type of game and export it to csv file.
+	 *
+	 * @param game the game
 	 * @return file csv
 	 */
 	public File gameToCsvTest(Game game){
@@ -196,8 +199,9 @@ public class gameConverts
 		return  f;}
 	
 /**
- * this function get game and export it to kml
- * @param game-game
+ * this function get game and export it to kml.
+ *
+ * @param game the game
  */
 	public void gameToKml(Game game) {
 		ArrayList<fruits> FruitList = game.getFruitList();
@@ -275,6 +279,11 @@ public class gameConverts
 
 
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args)
 	{
 		gameConverts cr = new gameConverts();

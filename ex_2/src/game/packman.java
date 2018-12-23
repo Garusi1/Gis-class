@@ -4,6 +4,10 @@ import Coords.MyCoords;
 import Geom.Point3D;
 import game_Solution.Path;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class packman.
+ */
 public class packman {
 
 	/**
@@ -13,18 +17,31 @@ public class packman {
 	 */
 
 	private Point3D packmanPoint;  //saves the current packman location in GPS point
+	
+	/** The speed. */
 	double speed; // packman speed by meter to seconds
- 	double Radius;// packman radius by meters
+ 	
+	 /** The Radius. */
+	 double Radius;// packman radius by meters
+	
+	/** The id. */
 	private static int id=-1;
+	
+	/** The timing. */
 	double timing=0; // the time to finish his path
+	
+	/** The Stops. */
 	int Stops;
+	
+	/** The path. */
 	public Path path; // the packman path to the fruits, calculated by the algorithm
 
 
 	/**
-	 * constructors
-	 * @param p
-	 * @param color
+	 * constructors.
+	 *
+	 * @param p the p
+	 * @param color the color
 	 */
 	
 	public packman(Point3D p, String color) {
@@ -35,6 +52,10 @@ public class packman {
 		path.add(packmanPoint);
 		Stops = 0;
 	}
+	
+	/**
+	 * Instantiates a new packman.
+	 */
 	public packman() {
 		packmanPoint = null;
 		id++;
@@ -47,6 +68,12 @@ public class packman {
 
 
 	}
+	
+	/**
+	 * Instantiates a new packman.
+	 *
+	 * @param p the p
+	 */
 	public packman(Point3D p) {
 		packmanPoint = p;
 		id++;
@@ -59,6 +86,16 @@ public class packman {
 
 
 	}
+	
+	/**
+	 * Instantiates a new packman.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @param z the z
+	 * @param speed1 the speed 1
+	 * @param radius1 the radius 1
+	 */
 	public packman(double x, double y, double z,double speed1,double radius1) {
 		packmanPoint = new Point3D(x,y,z);
 		Radius = radius1;
@@ -74,38 +111,76 @@ public class packman {
 		 */
 		
 	}
+	
+	/**
+	 * Gets the point.
+	 *
+	 * @return the point
+	 */
 	public Point3D getPoint() {
 		return packmanPoint;
 	}
 
+	/**
+	 * Sets the point.
+	 *
+	 * @param p the new point
+	 */
 	public void setPoint(Point3D p) {
 		packmanPoint = p;
 	}
+	
+	/**
+	 * Adds the to pack time.
+	 *
+	 * @param time the time
+	 */
 	public void addToPackTime(double time) {
 		timing+=time;
 	}
 
+	/**
+	 * Gets the path.
+	 *
+	 * @return the path
+	 */
 	public Path getPath() {
 		return path;
 	}
 	
+	/**
+	 * Gets the radius.
+	 *
+	 * @return the radius
+	 */
 	public double getRadius() {
 		return Radius;
 	}
 	
+	/**
+	 * Gets the speed.
+	 *
+	 * @return the speed
+	 */
 	public double getSpeed() {
 		return speed;
 	}
 	
+	/**
+	 * Gets the timing.
+	 *
+	 * @return the timing
+	 */
 	public double getTiming() {
 		return timing;
 	}
 	
 	
 	/**
-	 * this functions receives time in seconds and return the packman location in the path at this time 
-	 * @param time
-	 * @return
+	 * this functions receives time in seconds and return the packman location in the path at this time .
+	 *
+	 * @param time the time
+	 * @return the location by time
 	 */
 	
 

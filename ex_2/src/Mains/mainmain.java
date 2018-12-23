@@ -1,4 +1,4 @@
-package ex_3;
+package Mains;
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -15,8 +15,17 @@ import game_Solution.algorithm;
 import game_Solution.solutionConverts;
 import sun.nio.ch.FileKey;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class mainmain.
+ */
 public class mainmain {
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		algorithm al = new algorithm();

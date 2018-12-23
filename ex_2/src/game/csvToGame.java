@@ -12,6 +12,7 @@ import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 import GIS1.MyGisElement;
 import GIS1.MyGisLayer;
 import Geom.Point3D;
+// TODO: Auto-generated Javadoc
 /**
  * This class contains two methods.
  * one method that make arraylist of packman by redaing a csv file.
@@ -24,8 +25,9 @@ public class csvToGame {
 	
 	
 /**
- *This is the function that make arraylist of packman by redaing a csv file.
- * @param f- csv file
+ * This is the function that make arraylist of packman by redaing a csv file.
+ *
+ * @param f the f
  * @return arraylist of packman
  */
 	public  ArrayList<packman>  CsvToPackmanList(File f) {
@@ -76,8 +78,9 @@ public class csvToGame {
 	
 	
 /**
- *This is the function that make arraylist of fruits by redaing a csv file.
- * @param f- csv file
+ * This is the function that make arraylist of fruits by redaing a csv file.
+ *
+ * @param f the f
  * @return arraylist of fruits
  */
 	public  ArrayList<fruits>  CsvToFruiteList(File f) {
@@ -122,6 +125,13 @@ public class csvToGame {
 			return null;
 		}
 	}
+		
+		/**
+		 * Csv to game.
+		 *
+		 * @param f the f
+		 * @return the game
+		 */
 		public Game CsvToGame(File f) {
 			Game game = new Game(CsvToPackmanList(f),CsvToFruiteList(f));
 			
@@ -134,6 +144,11 @@ public class csvToGame {
 	
 
 
+/**
+ * The main method.
+ *
+ * @param args the arguments
+ */
 public static void main (String [] args) {
 	csvToGame cf = new csvToGame();
 	
