@@ -1,5 +1,7 @@
 # GIS PROJECT AND PACKMAN GAME
 
+For the ex-3 project get into GIS-CLASS-->EX_2-->SRC-->(GAME + GAME SOLUTION + GUI + MAINS)
+
 # Description:
 The project actually is about building gis infrastructure. 
 The project includes some packages:
