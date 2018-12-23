@@ -1,4 +1,4 @@
-# GIS PROJECT
+# GIS PROJECT AND PACKMAN GAME
 
 # Description:
 The project actually is about building gis infrastructure. 
@@ -42,6 +42,31 @@ javadoc file which is attached to the project.
  For  functions and explanations you are welcome to look at the
 javadoc file which is attached to the project.
 *JunitTest class that checks if the methos of the project are  corect.
+
+# Explanations of assignment 3 (Packman game):
+# Description:
+The project actually is packman game that the the purpose of the game is the packmans will eat the fruit at the shortest time.
+The project includes 3 main packages:
+*Game Package: 
+This package includes 6 classes:
+1)Packman class- This class represent the object "packman". This object has speed, radius, location and etc. The goal of the packman is to eat all fruits in the shortest time.
+2)Fruits class-This class represent the object "fruit". This object has location and id. The packman need to eat the fruit.
+3)Csv To Game class- this class has to function talks about convertion csv file to list of fruit and packman.
+4)Game class- this class contains two arraylist: list of packman and list of fruits. it represent game.
+5)gameConverts class- this class is about converting object game to csv file and to kml file.
+6)gameTest class- this class is junit tets class. it checks the correctness of the functions.
+
+ *Gui package:
+ 1) Map class- This class  has two functions that converting pixeles cordinates to gps cordinates and gps cordinates to piexel cordinates.
+ 
+ 2)Gui class- This class is simply about showing the game in user graphic interface. The goal of the game is to eat all the packmans in the shortest time. You can run the game in 2 different ways. tou can add packmans and friut by clicking on the man and than you need to click "run game". The second option is to open the game from csv file by clicking on "Load file" and than click run.
+ When you click run you can show the path each packman did to eat the fruits in the shortest time.
+ Another option of the game is to export the game to kml file and to csv file by clicking "Export".
+ There is another button calles "clear" that clear the screen.
+ 
+ 3)Main class- This is the class that runs the gui.
+
+ 
 
 
 
