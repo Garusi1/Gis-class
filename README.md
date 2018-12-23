@@ -76,7 +76,7 @@ This package includes 6 classes:
   2)solution class- This class represent the soultion of the game by showing the path the packman nedds to pass.
   3)solutionConverts class- this class has function that converts the game solution to kml file.
   4)solutionTest- this class test the coreccrness of the algorithem and the other functions.
-  5)algorithm class- 
+  5)algorithm class- this class calculatse a short pathes from packmans to fruits and buildes the 'solution' which is a list of pathes from asingle packman to a list of fruits.
   
   
 
