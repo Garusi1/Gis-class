@@ -11,17 +11,27 @@ import game.Game;
 import game.fruits;
 import game.packman;
 
-public class algorithm {
+// TODO: Auto-generated Javadoc
 /**
- * 
- * 
- * @param packList
- * @param fruitLIst
- * @return solution - array lists of the packmans pathes 
+ * The Class algorithm.
+ */
+public class algorithm {
+
+/**
+ * The timeldt.
+ *
+ * @return solution - array lists of the packmans pathes
  */
 	static LocalDateTime timeldt;
 	
 	
+	/**
+	 * Path calc.
+	 *
+	 * @param packList the pack list
+	 * @param fruitLIst the fruit L ist
+	 * @return the solution
+	 */
 	public Solution pathCalc(ArrayList<packman> packList, ArrayList<fruits> fruitLIst) {
 		timeldt = timeldt.now(); // the start time - for the kml file
 		double x = System.currentTimeMillis(); // checks the algorithm running time
@@ -49,9 +59,11 @@ public class algorithm {
 		return solution;
 
 	}
+	
 	/**
-	 * the run game function
-	 * @param game
+	 * the run game function.
+	 *
+	 * @param game the game
 	 * @return solution
 	 */
 	
@@ -59,13 +71,14 @@ public class algorithm {
 		Solution s = pathCalc(game.getPackmanList(),game.getFruitList())	;
 		return s;
 	}
+	
 	/**
-	 * 
-	 * @param fruit
-	 * @param packman
+	 * Time fruit to pack.
+	 *
+	 * @param f the f
+	 * @param p the p
 	 * @return the time that takes the packman to arrive to the fruit,
 	 *  includes the path time before the eating
-	 * 
 	 */
 	public double timeFruitToPack(fruits f, packman p) {
 		MyCoords mc = new MyCoords();
@@ -81,11 +94,12 @@ public class algorithm {
 	}
 	
 	/**
-	 * 
-	 * @param fruits
-	 * @param packman
-	 * @return the time that takes the packman to arrive to the fruit 
-	 * - not includes the path time before the eating 
+	 * Time for pack.
+	 *
+	 * @param f the f
+	 * @param p the p
+	 * @return the time that takes the packman to arrive to the fruit
+	 * - not includes the path time before the eating
 	 */
 	public double timeForPack(fruits f, packman p) {
 		MyCoords mc = new MyCoords();
@@ -97,12 +111,14 @@ public class algorithm {
 //		System.out.println("algo time: "+time);
 		return time;
 	}
+		
 		/**
-	 * 
-	 * @param packList
-	 * @param fruit
-	 * @return the best packman (from the packman list) to eat the fruit, using the timeFruitToPack function
-	 */
+		 * Mintime fruit to pack list.
+		 *
+		 * @param packList the pack list
+		 * @param fruit the fruit
+		 * @return the best packman (from the packman list) to eat the fruit, using the timeFruitToPack function
+		 */
 
 	public packman mintimeFruitToPackList (ArrayList<packman> packList, fruits fruit){
 		double minDistance = timeFruitToPack(fruit,packList.get(0));
@@ -116,12 +132,12 @@ public class algorithm {
 System.out.println("mindis= "+minDistance);
 		return p;
 	}
+	
 	/**
-	 * 
-	 * @param packman
-	 * @param fruit
-	 * calculates and builds a path  between a packman to a fruit
-	 * moves the packman to the fruit location
+	 * Buildpath.
+	 *
+	 * @param p the p
+	 * @param f the f
 	 */
 
 	public void buildpath(packman p,fruits f) {
