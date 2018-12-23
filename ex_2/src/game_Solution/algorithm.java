@@ -26,7 +26,7 @@ public class algorithm {
 	
 	
 	/**
-	 * Path calc.
+	 * Path calculation
 	 *
 	 * @param packList the pack list
 	 * @param fruitLIst the fruit L ist
@@ -63,7 +63,7 @@ public class algorithm {
 	/**
 	 * the run game function.
 	 *
-	 * @param game the game
+	 * @param game (arraylists of fruits and packmans)
 	 * @return solution
 	 */
 	
